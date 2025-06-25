@@ -1,39 +1,59 @@
-# Bear.Core
+### **项目处于初步阶段(开发中)**
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+#### 我们将重新定义开发模式
 
-#### 软件架构
-软件架构说明
+#### 为什么选择 ApoVolo 作为后端底层？
 
+- 语法简洁：基于 ASP.NET Core，代码清晰易懂，上手快。
+- 生态完善：内置权限控制、日志、定时任务等常用功能，开箱即用。
+- 架构优秀：采用常见设计模式，结构清晰，易扩展、易维护。
+- 社区活跃：持续更新，文档齐全，适合中大型项目使用。
 
-#### 安装教程
+#### #### 📚系统说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- 基于 .Net 8 、SqlSugar ORM、Vue 3.5+ 、Typescript 、Element-plus、alovajs
+- 无业务逻辑代码入侵，适用于任何 .NET/C# 应用程序。
+- 预览体验： 无(作者真正努力中)
+- 开发文档：  [https://bear.js.org/](https://bear.js.org/)
+- 账号密码： `admin/ 123456`
 
-#### 使用说明
+#### 💒代码仓库 https://gitee.com/ByteXiong/Bear.Core
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- Gitee： [https://gitee.com/ByteXiong/Bear.Core](https://gitee.com/ByteXiong/Bear.Core)
 
-#### 参与贡献
+#### ⚙️模块说明
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+|#|模块功能|项目文件|说明|
+|--|--|--|--|
+|1|Web 控制器|Bear.Core.Api|接口交互层|
+|2|业务接口实现|Bear.Core.Business|业务服务接口实现|
+|3|系统通用|Bear.Core.Common|通用的工具类；扩展方法、文件、图像操作等|
+|4|系统核心|Bear.Core.Core|Aop拦截、系统配置、App服务等|
+|5|系统实体|Bear.Core.Entity|数据库实体映射类|
+|6|事件总线|Bear.Core.EventBus|事件总线|
+|7|业务接口|Bear.Core.IBusiness|业务服务接口|
+|8|基础设施|Bear.Core.Infrastructure|依赖注入、服务扩展等|
+|9|仓储|Bear.Core.Repository|数据库仓储扩展 事务等|
+|10|共享模型|Bear.Core.Models|实体(请求DTO、查询参数对象等)|
+|11|作业调度|Bear.Core.TaskService|系统定时任务|
+|12|视图模型|Bear.Core.ViewModel|UI视图层对象|
+|13|后端|Bear.Core.Admin|后端Vue|
 
+#### 🚀技术支持
 
-#### 特技
+- 前端框架
+SoybeanAdmin(Element-plus)： [https://github.com/soybeanjs/soybean-admin-element-plus](https://github.com/soybeanjs/soybean-admin-element-plus)
+  
+     Alova.js ： [https://alova.js.org/](https://alova.js.org/)
+- 后端框架
+  
+   ApoVolo：[https://gitee.com/xianhc/ape-volo-admin](https://gitee.com/xianhc/ape-volo-admin)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+<br/>
+
+作者微信
+
+|微信|
+|:--:|
+|![微信图片_20250625104018.jpg](wx.jpg)|
+|备注: 框架|

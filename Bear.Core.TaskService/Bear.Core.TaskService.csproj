@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bear.Core.Common\Bear.Core.Common.csproj" />
+    <ProjectReference Include="..\Bear.Core.IBusiness\Bear.Core.IBusiness.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,42 @@
+# 自动处理换行符
+* text=auto
+
+# 强制使用LF换行符的核心配置
+[core]
+	autocrlf = false
+	eol = lf
+	safecrlf = true
+
+# 源代码文件（保持LF）
+*.cs text eol=lf
+*.ts text eol=lf
+*.vue text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+
+# 项目文件
+*.csproj text eol=lf
+*.sln text eol=lf
+*.props text eol=lf
+*.targets text eol=lf
+
+# 包管理器文件
+pnpm-lock.yaml text eol=lf
+package.json text eol=lf
+
+# 二进制文件声明
+*.dll binary
+*.exe binary
+*.png binary
+*.jpg binary
+*.zip binary
+
+# 语言覆盖（用于GitHub语言统计）
+*.vue linguist-language=JavaScript
+*.ts linguist-language=TypeScript
+*.cs linguist-language=C#
+
+# 环境文件处理
+.env* text eol=lf
