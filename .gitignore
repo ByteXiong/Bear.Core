@@ -60,7 +60,6 @@ node_modules/
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
 
 package-lock.json
