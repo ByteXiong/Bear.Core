@@ -1,59 +1,74 @@
-### **项目处于初步阶段(开发中)**
 
-#### 我们将重新定义开发模式
 
-#### 为什么选择 ApoVolo 作为后端底层？
+# Bear.Core.Admin 项目 README
 
-- 语法简洁：基于 ASP.NET Core，代码清晰易懂，上手快。
-- 生态完善：内置权限控制、日志、定时任务等常用功能，开箱即用。
-- 架构优秀：采用常见设计模式，结构清晰，易扩展、易维护。
-- 社区活跃：持续更新，文档齐全，适合中大型项目使用。
+## 项目简介
+本项目是基于 .NET 8 和 Vue 3.5+ 的前后端分离管理系统，采用现代化架构设计，包含权限管理、系统设置、数据操作等常见管理功能。
 
-#### 📚系统说明
+## 技术栈
+- 后端：.NET 8, SqlSugar ORM
+- 前端：Vue 3.5+, Typescript, Element Plus, alovajs
+- 数据库：支持多种数据库，通过配置实现多租户支持
+- 安全：JWT 认证, RSA 加密
+- 其他：Redis 缓存, Quartz.NET 任务调度, Serilog 日志
 
-- 基于 .Net 8 、SqlSugar ORM、Vue 3.5+ 、Typescript 、Element-plus、alovajs
-- 无业务逻辑代码入侵，适用于任何 .NET/C# 应用程序。
-- 预览体验： 无(作者真正努力中)
-- 开发文档：  [https://bear.js.org/](https://bear.js.org/)
-- 账号密码： `admin/ 123456`
+## 主要功能模块
+1. **权限管理**：包含用户、角色、部门、岗位等权限相关模块
+2. **系统设置**：字典管理、参数配置、文件存储等系统设置功能
+3. - **日志审计**：记录系统操作日志和异常日志
+4. **邮件服务**：集成邮件账户管理和消息模板，支持定时邮件发送
+5. **多租户支持**：通过数据库配置实现多租户架构
+6. **动态表单**：支持自定义表单和表格视图配置
+7. **定时任务**：集成 Quartz.NET 实现任务调度管理
 
-#### 💒代码仓库 https://gitee.com/ByteXiong/Bear.Core
+## 项目结构
+- **Bear.Core.Admin**：Vue 前端项目
+- **Bear.Core.Api**：ASP.NET Core Web API 项目
+- **Bear.Core.Business**：业务逻辑实现
+- **Bear.Core.Common**：通用工具类和扩展方法
+- **Bear.Core.Core**：核心功能，包括 AOP 拦截、系统配置等
+- **Bear.Core.Entity**：数据库实体映射
+- **Bear.Core.Infrastructure**：基础设施，包含过滤器、中间件等
+- **Bear.Core.IBusiness**：业务接口定义
+- **Bear.Core.Models**：数据传输对象(DTO)和视图模型
+- **Bear.Core.Repository**：数据访问层
+- **Bear.Core.TaskService**：定时任务服务
+- **Bear.Core.ViewModel**：视图模型定义
 
-- Gitee： [https://gitee.com/ByteXiong/Bear.Core](https://gitee.com/ByteXiong/Bear.Core)
+## 开发规范
+- 采用模块化开发，前后端功能对应清晰
+- 使用 TypeScript 接口定义数据结构，提高类型安全性
+- 组件化设计，支持快速搭建页面
+- 完善的代码注释和文档说明
+- 响应式布局，支持不同设备访问
+- 前端使用 alova.js 实现优雅的 HTTP 请求处理
 
-#### ⚙️模块说明
+## 使用说明
+1. 克隆仓库：`git clone https://gitee.com/ByteXiong/Bear.Core`
+2. 还原后端依赖：`dotnet restore`
+3. 还原前端依赖：`pnpm install`
+4. 构建项目：`dotnet build` 或 `pnpm build`
+5. 运行项目：`dotnet run` 或 `pnpm dev`
 
-|#|模块功能|项目文件|说明|
-|--|--|--|--|
-|1|Web 控制器|Bear.Core.Api|接口交互层|
-|2|业务接口实现|Bear.Core.Business|业务服务接口实现|
-|3|系统通用|Bear.Core.Common|通用的工具类；扩展方法、文件、图像操作等|
-|4|系统核心|Bear.Core.Core|Aop拦截、系统配置、App服务等|
-|5|系统实体|Bear.Core.Entity|数据库实体映射类|
-|6|事件总线|Bear.Core.EventBus|事件总线|
-|7|业务接口|Bear.Core.IBusiness|业务服务接口|
-|8|基础设施|Bear.Core.Infrastructure|依赖注入、服务扩展等|
-|9|仓储|Bear.Core.Repository|数据库仓储扩展 事务等|
-|10|共享模型|Bear.Core.Models|实体(请求DTO、查询参数对象等)|
-|11|作业调度|Bear.Core.TaskService|系统定时任务|
-|12|视图模型|Bear.Core.ViewModel|UI视图层对象|
-|13|后端|Bear.Core.Admin|后端Vue|
+## 特性亮点
+- 支持多语言：zh-cn, en-us �`
+- 提供完善的代码生成和动态表单功能
+- 集成 Redis 实现高性能缓存
+- 支持响应式布局和主题切换
+- 完善的异常处理和日志记录机制
+- 支持动态路由和菜单配置
 
-#### 🚀技术支持
+## 文档与支持
+- 开发文档：[https://bear.js.org/](https://bear.js.org/)
+- 前端框架：SoybeanAdmin(Element-plus) [文档](https://github.com/soybeanjs/soybean-admin-element-plus)
+- 后端框架：ApoVolo [文档](https://gitee.com/xianhc/ape-volo-admin)
 
-- 前端框架
-SoybeanAdmin(Element-plus)： [https://github.com/soybeanjs/soybean-admin-element-plus](https://github.com/soybeanjs/soybean-admin-element-plus)
-  
-     Alova.js ： [https://alova.js.org/](https://alova.js.org/)
-- 后端框架
-  
-   ApoVolo：[https://gitee.com/xianhc/ape-volo-admin](https://gitee.com/xianhc/ape-volo-admin)
+## 贡献指南
+欢迎贡献代码和提出建议。请遵循以下原则：
+1. Fork 项目并创建新分支
+2. 确保代码风格一致，添加必要的注释
+3. 测试通过后再提交 PR
+4. 遵循项目编码规范和设计模式
 
-<br/>
-
-作者微信
-
-|微信|
-|:--:|
-|![微信图片_20250625104018.jpg](wx.jpg)|
-|备注: 框架|
+## 许可协议
+本项目采用 MIT 许可协议，详情请参阅 LICENSE 文件。
