@@ -6,6 +6,7 @@ import { usePagination, useRequest } from 'alova/client';
 import { alovaInstance } from '@/api';
 import type { TableColumn, TableView } from '@/api/globals';
 import type { OrderTypeEnum } from '@/api/apiEnums';
+import { ConditionalType } from '@/api/sqlSugar';
 import downloadExcel from '@/utils/downloadExcel';
 import customRender from '@/utils/customRender';
 import { $t } from '@/locales';
@@ -18,11 +19,10 @@ interface Props {
   pageUrl: string;
   addUrl?: string;
   delUrl: string;
-  searchParams: UI.SearchParams;
   param?: Arg;
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { tableof, router, configId, pageUrl, addUrl, delUrl, searchParams, param } = defineProps<Props>();
+const { tableof, router, configId, pageUrl, addUrl, delUrl, param } = defineProps<Props>();
 
 interface Emits {
   (e: 'loadChange', tableView: TableView): void;
@@ -75,7 +75,7 @@ const columnData = computed<Array<Partial<TableColumnCtx<TableColumn>> & TableCo
 // const { hasAuth } = useAuth();
 const route = useRoute();
 const keyWord = ref('');
-
+const searchParams = ref<UI.SearchParams>({});
 /** 获取数据 */
 const {
   data,
@@ -98,7 +98,7 @@ const {
         PageIndex: upPageIndex,
         pageSize: upPageSize,
         sortList: dataTableConfig.value.sortList,
-        search: searchParams,
+        search: searchParams.value,
         ...param
       }
     }),
@@ -140,6 +140,10 @@ const openForm = (id: string | null) => {
   emit('openForm', id || '');
 };
 
+const handleClose = (prop: string) => {
+  // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+  delete searchParams.value[prop];
+};
 // ====================开始处理动态生成=====================
 // 共享函数
 defineExpose({
@@ -199,7 +203,14 @@ defineExpose({
         </TableHeaderOperation>
       </div>
     </template>
-    <div>搜索内容:</div>
+    <div class="mb-1 flex flex-wrap">
+      <ElTag v-for="(item, index) in Object.keys(searchParams)" :key="index" closable @close="handleClose(item)">
+        {{ columns.find(column => column.prop == item)?.label }}:
+        {{ $t('sqlSugar.' + ConditionalType[searchParams[item].searchType || 0]) }}
+        {{ searchParams[item].value }}
+      </ElTag>
+    </div>
+
     <div :class="total ? 'h-[calc(100%-50px)]' : 'h-full'">
       <ElTable
         v-bind="$attrs"
@@ -216,7 +227,7 @@ defineExpose({
       >
         <ElTableColumn v-for="(column, index) in columnData" :key="index" v-bind="column">
           <template v-if="column.searchType !== null" #header>
-            <CustomHeader v-mdoel="searchParams" :column="column"></CustomHeader>
+            <CustomHeader v-model="searchParams" :column="column"></CustomHeader>
           </template>
         </ElTableColumn>
       </ElTable>
