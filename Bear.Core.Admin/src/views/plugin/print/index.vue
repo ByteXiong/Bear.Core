@@ -6,8 +6,8 @@ defineOptions({ name: 'PrintPage' });
 function printTable() {
   printJS({
     printable: [
-      { name: 'Bear.Core', wechat: 'honghuangdc', remark: '欢迎来技术交流' },
-      { name: 'Bear.Core', wechat: 'honghuangdc', remark: '欢迎来技术交流' }
+      { name: 'BearPlatform', wechat: 'honghuangdc', remark: '欢迎来技术交流' },
+      { name: 'BearPlatform', wechat: 'honghuangdc', remark: '欢迎来技术交流' }
     ],
     properties: ['name', 'wechat', 'remark'],
     type: 'json'

@@ -5,7 +5,7 @@ import { onMounted } from 'vue';
 
 defineOptions({ name: 'BarcodePage' });
 
-const text = 'Bear.Core';
+const text = 'BearPlatform';
 
 interface CodeConfig {
   id: string;

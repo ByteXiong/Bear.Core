@@ -55,7 +55,7 @@ export const themeSettings: App.Theme.ThemeSetting = {
   },
   watermark: {
     visible: false,
-    text: 'Bear.Core.Admin'
+    text: 'BearPlatform.Admin'
   },
   tokens: {
     light: {

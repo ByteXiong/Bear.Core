@@ -2,19 +2,19 @@
   "name": "@sa/elp",
   "type": "module",
   "version": "1.3.12",
-  "description": "A fresh and elegant admin template, based on Vue3、Vite3、TypeScript、ElementPlus and UnoCSS. 一个基于Vue3、Vite3、TypeScript、ElementPlus and UnoCSS的清新优雅的中后台模版。",
+  "description": ".net8 与 vue3 ts , 基于 SqlSugar 和 Alova.js(插件版)，让交互变得更为轻松便捷。解决代码存在 质量低，可读性差，可维护性不佳后端框架集中化管理，开发者只需专注于业务前端框架采用 Alova.js配合 OpenAPI，实时关注接口动向。Vue  Admin ,UNI APP , TypeScript , Swagger",
   "author": {
-    "name": "Bear.Core",
-    "email": "soybeanjs@outlook.com",
-    "url": "https://github.com/soybeanjs"
+    "name": "Bear",
+    "email": "617553471@qq.com",
+    "url": "https://gitee.com/Byte_Core"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/soybeanjs/soybean-admin",
+  "license": "Apache-2.0",
+  "homepage": "https://gitee.com/ByteXiong/BearPlatform",
   "repository": {
-    "url": "https://github.com/soybeanjs/soybean-admin.git"
+    "url": "https://gitee.com/ByteXiong/BearPlatform.git"
   },
   "bugs": {
-    "url": "https://github.com/soybeanjs/soybean-admin/issues"
+    "url": "https://gitee.com/ByteXiong/BearPlatform/issues"
   },
   "keywords": [
     "Vue3 admin ",
@@ -137,5 +137,5 @@
   "lint-staged": {
     "*": "eslint --fix"
   },
-  "website": "https://elp.soybeanjs.cn"
+  "website": ""//制作中
 }
