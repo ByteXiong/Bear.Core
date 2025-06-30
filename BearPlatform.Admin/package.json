@@ -137,5 +137,5 @@
   "lint-staged": {
     "*": "eslint --fix"
   },
-  "website": ""//制作中
+  "website": ""
 }

@@ -11,7 +11,7 @@ defineOptions({
       target="_blank"
       rel="noopener noreferrer"
     >
-      Copyright MIT © 2021 BearPlatform
+      Copyright MIT © 2021 Bear
     </a>
   </DarkModeContainer>
 </template>

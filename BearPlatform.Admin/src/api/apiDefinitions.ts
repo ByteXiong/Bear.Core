@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * BearPlatform Api 后端接口文档 Web端网站 - version 1.0
+ * Bear Api 后端接口文档 Web端网站 - version 1.0
  *
  *
  *

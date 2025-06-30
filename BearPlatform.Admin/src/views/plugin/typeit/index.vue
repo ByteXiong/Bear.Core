@@ -12,7 +12,7 @@ function init() {
   if (!textRef.value) return;
 
   const options: Options = {
-    strings: 'BearPlatform.Admin是一个清新优雅、高颜值且功能强大的后台管理模板',
+    strings: 'Bear.Admin是一个清新优雅、高颜值且功能强大的后台管理模板',
     lifeLike: true,
     speed: 120,
     loop: true

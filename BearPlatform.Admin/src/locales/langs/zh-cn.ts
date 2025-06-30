@@ -36,7 +36,7 @@ const local: App.I18n.Schema = {
     Range: "区间",
   },
   system: {
-    title: 'BearPlatform 管理系统',
+    title: 'Bear 管理系统',
     updateTitle: '系统版本更新通知',
     updateContent: '检测到系统有新版本发布，是否立即刷新页面？',
     updateConfirm: '立即刷新',
