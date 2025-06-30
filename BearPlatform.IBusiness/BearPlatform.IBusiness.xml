@@ -1,0 +1,1063 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BearPlatform.IBusiness</name>
+    </assembly>
+    <members>
+        <member name="M:BearPlatform.IBusiness.IApisService.GetPageAsync(BearPlatform.Models.ApisParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IApisService.AddAsync(BearPlatform.Models.UpdateApisParam)">
+            <summary>
+            添加
+            </summary>
+            <param name="createUpdateApisDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IApisService.UpdateAsync(BearPlatform.Models.UpdateApisParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="createUpdateApisDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IApisService.DeleteAsync(System.Collections.Generic.HashSet{System.Guid})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IApisService.Refresh(BearPlatform.Common.Enums.VersionEnum)">
+            <summary>
+            刷新
+            </summary>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IApisService.TreeSelectAsync(BearPlatform.Common.Enums.VersionEnum)">
+            <summary>
+            获取树图
+            </summary>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.IBaseServices`1">
+            <summary>
+            业务基类 常用增删查改方法
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="P:BearPlatform.IBusiness.IBaseServices`1.SugarClient">
+            <summary>
+            sqlSugarClient
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IBaseServices`1.AddAsync(`0,System.String)">
+            <summary>
+            添加实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <param name="lockString">锁</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IBaseServices`1.AddAsync(System.Collections.Generic.List{`0},System.String)">
+            <summary>
+            批量添加实体
+            </summary>
+            <param name="entitys">实体集合</param>
+            <param name="lockString">锁</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IBaseServices`1.UpdateAsync(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Boolean,System.String)">
+            <summary>
+            更新实体
+            </summary>
+            <param name="entity">实体对象</param>
+            <param name="isUpdateColumns">更新列</param>
+            <param name="ignoreColumns">忽略列</param>
+            <param name="isIgnoreNull">是否忽略NULL列更新</param>
+            <param name="lockString">锁</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IBaseServices`1.UpdateAsync(System.Collections.Generic.List{`0},System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Boolean,System.String)">
+            <summary>
+            批量更新实体
+            </summary>
+            <param name="entitys">实体对象</param>
+            <param name="isUpdateColumns">更新列</param>
+            <param name="ignoreColumns">忽略列</param>
+            <param name="isIgnoreNull">是否忽略NULL列更新</param>
+            <param name="lockString">锁</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IBaseServices`1.LogicDeleteAsync``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            逻辑删除 操作的类需继承ISoftDeletedEntity
+            </summary>
+            <param name="exp"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:BearPlatform.IBusiness.IBaseServices`1.Table">
+            <summary>
+            泛型Queryable
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IBaseServices`1.TableWhere(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,`0}},System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Nullable{SqlSugar.OrderByType},System.Boolean,System.String,System.Int32)">
+            <summary>
+            泛型Queryable
+            </summary>
+            <param name="whereExpression">条件表达式</param>
+            <param name="selectExpression">查询表达式</param>
+            <param name="orderExpression">排序表达式</param>
+            <param name="orderByType">排序方式</param>
+            <param name="isClearCreateByFilter">清除创建人过滤器</param>
+            <param name="lockString">锁</param>
+            <param name="cacheDurationInSeconds">缓存时间(秒)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IBaseServices`1.TableWhere(System.Collections.Generic.List{SqlSugar.IConditionalModel},System.Linq.Expressions.Expression{System.Func{`0,`0}},System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Nullable{SqlSugar.OrderByType},System.Boolean,System.String,System.Int32)">
+            <summary>
+            泛型Queryable
+            </summary>
+            <param name="conditionalModels">条件模型</param>
+            <param name="selectExpression">查询表达式</param>
+            <param name="orderExpression">排序表达式</param>
+            <param name="orderByType">排序方式</param>
+            <param name="isClearCreateByFilter">清除创建人过滤器</param>
+            <param name="lockString">锁</param>
+            <param name="cacheDurationInSeconds">缓存时间(秒)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IBaseServices`1.TablePageAsync(BearPlatform.Models.Queries.Common.QueryOptions{`0})">
+            <summary>
+            表格分页
+            </summary>
+            <param name="queryOptions">查询参数</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:BearPlatform.IBusiness.II18nService.GetPageAsync(BearPlatform.Models.I18nParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.II18nService.AddAsync(BearPlatform.Models.UpdateI18nParam)">
+            <summary>
+            添加
+            </summary>
+            <param name="createUpdateI18nDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.II18nService.UpdateAsync(BearPlatform.Models.UpdateI18nParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="createUpdateI18nDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.II18nService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.II18nService.GetByLocaleAsync(System.String)">
+            <summary>
+            根据国际化 
+            </summary>
+            <param name="locale"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Permission.IRoleService">
+            <summary>
+            角色接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IRoleService.GetPageAsync(BearPlatform.Models.Permission.RoleParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IRoleService.AddAsync(BearPlatform.Models.Permission.UpdateRoleParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="createUpdateRoleDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IRoleService.UpdateAsync(BearPlatform.Models.Permission.UpdateRoleParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="createUpdateRoleDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IRoleService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IRoleService.QueryUserRoleLevelAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            获取用户角色等级
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IRoleService.VerificationUserRoleLevelAsync(System.Nullable{System.Int32})">
+            <summary>
+            验证角色等级
+            </summary>
+            <param name="level"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IRoleService.GetPermissionAsync(System.Int64)">
+            <summary>
+            获取权限
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IRoleService.SetPermissionAsync(BearPlatform.Models.Permission.RolePermissionParam)">
+            <summary>
+            设置权限
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Permission.IDataScopeService">
+            <summary>
+            数据权限接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IDataScopeService.GetDataScopeAccountsAsync(System.Int64)">
+            <summary>
+            获取用户所有角色关联的部门ID
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Permission.IDeptService">
+            <summary>
+             部门
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IDeptService.GetPageAsync(BearPlatform.Models.Dto.Permission.DeptParam)">
+            <summary>
+             分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IDeptService.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IDeptService.AddAsync(BearPlatform.Models.Dto.Permission.UpdateDeptParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IDeptService.UpdateAsync(BearPlatform.Models.Dto.Permission.UpdateDeptParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IDeptService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Permission.IJobService">
+            <summary>
+             岗位
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IJobService.GetPageAsync(BearPlatform.Models.JobParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IJobService.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IJobService.AddAsync(BearPlatform.Models.UpdateJobParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IJobService.UpdateAsync(BearPlatform.Models.UpdateJobParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IJobService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IJobService.GetSelectAsync">
+            <summary>
+            查询Select
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Permission.IMenuService">
+            <summary>
+            菜单接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IMenuService.BuildTreeAsync(System.Int64)">
+            <summary>
+            构建前端菜单树
+            </summary>
+            <param name="userId">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IMenuService.ConstantRoutesAsync">
+            <summary>
+            常量路由
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IMenuService.IsRouteExistAsync(System.String)">
+            <summary>
+            判断路由是否存在
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IMenuService.GetTreeAsync">
+            <summary>
+            列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IMenuService.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IMenuService.AddAsync(BearPlatform.Models.Permission.UpdateMenuParam)">
+            <summary>
+            添加
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IMenuService.UpdateAsync(BearPlatform.Models.Permission.UpdateMenuParam)">
+            <summary>
+            编辑
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IMenuService.DeleteAsync(System.Int64[])">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IMenuService.TreeSelectAsync">
+            <summary>
+            菜单下拉
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Permission.IOnlineUserService">
+            <summary>
+            在线用户接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IOnlineUserService.SaveLoginUserAsync(BearPlatform.ViewModel.Jwt.JwtUserInfo,System.String)">
+            <summary>
+            保存在线用户
+            </summary>
+            <param name="jwtUserInfo"></param>
+            <param name="remoteIp"></param>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IOnlineUserService.CreateJwtUserAsync(BearPlatform.Models.UserInfo,System.Collections.Generic.List{System.String})">
+            <summary>
+            jwt用户信息
+            </summary>
+            <param name="user"></param>
+            <param name="permissionRoles"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Permission.IPermissionService">
+            <summary>
+            权限信息接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IPermissionService.GetPermissionIdentifierAsync(System.Int64)">
+            <summary>
+            获取权限标识符
+            </summary>
+            <param name="userId">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Permission.IPermissionService.GetUrlAccessControlAsync(System.Int64)">
+            <summary>
+            获取权限urls
+            </summary>
+            <param name="userId">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.IUserService">
+            <summary>
+            用户接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.GetPageAsync(BearPlatform.Models.UserParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.GetInfoAsync(System.Int64)">
+            <summary>
+            获取详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.AddAsync(BearPlatform.Models.UpdateUserParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.UpdateAsync(BearPlatform.Models.UpdateUserParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.QueryByNameAsync(System.String)">
+            <summary>
+            查找用户
+            </summary>
+            <param name="userName">用户名</param>
+            <returns>用户实体</returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.QueryByDeptIdsAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            根据部门ID查找用户
+            </summary>
+            <param name="deptIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.UpdateCenterAsync(BearPlatform.Models.Dto.Core.Permission.User.UpdateUserCenterDto)">
+            <summary>
+            修改个人中心信息
+            </summary>
+            <param name="updateUserCenterDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.UpdatePasswordAsync(BearPlatform.Models.Dto.Core.Permission.User.UpdateUserPassDto)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="userPassDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.UpdateEmailAsync(BearPlatform.Models.Dto.Core.Permission.User.UpdateUserEmailDto)">
+            <summary>
+            修改邮箱
+            </summary>
+            <param name="updateUserEmailDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.IUserService.UpdateAvatarAsync(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            修改头像
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableFormItemService.SetFormItemAsync(BearPlatform.Entity.TableFormItem)">
+            <summary>
+            设置FormItem
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableFormItemService.SetSortAsync(System.Collections.Generic.List{BearPlatform.Models.Base.SortParam})">
+            <summary>
+            排序
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableFormItemService.SetAttrsAsync(BearPlatform.Models.SetAttrsFormItemParam)">
+            <summary>
+            设置高阶字段
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableFormItemService.DeleteAsync(System.Int64[])">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableFormService.GetTableFormAsync(BearPlatform.Models.TableFormParam)">
+            <summary>
+            获取表字段
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableFormService.AddAsync(BearPlatform.Models.UpdateTableFormParam)">
+            <summary>
+            添加模型
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableFormService.UpdateAsync(BearPlatform.Models.UpdateTableFormParam)">
+            <summary>
+            编辑模型
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableFormService.GetFormAsync(BearPlatform.Models.TableFormParam)">
+            <summary>
+            表头信息获取
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableViewService.GetEditAsync(BearPlatform.Models.TableViewEditParam)">
+            <summary>
+            获取表字段
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableViewService.SetEditAsync(BearPlatform.Models.UpdateTableViewParam)">
+            <summary>
+            编辑模型
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Table.ITableViewService.GetViewAsync(BearPlatform.Models.TableViewEditParam)">
+            <summary>
+            表头信息获取
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Message.Email.IEmailAccountService">
+            <summary>
+             邮箱账户管理
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailAccountService.GetPageAsync(BearPlatform.Models.EmailAccountParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailAccountService.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailAccountService.AddAsync(BearPlatform.Models.UpdateEmailAccountParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailAccountService.UpdateAsync(BearPlatform.Models.UpdateEmailAccountParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailAccountService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Message.Email.IEmailMessageTemplateService">
+            <summary>
+             邮件消息模板
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailMessageTemplateService.GetPageAsync(BearPlatform.Models.EmailMessageTemplateParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailMessageTemplateService.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailMessageTemplateService.AddAsync(BearPlatform.Models.UpdateEmailMessageTemplateParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailMessageTemplateService.UpdateAsync(BearPlatform.Models.UpdateEmailMessageTemplateParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailMessageTemplateService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Message.Email.IEmailScheduleTask">
+            <summary>
+            邮件任务计划
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailScheduleTask.ExecuteAsync(System.Int64)">
+            <summary>
+            Executes a task
+            </summary>
+            <param name="emailId">邮件队列ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Message.Email.IEmailSender">
+            <summary>
+            邮件发送接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.IEmailSender.SendEmailAsync(BearPlatform.Entity.Core.Message.Email.EmailAccount,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Int32,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Sends an email
+            </summary>
+            <param name="emailAccount">Email account to use</param>
+            <param name="subject">Subject</param>
+            <param name="body">Body</param>
+            <param name="fromAddress">From address</param>
+            <param name="fromName">From display name</param>
+            <param name="toAddress">To address</param>
+            <param name="toName">To display name</param>
+            <param name="replyToAddress">ReplyTo address</param>
+            <param name="replyToName">ReplyTo display name</param>
+            <param name="bcc">BCC addresses list</param>
+            <param name="cc">CC addresses list</param>
+            <param name="attachmentFilePath">Attachment file path</param>
+            <param name="attachmentFileName">Attachment file name. If specified, then this file name will be sent to a recipient. Otherwise, "AttachmentFilePath" name will be used.</param>
+            <param name="attachedDownloadId">Attachment download ID (another attachment)</param>
+            <param name="headers">Headers</param>
+            <returns>A task that represents the asynchronous operation</returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Message.Email.ISmtpBuilder">
+            <summary>
+            邮箱Smtp接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.ISmtpBuilder.BuildAsync(BearPlatform.Entity.Core.Message.Email.EmailAccount)">
+            <summary>
+            Create a new SMTP client for a specific email account
+            </summary>
+            <param name="emailAccount">Email account to use. If null, then would be used EmailAccount by default</param>
+            <returns>
+            A task that represents the asynchronous operation
+            The task result contains the an SMTP client that can be used to send email messages
+            </returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Message.Email.ISmtpBuilder.ValidateServerCertificate(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            Verifies the remote Secure Sockets Layer (SSL) certificate used for authentication.
+            </summary>
+            <param name="sender">An object that contains state information for this validation.</param>
+            <param name="certificate">The certificate used to authenticate the remote party.</param>
+            <param name="chain">The chain of certificate authorities associated with the remote certificate.</param>
+            <param name="sslPolicyErrors">One or more errors associated with the remote certificate.</param>
+            <returns>A System.Boolean value that determines whether the specified certificate is accepted for authentication</returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Monitor.IAuditLogService">
+            <summary>
+            审计日志接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Monitor.IAuditLogService.CreateAsync(BearPlatform.Entity.Logs.AuditLog)">
+            <summary>
+            创建
+            </summary>
+            <param name="auditLog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Monitor.IAuditLogService.CreateListAsync(System.Collections.Generic.List{BearPlatform.Entity.Logs.AuditLog})">
+            <summary>
+            创建
+            </summary>
+            <param name="auditLogs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Monitor.IAuditLogService.QueryAsync(BearPlatform.Models.Queries.System.LogQueryCriteria,BearPlatform.Models.Queries.Common.Pagination)">
+            <summary>
+            查询
+            </summary>
+            <param name="logQueryCriteria"></param>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Monitor.IAuditLogService.QueryByCurrentAsync(BearPlatform.Models.Queries.Common.Pagination)">
+            <summary>
+            查询(个人)
+            </summary>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Monitor.IExceptionLogService">
+            <summary>
+            系统日志接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Monitor.IExceptionLogService.GetPageAsync(BearPlatform.ViewModel.ExceptionLogParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Monitor.IOnlineUserService">
+            <summary>
+            在线用户接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Monitor.IOnlineUserService.GetPageAsync(BearPlatform.Models.OnlineUserParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Monitor.IOnlineUserService.DropOutAsync(System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            强退
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.Queued.IQueuedEmailService">
+            <summary>
+             邮件队列
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Queued.IQueuedEmailService.GetPageAsync(BearPlatform.Models.QueuedEmailParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Queued.IQueuedEmailService.AddAsync(BearPlatform.Models.UpdateQueuedEmailParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Queued.IQueuedEmailService.UpdateAsync(BearPlatform.Models.UpdateQueuedEmailParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Queued.IQueuedEmailService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Queued.IQueuedEmailService.ResetEmail(System.String,System.String)">
+            <summary>
+            重置邮箱
+            </summary>
+            <param name="emailAddress"></param>
+            <param name="messageTemplateName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.Queued.IQueuedEmailService.QueryToSendMailAsync(BearPlatform.Models.Queries.Queued.QueuedEmailQueryCriteria)">
+            <summary>
+            查询 发送邮件
+            </summary>
+            <param name="queuedEmailQueryCriteria"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.System.IAppSecretService">
+            <summary>
+             应用秘钥
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IAppSecretService.GetPageAsync(BearPlatform.Models.AppSecretParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IAppSecretService.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IAppSecretService.AddAsync(BearPlatform.Models.UpdateAppSecretParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IAppSecretService.UpdateAsync(BearPlatform.Models.UpdateAppSecretParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IAppSecretService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.System.IQuartzNetLogService">
+            <summary>
+             QuartzNet作业日志服务
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IQuartzNetLogService.GetPageAsync(BearPlatform.Models.QuartzNetLogParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IQuartzNetLogService.AddAsync(BearPlatform.Models.UpdateQuartzNetLogParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.System.IQuartzNetService">
+            <summary>
+             QuartzJob作业接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IQuartzNetService.GetPageAsync(BearPlatform.Models.QuartzNetParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IQuartzNetService.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IQuartzNetService.AddAsync(BearPlatform.Models.UpdateQuartzNetParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IQuartzNetService.UpdateAsync(BearPlatform.Models.UpdateQuartzNetParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IQuartzNetService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IQuartzNetService.QueryAllAsync">
+            <summary>
+            查询全部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.IQuartzNetService.UpdateJobInfoAsync(BearPlatform.Entity.Core.System.QuartzNet.QuartzNet,BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog)">
+            <summary>
+            更新任务与日志
+            </summary>
+            <param name="quartzNet"></param>
+            <param name="quartzNetLog"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.System.ISettingService">
+            <summary>
+             全局设置接口
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ISettingService.GetPageAsync(BearPlatform.Models.SettingParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ISettingService.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ISettingService.AddAsync(BearPlatform.Models.UpdateSettingParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ISettingService.UpdateAsync(BearPlatform.Models.UpdateSettingParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ISettingService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ISettingService.GetSettingValue``1(System.String)">
+            <summary>
+            根据名称查询
+            </summary>
+            <param name="settingName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.System.ITenantService">
+            <summary>
+             租户
+            </summary>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ITenantService.GetPageAsync(BearPlatform.Models.TenantParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ITenantService.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ITenantService.AddAsync(BearPlatform.Models.UpdateTenantParam)">
+            <summary>
+            创建
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ITenantService.UpdateAsync(BearPlatform.Models.UpdateTenantParam)">
+            <summary>
+            更新
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.IBusiness.System.ITenantService.DeleteAsync(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.IBusiness.System.ITokenBlacklistService">
+            <summary>
+            Token黑名单
+            </summary>
+        </member>
+    </members>
+</doc>

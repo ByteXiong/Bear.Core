@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
+    <PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.3.8" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BearPlatform.Business\BearPlatform.Business.csproj" />
+    <ProjectReference Include="..\BearPlatform.EventBus\BearPlatform.EventBus.csproj" />
+    <ProjectReference Include="..\BearPlatform.TaskService\BearPlatform.TaskService.csproj" />
+    <ProjectReference Include="..\BearPlatform.Repository\BearPlatform.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Messaging\" />
+  </ItemGroup>
+
+</Project>

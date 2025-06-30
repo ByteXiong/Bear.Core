@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>BearPlatform.ViewModel.xml</DocumentationFile>
+  </PropertyGroup>
+  
+    <ItemGroup>
+      <ProjectReference Include="..\BearPlatform.Entity\BearPlatform.Entity.csproj" />
+      <ProjectReference Include="..\BearPlatform.Models\BearPlatform.Models.csproj" />
+    </ItemGroup>
+
+</Project>

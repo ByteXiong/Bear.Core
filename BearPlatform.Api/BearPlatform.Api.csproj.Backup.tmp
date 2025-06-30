@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>BearPlatform.Api.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\Message\**" />
+    <Compile Remove="Controllers\Monitor\**" />
+    <Compile Remove="Controllers\Permission\**" />
+    <Compile Remove="Controllers\Queued\**" />
+    <Compile Remove="Controllers\System\**" />
+    <Compile Remove="Controllers\Test\**" />
+    <Content Remove="Controllers\Message\**" />
+    <Content Remove="Controllers\Monitor\**" />
+    <Content Remove="Controllers\Permission\**" />
+    <Content Remove="Controllers\Queued\**" />
+    <Content Remove="Controllers\System\**" />
+    <Content Remove="Controllers\Test\**" />
+    <EmbeddedResource Remove="Controllers\Message\**" />
+    <EmbeddedResource Remove="Controllers\Monitor\**" />
+    <EmbeddedResource Remove="Controllers\Permission\**" />
+    <EmbeddedResource Remove="Controllers\Queued\**" />
+    <EmbeddedResource Remove="Controllers\System\**" />
+    <EmbeddedResource Remove="Controllers\Test\**" />
+    <None Remove="Controllers\Message\**" />
+    <None Remove="Controllers\Monitor\**" />
+    <None Remove="Controllers\Permission\**" />
+    <None Remove="Controllers\Queued\**" />
+    <None Remove="Controllers\System\**" />
+    <None Remove="Controllers\Test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\resources\db\sys_apis.tsv" />
+    <Content Remove="wwwroot\resources\db\sys_role_apis.tsv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.1" />
+    <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BearPlatform.Infrastructure\BearPlatform.Infrastructure.csproj" />
+    <ProjectReference Include="..\BearPlatform.TaskService\BearPlatform.TaskService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\exportFile\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\uploads\file\images\20231009100657_1711201552485584896.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\uploads\file\images\20231009101734_1711204223531618304.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Controllers\Permission\JobController.cs" />
+    <Compile Include="Controllers\System\TenantController.cs" />
+  </ItemGroup>
+
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties appsettings_1json__JsonSchema="http://json.schemastore.org/band-manifest" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

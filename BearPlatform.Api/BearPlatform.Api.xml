@@ -1,0 +1,737 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BearPlatform.Api</name>
+    </assembly>
+    <members>
+        <member name="M:BearPlatform.Api.ActionExtension.BaseActionFilter.JsonContent(BearPlatform.Common.Model.ActionResultVm)">
+            <summary>
+            返回JSON
+            </summary>
+            <param name="vm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.BaseActionFilter.Error(System.String)">
+            <summary>
+            返回错误
+            </summary>
+            <param name="msg">错误提示</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.BaseActionFilter.Error(System.String,System.Int32)">
+            <summary>
+            返回错误
+            </summary>
+            <param name="msg">错误提示</param>
+            <param name="errorCode">错误代码</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.ActionExtension.Json.JsonParamterAttribute">
+            <summary>
+            Json参数支持
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Api.ActionExtension.Json.NoJsonParamterAttribute">
+            <summary>
+            忽略Json参数支持
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.Json.NoJsonParamterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action执行之前执行
+            </summary>
+            <param name="context">过滤器上下文</param>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.Json.NoJsonParamterAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Action执行完毕之后执行
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:BearPlatform.Api.ActionExtension.Jwt.TokenFilterAttribute">
+            <summary>
+            JWT校验
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.Jwt.TokenFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action执行之前执行
+            </summary>
+            <param name="context">过滤器上下文</param>
+        </member>
+        <member name="T:BearPlatform.Api.ActionExtension.Parameter.ParamRequiredAttribute">
+            <summary>
+            参数必填
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.Parameter.ParamRequiredAttribute.#ctor(System.String[])">
+            <summary>
+            参数必填
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.Parameter.ParamRequiredAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action执行之前执行
+            </summary>
+            <param name="filterContext">过滤器上下文</param>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.Parameter.ParamRequiredAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Action执行完毕之后执行
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.Sign.IgnoreVerifySignatureAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action执行之前执行
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="T:BearPlatform.Api.ActionExtension.Sign.VerifySignatureAttribute">
+            <summary>
+            接口对外签名验证
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.Sign.VerifySignatureAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action执行之前执行
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:BearPlatform.Api.ActionExtension.Sign.VerifySignatureAttribute.BuildApiSign(System.String,System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            生成接口签名sign
+            注：md5(appId+time+guid+body+appSecret)
+            </summary>
+            <param name="appId">应用Id</param>
+            <param name="appSecret">应用密钥</param>
+            <param name="guid">唯一GUID</param>
+            <param name="time">时间</param>
+            <param name="body">请求体</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.ApisController">
+            <summary>
+            Api管理
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.ApisController.#ctor(BearPlatform.IBusiness.IApisService)">
+            <summary>
+            Api管理
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.ApisController.GetPageAsync(BearPlatform.Models.ApisParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.ApisController.AddAsync(BearPlatform.Models.UpdateApisParam)">
+            <summary>
+            新增
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.ApisController.UpdateAsync(BearPlatform.Models.UpdateApisParam)">
+            <summary>
+            编辑
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.ApisController.Delete(System.Collections.Generic.HashSet{System.Guid})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.ApisController.Refresh(BearPlatform.Common.Enums.VersionEnum)">
+            <summary>
+            刷新Api列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.ApisController.TreeSelectAsync(BearPlatform.Common.Enums.VersionEnum)">
+            <summary>
+            获取树图
+            </summary>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.Auth.LoginController">
+            <summary>
+            授权管理
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Auth.LoginController.Captcha">
+            <summary>
+            获取验证码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Auth.LoginController.LoginAsync(BearPlatform.Models.Queries.Login.LoginParam)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="authUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Auth.LoginController.RefreshToken(System.String)">
+            <summary>
+            刷新Token
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Auth.LoginController.LoginResult(BearPlatform.Models.UserInfo,System.String)">
+            <summary>
+            登录或刷新token相应结果
+            </summary>
+            <param name="user"></param>
+            <param name="type">login:登录,refresh:刷新token</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.Base.BaseApiController">
+            <summary>
+            API对外接口基控制器
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.Base.BaseController">
+            <summary>
+            基控制器
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Base.BaseController.JsonContent(BearPlatform.Common.Model.ActionResultVm)">
+            <summary>
+            
+            </summary>
+            <param name="vm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Base.BaseController.JsonContent(System.Object)">
+            <summary>
+            返回Json
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Base.BaseController.JsonContent``1(System.Collections.Generic.List{``0},BearPlatform.Models.Queries.Common.Pagination)">
+            <summary>
+            返回Json
+            </summary>
+            <param name="content"></param>
+            <param name="pagination"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Base.BaseController.JsonContentIgnoreNullValue(System.Object)">
+            <summary>
+            返回Json  忽略空值字段
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Base.BaseController.Ok(BearPlatform.Common.Model.OperateResult)">
+            <summary>
+            返回响应
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Base.BaseController.Success(System.String)">
+            <summary>
+            返回成功
+            </summary>
+            <param name="msg">消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Base.BaseController.Created(System.String)">
+            <summary>
+            创建成功
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Base.BaseController.Error(System.String)">
+            <summary>
+            返回错误
+            </summary>
+            <param name="msg">错误提示</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Base.BaseController.Error(BearPlatform.Common.Model.ActionError)">
+            <summary>
+            返回错误
+            </summary>
+            <param name="actionError">错误集合</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.Permission.DeptController">
+            <summary>
+            部门管理
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.DeptController.#ctor(BearPlatform.IBusiness.Permission.IDeptService)">
+            <summary>
+            部门管理
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.DeptController.GetPageAsync(BearPlatform.Models.Dto.Permission.DeptParam)">
+            <summary>
+             分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.DeptController.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.DeptController.AddAsync(BearPlatform.Models.Dto.Permission.UpdateDeptParam)">
+            <summary>
+            新增
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.DeptController.UpdateAsync(BearPlatform.Models.Dto.Permission.UpdateDeptParam)">
+            <summary>
+            编辑
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.DeptController.Delete(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.Permission.JobController">
+            <summary>
+            岗位
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.JobController.#ctor(BearPlatform.IBusiness.Permission.IJobService)">
+            <summary>
+            岗位
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.JobController.GetPageAsync(BearPlatform.Models.JobParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.JobController.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.JobController.AddAsync(BearPlatform.Models.UpdateJobParam)">
+            <summary>
+            新增
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.JobController.UpdateAsync(BearPlatform.Models.UpdateJobParam)">
+            <summary>
+            编辑
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Permission.JobController.Delete(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.I18nController">
+            <summary>
+            表字段
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.I18nController.#ctor(BearPlatform.IBusiness.II18nService)">
+            <summary>
+            表字段
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.I18nController.GetPageAsync(BearPlatform.Models.I18nParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.I18nController.AddAsync(BearPlatform.Models.UpdateI18nParam)">
+            <summary>
+            新增
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.I18nController.UpdateAsync(BearPlatform.Models.UpdateI18nParam)">
+            <summary>
+            编辑
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.I18nController.Delete(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.I18nController.GetByLocaleAsync(System.String)">
+            <summary>
+            根据国际化 
+            </summary>
+            <param name="locale"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.MenuController">
+            <summary>
+            菜单管理
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.MenuController.ConstantRoutesAsync">
+            <summary>
+            常量路由
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.MenuController.IsRouteExistAsync(System.String)">
+            <summary>
+            判断路由是否存在
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.MenuController.GetTreeAsync">
+            <summary>
+            列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.MenuController.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.MenuController.AddAsync(BearPlatform.Models.Permission.UpdateMenuParam)">
+            <summary>
+            添加
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.MenuController.UpdateAsync(BearPlatform.Models.Permission.UpdateMenuParam)">
+            <summary>
+            编辑
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.MenuController.DeleteAsync(System.Int64[])">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.MenuController.TreeSelectAsync">
+            <summary>
+            菜单下拉
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.MenuController.MyRoutesAsync">
+            <summary>
+            我的菜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.RoleController">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.RoleController.#ctor(BearPlatform.IBusiness.Permission.IRoleService)">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.RoleController.GetPageAsync(BearPlatform.Models.Permission.RoleParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.RoleController.AddAsync(BearPlatform.Models.Permission.UpdateRoleParam)">
+            <summary>
+            新增
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.RoleController.UpdateAsync(BearPlatform.Models.Permission.UpdateRoleParam)">
+            <summary>
+            编辑
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.RoleController.Delete(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.RoleController.GetPermissionAsync(System.Int64)">
+            <summary>
+            获取权限
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.RoleController.SetPermissionAsync(BearPlatform.Models.Permission.RolePermissionParam)">
+            <summary>
+            设置权限
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.Table.TableDynamicController">
+            <summary>
+            数据模型
+            </summary>
+            <param name="unitOfWork"></param>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableDynamicController.#ctor(BearPlatform.Repository.UnitOfWork.IUnitOfWork)">
+            <summary>
+            数据模型
+            </summary>
+            <param name="unitOfWork"></param>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableDynamicController.GetPageAsync(BearPlatform.SqlSugar.PageParam,System.String,System.String)">
+            <summary>
+            分页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableDynamicController.GetInfoAsync(System.Int32,System.String,System.String)">
+            <summary>
+            查询详情
+            </summary>
+            <param name="id"></param>
+            <param name="configId"></param>
+            <param name="tableof"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableDynamicController.AddAsync(System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.String)">
+            <summary>
+            添加
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableDynamicController.UpdateAsync(System.Collections.Generic.Dictionary{System.String,System.Object},System.String,System.String)">
+            <summary>
+            编辑
+            </summary>
+            <param name="param"></param>
+            <param name="configId"></param>
+            <param name="tableof"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableDynamicController.DeleteAsync(System.Decimal[],System.String,System.String)">
+            <summary>
+            删除表头
+            </summary>
+            <param name="ids"></param>
+            <param name="configId"></param>
+            <param name="tableof"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.Table.TableFormController">
+            <remarks>
+             表单列表
+            </remarks>
+            <param name="service"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableFormController.#ctor(BearPlatform.IBusiness.Table.ITableFormService)">
+            <remarks>
+             表单列表
+            </remarks>
+            <param name="service"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableFormController.GetTableFormAsync(BearPlatform.Models.TableFormParam)">
+            <summary>
+            获取表字段
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableFormController.AddAsync(BearPlatform.Models.UpdateTableFormParam)">
+            <summary>
+            新增
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableFormController.UpdateAsync(BearPlatform.Models.UpdateTableFormParam)">
+            <summary>
+            编辑
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableFormController.GetFormAsync(BearPlatform.Models.TableFormParam)">
+            <summary>
+            表头信息获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.Table.TableFormItemController">
+            <summary>
+            表单项
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableFormItemController.#ctor(BearPlatform.IBusiness.Table.ITableFormItemService)">
+            <summary>
+            表单项
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableFormItemController.SetFormItemAsync(BearPlatform.Entity.TableFormItem)">
+            <summary>
+            设置FormItem
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableFormItemController.SetSortAsync(System.Collections.Generic.List{BearPlatform.Models.Base.SortParam})">
+            <summary>
+            排序
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableFormItemController.SetAttrsAsync(BearPlatform.Models.SetAttrsFormItemParam)">
+            <summary>
+            设置高阶字段
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableFormItemController.DeleteAsync(System.Int64[])">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.Table.TableViewController">
+            <remarks>
+             数据表列表
+            </remarks>
+            <param name="logic"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableViewController.#ctor(BearPlatform.IBusiness.Table.ITableViewService)">
+            <remarks>
+             数据表列表
+            </remarks>
+            <param name="logic"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableViewController.GetEditAsync(BearPlatform.Models.TableViewEditParam)">
+            <summary>
+            获取表字段
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableViewController.SetEditAsync(BearPlatform.Models.UpdateTableViewParam)">
+            <summary>
+            编辑模型
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.Table.TableViewController.GetViewAsync(BearPlatform.Models.TableViewEditParam)">
+            <summary>
+            表头信息获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Api.Controllers.System.TenantController">
+            <summary>
+            租户
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.System.TenantController.#ctor(BearPlatform.IBusiness.System.ITenantService)">
+            <summary>
+            租户
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.System.TenantController.GetPageAsync(BearPlatform.Models.TenantParam)">
+            <summary>
+            分页
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.System.TenantController.GetInfoAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.System.TenantController.AddAsync(BearPlatform.Models.UpdateTenantParam)">
+            <summary>
+            新增
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.System.TenantController.UpdateAsync(BearPlatform.Models.UpdateTenantParam)">
+            <summary>
+            编辑
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Api.Controllers.System.TenantController.Delete(System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1513 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BearPlatform.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:BearPlatform.Entity.Apis">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Apis.Group">
+            <summary>
+            组
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Apis.Url">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Apis.Version">
+            <summary>
+            版本
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Apis.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Apis.Method">
+            <summary>
+            请求方法
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Apis.Roles">
+            <summary>
+            角色集合
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Base.BaseEntity`1">
+            <summary>
+            实体基类
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.BaseEntity`1.CreateBy">
+            <summary>
+            创建者名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.BaseEntity`1.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.BaseEntity`1.UpdateBy">
+            <summary>
+            更新者名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.BaseEntity`1.UpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.BaseEntity`1.IsDeleted">
+            <summary>
+            是否已删除
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Base.BaseEntityNoDataScope`1">
+            <summary>
+            实体基类 无数据权限检查
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.BaseEntityNoDataScope`1.CreateBy">
+            <summary>
+            创建者名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.BaseEntityNoDataScope`1.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.BaseEntityNoDataScope`1.UpdateBy">
+            <summary>
+            更新者名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.BaseEntityNoDataScope`1.UpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.BaseEntityNoDataScope`1.IsDeleted">
+            <summary>
+            是否已删除
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Base.RootKey`1">
+            <summary>
+            泛型主键
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.RootKey`1.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Base.SerilogBase">
+            <summary>
+            Serilog日志基类
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.SerilogBase.CreateBy">
+            <summary>
+            创建者名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.SerilogBase.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.SerilogBase.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.SerilogBase.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.SerilogBase.MessageTemplate">
+            <summary>
+            消息模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Base.SerilogBase.Properties">
+            <summary>
+            属性
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Message.Email.EmailAccount">
+            <summary>
+            邮件账户
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailAccount.Email">
+             <summary>
+            电子邮件地址
+             </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailAccount.DisplayName">
+            <summary>
+            电子邮件显示名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailAccount.Host">
+            <summary>
+            电子邮件主机
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailAccount.Port">
+            <summary>
+            电子邮件端口
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailAccount.UserName">
+            <summary>
+            电子邮件用户名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailAccount.Password">
+            <summary>
+            电子邮件密码
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailAccount.EnableSsl">
+            <summary>
+            是否SSL
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailAccount.UseDefaultCredentials">
+            <summary>
+            是否与请求一起发送应用程序的默认系统凭据
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Message.Email.EmailMessageTemplate">
+            <summary>
+            邮件模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailMessageTemplate.Name">
+            <summary>
+            模板名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailMessageTemplate.BccEmailAddresses">
+            <summary>
+            抄送邮箱地址
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailMessageTemplate.Subject">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailMessageTemplate.Body">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailMessageTemplate.IsActive">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Message.Email.EmailMessageTemplate.EmailAccountId">
+            <summary>
+            邮箱账户标识符
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Permission.Dept">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Dept.Name">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Dept.ParentId">
+            <summary>
+            父级部门ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Dept.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Dept.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Dept.SubCount">
+            <summary>
+            子节点个数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Dept.Users">
+            <summary>
+            用户列表
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Dept.Roles">
+            <summary>
+            用户集合
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Permission.Job">
+            <summary>
+            岗位
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Job.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Job.Code">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Job.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Job.Enabled">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Job.Users">
+            <summary>
+            用户列表
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Permission.Role.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.Role.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.Role.Level">
+            <summary>
+            角色等级
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.Role.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.Role.DataScopeType">
+            <summary>
+            数据权限
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.Role.Permission">
+            <summary>
+            角色代码
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.Role.Menus">
+            <summary>
+            菜单集合
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.Role.Depts">
+            <summary>
+            部门集合
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.Role.Users">
+            <summary>
+            用户列表
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.Role.Apis">
+            <summary>
+            菜单集合
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Permission.Role.RoleApis">
+            <summary>
+            角色Apis关联
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.RoleApis.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.RoleApis.ApisId">
+            <summary>
+            api ID
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Permission.Role.RoleDept">
+            <summary>
+            角色部门关联
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.RoleDept.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.RoleDept.DeptId">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Permission.Role.RoleMenu">
+            <summary>
+            角色菜单关联
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.RoleMenu.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.Role.RoleMenu.MenuId">
+            <summary>
+            菜单ID
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Permission.User.User">
+            <summary>
+            系统用户
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.IsAdmin">
+            <summary>
+            是否内置管理员
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.Enabled">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.DeptId">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.AvatarPath">
+            <summary>
+            头像路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.PasswordReSetTime">
+            <summary>
+            最后修改密码时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.TenantId">
+            <summary>
+            租户ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.Dept">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.Roles">
+            <summary>
+            角色集合
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.Jobs">
+            <summary>
+            岗位集合
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.User.Tenant">
+            <summary>
+            租户
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Permission.User.UserJob">
+            <summary>
+            用户岗位关联
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.UserJob.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.UserJob.JobId">
+            <summary>
+            岗位ID
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Permission.User.UserRole">
+            <summary>
+            用户角色关联
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.UserRole.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Permission.User.UserRole.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.Queued.QueuedEmail">
+            <summary>
+            邮件队列
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.From">
+            <summary>
+            发件邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.FromName">
+            <summary>
+            发件人名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.To">
+            <summary>
+            收件邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.ToName">
+            <summary>
+            收件人名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.ReplyTo">
+            <summary>
+            回复邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.ReplyToName">
+            <summary>
+            回复人名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.Priority">
+            <summary>
+            优先级
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.Cc">
+            <summary>
+            抄送
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.Bcc">
+            <summary>
+            密件抄送
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.Subject">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.Body">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.SentTries">
+            <summary>
+            发送上限次数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.IsSend">
+            <summary>
+            是否已发送
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.SendTime">
+            <summary>
+            发送时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.Queued.QueuedEmail.EmailAccountId">
+            <summary>
+            发件邮箱ID
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.System.AppSecret">
+            <summary>
+            三方应用密钥
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.AppSecret.AppId">
+            <summary>
+            应用ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.AppSecret.AppSecretKey">
+            <summary>
+            应用秘钥
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.AppSecret.AppName">
+            <summary>
+            应用名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.AppSecret.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.System.Dict.Dict">
+            <summary>
+            字典
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Dict.Dict.DictType">
+            <summary>
+            字典类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Dict.Dict.Name">
+            <summary>
+            字典名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Dict.Dict.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Dict.Dict.DictDetails">
+            <summary>
+            字典详情
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.System.Dict.DictDetail">
+            <summary>
+            字典详情
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Dict.DictDetail.DictId">
+            <summary>
+            字典ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Dict.DictDetail.Label">
+            <summary>
+            字典标签
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Dict.DictDetail.Value">
+            <summary>
+            字典值
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Dict.DictDetail.DictSort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.System.FileRecord">
+            <summary>
+            文件记录
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.FileRecord.Description">
+            <summary>
+            文件描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.FileRecord.ContentType">
+            <summary>
+            文件类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.FileRecord.ContentTypeName">
+            <summary>
+            文件类别
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.FileRecord.ContentTypeNameEn">
+            <summary>
+            文件类别英文名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.FileRecord.OriginalName">
+            <summary>
+            文件原名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.FileRecord.NewName">
+            <summary>
+            文件新名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.FileRecord.FilePath">
+            <summary>
+            文件存储路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.FileRecord.Size">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet">
+            <summary>
+            系统作业调度
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.TaskName">
+            <summary>
+            任务名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.TaskGroup">
+            <summary>
+            任务分组
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.Cron">
+            <summary>
+            cron 表达式
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.AssemblyName">
+            <summary>
+            程序集名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.ClassName">
+            <summary>
+            任务所在类
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.Description">
+            <summary>
+            任务描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.Principal">
+            <summary>
+            任务负责人
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.AlertEmail">
+            <summary>
+            告警邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.PauseAfterFailure">
+            <summary>
+            任务失败后是否暂停
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.RunTimes">
+            <summary>
+            执行次数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.StartTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.TriggerType">
+            <summary>
+            触发器类型（0、simple 1、cron）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.IntervalSecond">
+            <summary>
+            执行间隔时间, 秒为单位
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.CycleRunTimes">
+            <summary>
+            循环执行次数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.IsEnable">
+            <summary>
+            是否启动
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.RunParams">
+            <summary>
+            执行传参
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNet.TriggerStatus">
+            <summary>
+            触发器状态
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog">
+            <summary>
+            系统作业调度执行日志
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog.TaskId">
+            <summary>
+            任务Id
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog.TaskName">
+            <summary>
+            任务名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog.TaskGroup">
+            <summary>
+            任务分组
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog.AssemblyName">
+            <summary>
+            程序集名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog.ClassName">
+            <summary>
+            任务所在类
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog.Cron">
+            <summary>
+            cron 表达式
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog.ExceptionDetail">
+            <summary>
+            异常详情
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog.ExecutionDuration">
+            <summary>
+            执行耗时（毫秒）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog.RunParams">
+            <summary>
+            执行传参
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.QuartzNet.QuartzNetLog.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.System.Setting">
+            <summary>
+            系统设置
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Setting.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Setting.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Setting.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Setting.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.System.Tenant">
+            <summary>
+            租户
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Tenant.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Tenant.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Tenant.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Tenant.TenantType">
+            <summary>
+            租户类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Tenant.ConfigId">
+            <summary>
+            库Id
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Tenant.DbType">
+            <summary>
+            数据库类型<br/>
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Tenant.ConnectionString">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.Tenant.Users">
+            <summary>
+            用户列表
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Core.System.TokenBlacklist">
+            <summary>
+            Token黑名单
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Core.System.TokenBlacklist.AccessToken">
+            <summary>
+            令牌 登录token的MD5值
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Permission.Menu">
+            <summary>
+            系统菜单
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Permission">
+            <summary>
+            权限标识符
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Name">
+            <summary>
+            菜单名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.PathParam">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Layout">
+            <summary>
+            布局
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Redirect">
+            <summary>
+            重定向
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Component">
+            <summary>
+            组件
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.ParentId">
+            <summary>
+            父级
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.MenuType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Title">
+            <summary>
+            路由标题(可用来作document.title或者菜单的名称)
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.KeepAlive">
+            <summary>
+            缓存页面
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Constant">
+            <summary>
+            当设置为true时，将不会进行登录验证，也不会进行访问路径的权限验证
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Icon">
+            <summary>
+            菜单和面包屑对应的图标
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.LocalIcon">
+            <summary>
+            使用本地svg作为的菜单和面包屑对应的图标(assets/svg-icon文件夹的的svg文件名)
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.IconFontSize">
+            <summary>
+            菜单和面包屑对应的图标的字体大小
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Order">
+            <summary>
+            路由顺序，可用于菜单的排序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Href">
+            <summary>
+            外链链接
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.HideInMenu">
+            <summary>
+            是否在菜单中隐藏路线
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.ActiveMenu">
+            <summary>
+            当前路由需要选中的菜单项(用于跳转至不在左侧菜单显示的路由且需要高亮某个菜单的情况)
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.MultiTab">
+            <summary>
+            是否支持多个tab页签(默认一个，即相同name的路由会被替换)
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.FixedIndexInTab">
+            <summary>
+            如果设置，路线将固定在制表符中，值是固定制表符的顺序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Children">
+            <summary>
+            子菜单集合
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Roles">
+            <summary>
+            菜单集合
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.I18n">
+            <summary>
+            国际化
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.I18n.Key">
+            <summary>
+            键
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.I18n.ZhCn">
+            <summary>
+            中文
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.I18n.EnUs">
+            <summary>
+            英文
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.I18n.Source">
+            <summary>
+            来源
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.I18n.Count">
+            <summary>
+            访问次数
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Logs.AopSqlLog">
+            <summary>
+            SQL日志
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Logs.AuditLog">
+            <summary>
+            审计日志
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.Area">
+            <summary>
+            区域
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.Controller">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.Action">
+            <summary>
+            方法
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.Method">
+            <summary>
+            请求方式
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.Description">
+            <summary>
+            /描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.RequestUrl">
+            <summary>
+            请求url
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.RequestParameters">
+            <summary>
+            请求参数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.ResponseData">
+            <summary>
+            响应数据
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.ExecutionDuration">
+            <summary>
+            执行耗时(毫秒)
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.RequestIp">
+            <summary>
+            请求IP
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.IpAddress">
+            <summary>
+            IP所属真实地址
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.OperatingSystem">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.DeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.BrowserName">
+            <summary>
+            浏览器名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.Version">
+            <summary>
+            浏览器版本
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.AuditLog.CreateTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Logs.ErrorLog">
+            <summary>
+            错误日志
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Logs.ExceptionLog">
+            <summary>
+            异常日志
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.Area">
+            <summary>
+            区域
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.Controller">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.Action">
+            <summary>
+            方法
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.Method">
+            <summary>
+            请求方式
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.RequestUrl">
+            <summary>
+            请求url
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.RequestParameters">
+            <summary>
+            请求参数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.ExceptionMessage">
+            <summary>
+            异常短信息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.ExceptionMessageFull">
+            <summary>
+            异常完整信息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.ExceptionStack">
+            <summary>
+            异常堆栈信息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.LogLevel">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.RequestIp">
+            <summary>
+            请求ip
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.IpAddress">
+            <summary>
+            ip所属真实地址
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.OperatingSystem">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.DeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.BrowserName">
+            <summary>
+            浏览器名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.Version">
+            <summary>
+            浏览器版本
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Logs.ExceptionLog.CreateTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Logs.FatalLog">
+            <summary>
+            失败日志
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Logs.InformationLog">
+            <summary>
+            信息日志
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Logs.WarningLog">
+            <summary>
+            警告日志
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.TableForm">
+            <summary>
+            表格重写
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableForm.Tableof">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableForm.Router">
+            <summary>
+            路由
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableForm.Attrs">
+            <summary>
+            多余参数 
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableForm.ConfigId">
+            <summary>
+            多余参数 
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableForm.Items">
+            <summary>
+            字段
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.TableFormItem">
+            <summary>
+            表格重写
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableFormItem.FormId">
+            <summary>
+             视图Id
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableFormItem.Label">
+            <summary>
+            字段名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableFormItem.Prop">
+            <summary>
+            字段
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableFormItem.Rules">
+            <summary>
+            字段验证
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableFormItem.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableFormItem.ComponentType">
+            <summary>
+            组件类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableFormItem.IsShow">
+            <summary>
+            是否隐藏
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableFormItem.IsCustom">
+            <summary>
+            是否自定义
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableFormItem.Attrs">
+            <summary>
+            多余参数 
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableFormItem.TableForm">
+            <summary>
+            字段
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.TableView">
+            <summary>
+            表格重写
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableView.ConfigId">
+            <summary>
+            配置库
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableView.Router">
+            <summary>
+            路由
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableView.Tableof">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableView.Attrs">
+            <summary>
+            多余参数 
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableView.ColumnsString">
+            <summary>
+            字段
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableView.SortString">
+            <summary>
+            默认排序字段
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableView.Columns">
+            <summary>
+            字段
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableView.Sorts">
+            <summary>
+            多列排序
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.TableColumn">
+            <summary>
+            表字段重写
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.Label">
+            <summary>
+            字段名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.Prop">
+            <summary>
+            字段
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.SearchType">
+            <summary>
+            搜索类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.ColumnType">
+            <summary>
+            </summary>
+            字段类型
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.ColumnTypeDetail">
+            <summary>
+            字段描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.ColumnTypeRules">
+            <summary>
+            字段验证
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.IsCustom">
+            <summary>
+            是否自定义
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.IsShow">
+            <summary>
+            是否隐藏
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.Attrs">
+            <summary>
+            多余参数 
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Entity.Test.TestOrder">
+            <summary>
+            多租户测试
+            单表ID隔离注释[MultiDbTenant]，继承ITenantEntity
+            多库隔离取消继承ITenantEntity，增加[MultiDbTenant]
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Test.TestOrder.OrderNo">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Test.TestOrder.GoodsName">
+            <summary>
+            商品名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Test.TestOrder.Qty">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Test.TestOrder.Price">
+            <summary>
+            价格
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.Test.TestOrder.TenantId">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

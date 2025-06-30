@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Message\**" />
+    <Compile Remove="Monitor\**" />
+    <Compile Remove="Permission\**" />
+    <Compile Remove="Queued\**" />
+    <Compile Remove="System\**" />
+    <Compile Remove="Test\**" />
+    <EmbeddedResource Remove="Message\**" />
+    <EmbeddedResource Remove="Monitor\**" />
+    <EmbeddedResource Remove="Permission\**" />
+    <EmbeddedResource Remove="Queued\**" />
+    <EmbeddedResource Remove="System\**" />
+    <EmbeddedResource Remove="Test\**" />
+    <None Remove="Message\**" />
+    <None Remove="Monitor\**" />
+    <None Remove="Permission\**" />
+    <None Remove="Queued\**" />
+    <None Remove="System\**" />
+    <None Remove="Test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Message\Email\IEmailAccountService.cs" />
+    <Compile Include="Message\Email\IEmailMessageTemplateService.cs" />
+    <Compile Include="Message\Email\IEmailScheduleTask.cs" />
+    <Compile Include="Message\Email\IEmailSender.cs" />
+    <Compile Include="Message\Email\ISmtpBuilder.cs" />
+    <Compile Include="Monitor\IAuditLogService.cs" />
+    <Compile Include="Monitor\IExceptionLogService.cs" />
+    <Compile Include="Monitor\IOnlineUserService.cs" />
+    <Compile Include="Permission\IDataScopeService.cs" />
+    <Compile Include="Permission\IDeptService.cs" />
+    <Compile Include="Permission\IJobService.cs" />
+    <Compile Include="Permission\IMenuService.cs" />
+    <Compile Include="Permission\IOnlineUserService.cs" />
+    <Compile Include="Permission\IPermissionService.cs" />
+    <Compile Include="Queued\IQueuedEmailService.cs" />
+    <Compile Include="System\IAppSecretService.cs" />
+    <Compile Include="System\IQuartzNetLogService.cs" />
+    <Compile Include="System\IQuartzNetService.cs" />
+    <Compile Include="System\ISettingService.cs" />
+    <Compile Include="System\ITenantService.cs" />
+    <Compile Include="System\ITokenBlacklistService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BearPlatform.Models\BearPlatform.Models.csproj" />
+    <ProjectReference Include="..\BearPlatform.ViewModel\BearPlatform.ViewModel.csproj" />
+  </ItemGroup>
+  
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>BearPlatform.IBusiness.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>

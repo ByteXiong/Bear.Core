@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  
+  
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>BearPlatform.Business.xml</DocumentationFile>
+  </PropertyGroup>
+  
+  
+    <ItemGroup>
+      <Compile Remove="Message\**" />
+      <Compile Remove="Monitor\**" />
+      <Compile Remove="Permission\**" />
+      <Compile Remove="Queued\**" />
+      <Compile Remove="System\**" />
+      <Compile Remove="Test\**" />
+      <EmbeddedResource Remove="Message\**" />
+      <EmbeddedResource Remove="Monitor\**" />
+      <EmbeddedResource Remove="Permission\**" />
+      <EmbeddedResource Remove="Queued\**" />
+      <EmbeddedResource Remove="System\**" />
+      <EmbeddedResource Remove="Test\**" />
+      <None Remove="Message\**" />
+      <None Remove="Monitor\**" />
+      <None Remove="Permission\**" />
+      <None Remove="Queued\**" />
+      <None Remove="System\**" />
+      <None Remove="Test\**" />
+    </ItemGroup>
+  
+  
+    <ItemGroup>
+      <Compile Include="Message\Email\EmailAccountService.cs" />
+      <Compile Include="Message\Email\EmailMessageTemplateService.cs" />
+      <Compile Include="Message\Email\EmailScheduleTask.cs" />
+      <Compile Include="Message\Email\EmailSender.cs" />
+      <Compile Include="Message\Email\SmtpBuilder.cs" />
+      <Compile Include="Monitor\ExceptionLogService.cs" />
+      <Compile Include="Monitor\OnlineUserService.cs" />
+      <Compile Include="Permission\DataScopeService.cs" />
+      <Compile Include="Permission\DeptService.cs" />
+      <Compile Include="Permission\JobService.cs" />
+      <Compile Include="Permission\MenuService.cs" />
+      <Compile Include="Permission\OnlineUserService.cs" />
+      <Compile Include="Permission\PermissionService.cs" />
+      <Compile Include="Queued\QueuedEmailService.cs" />
+      <Compile Include="System\AppSecretService.cs" />
+      <Compile Include="System\QuartzNetLogService.cs" />
+      <Compile Include="System\QuartzNetService.cs" />
+      <Compile Include="System\SettingService.cs" />
+      <Compile Include="System\TenantService.cs" />
+      <Compile Include="System\TokenBlacklistService.cs" />
+    </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BearPlatform.Core\BearPlatform.Core.csproj" />
+    <ProjectReference Include="..\BearPlatform.IBusiness\BearPlatform.IBusiness.csproj" />
+  </ItemGroup>
+
+</Project>

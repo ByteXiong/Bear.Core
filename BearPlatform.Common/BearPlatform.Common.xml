@@ -1,0 +1,3737 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BearPlatform.Common</name>
+    </assembly>
+    <members>
+        <member name="F:BearPlatform.Common.AppConfig.PathHome">
+            <summary>
+            后台首页
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.AppConfig.RoleCaChe">
+            <summary>
+            用户缓存Key
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.AppConfig.RoleButtonCaChe">
+             <summary>
+            角色按钮缓存
+             </summary>
+        </member>
+        <member name="F:BearPlatform.Common.AppConfig.HRedisDemoKey">
+            <summary>
+            哈希主键
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.AtLeastOneItemAttribute">
+            <summary>
+            集合必须至少包含一个项目。
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.AutoMappingAttribute">
+            <summary>
+            dto映射属性
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.AutoMappingAttribute.SourceType">
+            <summary>
+            源对象
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.AutoMappingAttribute.TargetType">
+            <summary>
+            目标对象
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.FormatResponseAttribute">
+            <summary>
+            若Action返回对象为自定义对象,则将其转为JSON
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.InitTableAttribute">
+            <summary>
+            初始种子数据特性，标有该特性的实体表示程序则生成数据库表数据
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.InitTableAttribute.SourceType">
+            <summary>
+            源对象
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.LogDataBaseAttribute">
+            <summary>
+            日志库
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.MultiDbTenantAttribute">
+            <summary>
+            租户标识(库隔离)
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.NoFormatResponseAttribute">
+            <summary>
+            返回结果不进行格式化
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Attributes.NoFormatResponseAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action执行之前执行
+            </summary>
+            <param name="context">过滤器上下文</param>
+        </member>
+        <member name="M:BearPlatform.Common.Attributes.NoFormatResponseAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Action执行完毕之后执行
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.NotAuditAttribute">
+            <summary>
+            表示不需要记录审计日志
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Attributes.OptionsSettingsAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Attributes.OptionsSettingsAttribute.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="path">appsetting.json 对应键</param>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.OptionsSettingsAttribute.Path">
+            <summary>
+            对应配置文件中的路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.QueryConditionAttribute.ConditionType">
+            <summary>
+            条件类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.QueryConditionAttribute.FieldName">
+            <summary>
+            指定字段名称 请求参数与实体参数名称不一致时使用
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.QueryConditionAttribute.FieldNameItems">
+            <summary>
+            指定字段名称,一个请求参数对应对应实体字段时使用
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.QueryConditionAttribute.IsGreaterThanNumberDefault">
+            <summary>
+            是否大于数字默认值才添加条件模型 例如int long默认0根据情况判断
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.Redis.TopicAttribute">
+            <inheritdoc />
+            <summary>
+            An abstract attribute that for kafka attribute or rabbit mq attribute
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.Redis.TopicAttribute.Name">
+            <summary>
+            Topic or exchange route key name.
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.Redis.TopicAttribute.Group">
+            <summary>
+            Default group name is CapOptions setting.(Assembly name)
+            kafka --> groups.id
+            rabbit MQ --> queue.name
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.Redis.TopicAttribute.Bulk">
+            <summary>
+            批量消费 参数是必须的
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.UseCacheAttribute">
+            <summary>
+            Redis特性  AOP拦截使用
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.UseCacheAttribute.Expiration">
+            <summary>
+            过期时间（分钟）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.UseCacheAttribute.KeyPrefix">
+            <summary>
+            缓存key前缀
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Attributes.UseCacheAttribute.CacheExpireType">
+            <summary>
+            缓存类型（默认绝对过期）
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Attributes.UseTranAttribute">
+            <summary>
+            事务特性 AOP拦截使用
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.ClassLibrary.CurrentDateTimeConverter">
+            <summary>
+            时间转换器 默认当前时间
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.CustomContractResolver.ResolveContractConverter(System.Type)">
+            <summary>
+            对长整型做处理
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.CustomContractResolver.CreateProperty(System.Reflection.MemberInfo,Newtonsoft.Json.MemberSerialization)">
+            <summary>
+            对字符串做处理
+            </summary>
+            <param name="member"></param>
+            <param name="memberSerialization"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.JsonConverterLong.CanConvert(System.Type)">
+            <summary>
+            是否可以转换
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.JsonConverterLong.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            读json
+            </summary>
+            <param name="reader"></param>
+            <param name="objectType"></param>
+            <param name="existingValue"></param>
+            <param name="serializer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.JsonConverterLong.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            写json
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="serializer"></param>
+        </member>
+        <member name="T:BearPlatform.Common.ClassLibrary.UsingLock`1">
+            <summary>
+            使用using代替lock操作的对象,可指定写入和读取锁定模式
+            参考:https://www.cnblogs.com/blqw/p/3475734.html
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:BearPlatform.Common.ClassLibrary.UsingLock`1.Lock">
+            <summary> 利用IDisposable的using语法糖方便的释放锁定操作
+            <para>内部类</para>
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.ClassLibrary.UsingLock`1.Lock._lock">
+            <summary> 读写锁对象
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.ClassLibrary.UsingLock`1.Lock._isWrite">
+            <summary> 是否为写入模式
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.UsingLock`1.Lock.#ctor(System.Threading.ReaderWriterLockSlim,System.Boolean)">
+            <summary> 利用IDisposable的using语法糖方便的释放锁定操作
+            <para>构造函数</para>
+            </summary>
+            <param name="rwl">读写锁</param>
+            <param name="isWrite">写入模式为true,读取模式为false</param>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.UsingLock`1.Lock.Dispose">
+            <summary> 释放对象时退出指定锁定模式
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.ClassLibrary.UsingLock`1.Disposable">
+            <summary> 空的可释放对象,免去了调用时需要判断是否为null的问题
+            <para>内部类</para>
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.ClassLibrary.UsingLock`1.Disposable.Empty">
+            <summary> 空的可释放对象
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.UsingLock`1.Disposable.Dispose">
+            <summary> 空的释放方法
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.ClassLibrary.UsingLock`1._lockSlim">
+            <summary> 读写锁
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.ClassLibrary.UsingLock`1._data">
+            <summary> 保存数据
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.UsingLock`1.#ctor">
+            <summary> 使用using代替lock操作的对象,可指定写入和读取锁定模式
+            <para>构造函数</para>
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.ClassLibrary.UsingLock`1.Data">
+            <summary> 获取或设置当前对象中保存数据的值
+            </summary>
+            <exception cref="T:System.MemberAccessException">获取数据时未进入读取或写入锁定模式</exception>
+            <exception cref="T:System.MemberAccessException">设置数据时未进入写入锁定模式</exception>
+        </member>
+        <member name="P:BearPlatform.Common.ClassLibrary.UsingLock`1.Enabled">
+            <summary> 是否启用,当该值为false时,Read()和Write()方法将返回 Disposable.Empty
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.UsingLock`1.Read">
+            <summary> 进入读取锁定模式,该模式下允许多个读操作同时进行
+            <para>退出读锁请将返回对象释放,建议使用using语块</para>
+            <para>Enabled为false时,返回Disposable.Empty;</para>
+            <para>在读取或写入锁定模式下重复执行,返回Disposable.Empty;</para>
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.ClassLibrary.UsingLock`1.Write">
+            <summary> 进入写入锁定模式,该模式下只允许同时执行一个读操作
+            <para>退出读锁请将返回对象释放,建议使用using语块</para>
+            <para>Enabled为false时,返回Disposable.Empty;</para>
+            <para>在写入锁定模式下重复执行,返回Disposable.Empty;</para>
+            </summary>
+            <exception cref="T:System.NotImplementedException">读取模式下不能进入写入锁定状态</exception>
+        </member>
+        <member name="T:BearPlatform.Common.DI.AutofacHelper">
+            <summary>
+            AutoFac帮助
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.DI.AutofacHelper.GetService``1">
+            <summary>
+            优先从当前 HTTP 请求范围内获取服务，如果不可用则从全局容器获取服务
+            </summary>
+            <typeparam name="T">接口类型</typeparam>
+            <returns>返回服务实例，如果服务未注册则返回 null</returns>
+        </member>
+        <member name="T:BearPlatform.Common.DI.IDependencyRepository">
+            <summary>
+            注入标记
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.DI.IDependencyService">
+            <summary>
+            注入标记
+            允许使用拦截器服务
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.DI.IFilter">
+            <summary>
+            过滤器
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.DI.IFilter.OnActionExecuting(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            执行前
+            </summary>
+            <param name="invocation">执行信息</param>
+        </member>
+        <member name="M:BearPlatform.Common.DI.IFilter.OnActionExecuted(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            执行后
+            </summary>
+            <param name="invocation">执行信息</param>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.CacheExpireType">
+            <summary>
+            缓存过期类型
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.CacheExpireType.Absolute">
+            <summary>
+            绝对过期
+            注：即自创建一段时间后就过期
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.CacheExpireType.Relative">
+            <summary>
+            相对过期
+            注：即该键未被访问后一段时间后过期，若此键一直被访问则过期时间自动延长
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.CacheType">
+            <summary>
+            缓存类型
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.CacheType.SystemCache">
+            <summary>
+            系统缓存
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.CacheType.RedisCache">
+            <summary>
+            Redis缓存
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.DataScopeType.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.DataScopeType.All">
+            <summary>
+            全部
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.DataScopeType.MySelf">
+            <summary>
+            本人
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.DataScopeType.MyDept">
+            <summary>
+            本部门
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.DataScopeType.MyDeptAndBelow">
+            <summary>
+            本部门及以下
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.DataScopeType.Customize">
+            <summary>
+            自定义
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.DictType.System">
+            <summary>
+            系统类
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.DictType.Business">
+            <summary>
+            业务类
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.VersionEnum.Pc">
+            <summary>
+            Pc端
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.VersionEnum.App">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.StateEnum.del">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.StateEnum.normal">
+            <summary>
+            正常
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.StateEnum.add">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.StateEnum.update">
+            <summary>
+            更新
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.OrderTypeEnum.asc">
+            <summary>
+            正序
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.OrderTypeEnum.desc">
+            <summary>
+            倒序
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.TableAlignEnum">
+            <summary>
+            对齐方式
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.TableFixedEnum">
+            <summary>
+            固定方式
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.SearchTypeEnum">
+            <summary>
+            查询方式,不能删除同步给前端用
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.MenuType.Directory">
+            <summary>
+            目录
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.MenuType.Menu">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.MenuType.Button">
+            <summary>
+            按钮
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.MenuType.Query">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.ClusterStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.ClusterStatus.Crashed">
+            <summary>
+            宕机
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.ClusterStatus.Working">
+            <summary>
+            工作中
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.ClusterStatus.Waiting">
+            <summary>
+            等待被唤醒
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.TriggerStateEnum">
+            <summary>
+            作业触发器状态
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Backlog">
+            <summary>
+            积压 Backlog
+            </summary>
+            <remarks>起始时间大于当前时间</remarks>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Ready">
+            <summary>
+            就绪Ready
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Running">
+            <summary>
+            正在运行Running
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Paused">
+            <summary>
+            暂停
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Blocked">
+            <summary>
+            阻塞
+            </summary>
+            <remarks>本该执行但是没有执行</remarks>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.ErrorToReady">
+            <summary>
+            由失败进入就绪
+            </summary>
+            <remarks>运行错误当并未超出最大错误数，进入下一轮就绪</remarks>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Complete">
+            <summary>
+            归档
+            </summary>
+            <remarks>结束时间小于当前时间</remarks>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Panic">
+            <summary>
+            崩溃
+            </summary>
+            <remarks>错误次数超出了最大错误数</remarks>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Overrun">
+            <summary>
+            超限
+            </summary>
+            <remarks>运行次数超出了最大限制</remarks>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Unoccupied">
+            <summary>
+            无触发时间
+            </summary>
+            <remarks>下一次执行时间为 null </remarks>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.NotStart">
+            <summary>
+            未启动
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Unknown">
+            <summary>
+            未知作业触发器
+            </summary>
+            <remarks>作业触发器运行时类型为 null</remarks>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerStateEnum.Unhandled">
+            <summary>
+            未知作业处理程序
+            </summary>
+            <remarks>作业处理程序类型运行时类型为 null</remarks>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.JobCreateTypeEnum">
+            <summary>
+            作业创建类型枚举
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.JobCreateTypeEnum.BuiltIn">
+            <summary>
+            内置
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.JobCreateTypeEnum.Script">
+            <summary>
+            脚本
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.JobCreateTypeEnum.Http">
+            <summary>
+            HTTP请求
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.LoggerType">
+            <summary>
+            日志类型
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.LoggerType.Console">
+            <summary>
+            输出到控制台
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.LoggerType.File">
+            <summary>
+            使用txt文件记录日志
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.LoggerType.Rdbms">
+            <summary>
+            使用关系型数据库记录日志,例如SQlServer、MySQL、Oracle等
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.LoggerType.ElasticSearch">
+            <summary>
+            使用ElasticSearch记录日志
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.QueuedEmailPriority.Low">
+            <summary>
+            低
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.QueuedEmailPriority.High">
+            <summary>
+            高
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.RsaType.Rsa">
+            <summary>
+            SHA1
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.RsaType.Rsa2">
+            <summary>
+            RSA2 密钥长度至少为2048
+            SHA256
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.RunMode">
+            <summary>
+            运行模式
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.RunMode.Dev">
+            <summary>
+            本地开发
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.RunMode.Demo">
+            <summary>
+            演示环境
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.RunMode.Publish">
+            <summary>
+            发布
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Enums.TenantType">
+            <summary>
+            租户类型
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TenantType.Id">
+            <summary>
+            Id隔离
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TenantType.Db">
+            <summary>
+            库隔离
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerType.Cron">
+            <summary>
+            表达式
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Enums.TriggerType.Simple">
+            <summary>
+            简单的
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Exception.BadRequestException">
+            <summary>
+            请求错误
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Exception.BusException">
+            <summary>
+            业务异常
+            注:并不会当作真正的异常处理,仅为方便返回前端错误提示信息
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Exception.BusException.#ctor(System.String,System.Int32,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="message">错误信息</param>
+            <param name="errorCode">错误代码</param>
+        </member>
+        <member name="P:BearPlatform.Common.Exception.BusException.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Exception.BusException.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Extensions.ConditionalModelExtensions">
+            <summary>
+            查询条件模型扩展
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ConditionalModelExtensions.ApplyQueryConditionalModel``1(``0)">
+            <summary>
+            应用条件
+            </summary>
+            <param name="criteria"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ConditionalModelExtensions.GenerateConditionalModel(BearPlatform.Common.Attributes.QueryConditionAttribute,System.Reflection.PropertyInfo,System.Object)">
+            <summary>
+            生成条件模型
+            </summary>
+            <param name="queryConditionAttribute"></param>
+            <param name="propertyInfo"></param>
+            <param name="fieldValue"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:BearPlatform.Common.Extensions.ExtObject">
+            <summary>
+            过滤器上下文扩展
+            </summary>
+            <summary>
+            字节扩展
+            </summary>
+            <summary>
+            DataTable扩展
+            </summary>
+            <summary>
+            时间扩展
+            </summary>
+            <summary>
+            委托扩展
+            </summary>
+            <summary>
+            GUID扩展
+            </summary>
+            <summary>
+            INT扩展
+            </summary>
+            <summary>
+            Stream扩展
+            </summary>
+            <summary>
+            字符串扩展
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ContainsFilter``1(Microsoft.AspNetCore.Mvc.Filters.FilterContext)">
+            <summary>
+            是否拥有某过滤器
+            </summary>
+            <typeparam name="T">过滤器类型</typeparam>
+            <param name="actionExecutingContext">上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToString(System.Byte[])">
+            <summary>
+            byte[]转string
+            注：默认使用UTF8编码
+            </summary>
+            <param name="bytes">byte[]数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToString(System.Byte[],System.Text.Encoding)">
+            <summary>
+            byte[]转string
+            </summary>
+            <param name="bytes">byte[]数组</param>
+            <param name="encoding">指定编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToBase64String(System.Byte[])">
+            <summary>
+            将byte[]转为Base64字符串
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToBinString(System.Byte)">
+            <summary>
+            转为二进制字符串
+            </summary>
+            <param name="aByte">字节</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToBinString(System.Byte[])">
+            <summary>
+            转为二进制字符串
+            注:一个字节转为8位二进制
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.To0XString(System.Byte[])">
+            <summary>
+            Byte数组转为对应的16进制字符串
+            </summary>
+            <param name="bytes">Byte数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.To0XString(System.Byte)">
+            <summary>
+            Byte数组转为对应的16进制字符串
+            </summary>
+            <param name="aByte">一个Byte</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToAsciiString(System.Byte[])">
+            <summary>
+            转为ASCII字符串（一个字节对应一个字符）
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToAsciiString(System.Byte)">
+            <summary>
+            转为ASCII字符串（一个字节对应一个字符）
+            </summary>
+            <param name="aByte">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.GetXor(System.Byte[])">
+            <summary>
+            获取异或值
+            注：每个字节异或
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToInt(System.Byte[])">
+            <summary>
+            将字节数组转为Int类型
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToFile(System.Byte[],System.String)">
+            <summary>
+            将字节数组保存为文件
+            </summary>
+            <param name="bytes">字节数组</param>
+            <param name="path">文件完成路径</param>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToList``1(System.Data.DataTable)">
+            <summary>
+            DataTable转List
+            </summary>
+            <typeparam name="T">转换类型</typeparam>
+            <param name="dt">数据源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToCsvStr(System.Data.DataTable)">
+             <summary>
+            将DataTable转换为标准的CSV字符串
+             </summary>
+             <param name="dt">数据表</param>
+             <returns>返回标准的CSV</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.GetWeekOfYear(System.DateTime)">
+              <summary> 
+             获取某一日期是该年中的第几周
+              </summary> 
+              <param name="dateTime"> 日期 </param> 
+              <returns> 该日期在该年中的周数 </returns> 
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToJsTimestamp(System.DateTime)">
+            <summary>
+            获取Js格式的timestamp
+            </summary>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.JsGetTime(System.DateTime)">
+            <summary>
+            获取js中的getTime()
+            </summary>
+            <param name="dt">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Default(System.DateTime)">
+            <summary>
+            返回默认时间1970-01-01
+            </summary>
+            <param name="dt">时间日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToCstTime(System.DateTime)">
+            <summary>
+            转为标准时间（北京时间，解决Linux时区问题）
+            </summary>
+            <param name="dt">当前时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToLocalTime(System.DateTime)">
+            <summary>
+            转为本地时间
+            </summary>
+            <param name="time">时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToUnixTimeStampSecond(System.DateTime)">
+            <summary>
+            转为转换为Unix时间戳格式(精确到秒)
+            </summary>
+            <param name="time">时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToUnixTimeStampMillisecond(System.DateTime)">
+            <summary>
+            转为转换为Unix时间戳格式(精确到毫秒)
+            </summary>
+            <param name="time">时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Done(System.Action,System.Action)">
+            <summary>
+            异步，按顺序执行第一个方法和第二个方法
+            </summary>
+            <param name="firstFunc">第一个方法</param>
+            <param name="next">下一个方法</param>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Done(System.Func{System.Object},System.Action{System.Object})">
+            <summary>
+            异步，按顺序执行第一个方法和下一个方法
+            </summary>
+            <param name="firstFunc">第一个方法</param>
+            <param name="next">下一个方法</param>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.GetDisplayName(System.Enum)">
+            <summary>
+            获取枚举显示名称
+            </summary>
+            <param name="enumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.AddProperty(System.Dynamic.ExpandoObject,System.String,System.Object)">
+            <summary>
+            添加属性
+            </summary>
+            <param name="expandoObj">动态对象</param>
+            <param name="propertyName">属性名</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.SetProperty(System.Dynamic.ExpandoObject,System.String,System.Object)">
+            <summary>
+            设置属性
+            </summary>
+            <param name="expandoObj">动态对象</param>
+            <param name="propertyName">属性名</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.GetProperty(System.Dynamic.ExpandoObject,System.String)">
+            <summary>
+            获取属性
+            </summary>
+            <param name="expandoObj">动态对象</param>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.GetProperties(System.Dynamic.ExpandoObject)">
+            <summary>
+            获取所有属性
+            </summary>
+            <param name="expandoObj">动态对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.RemoveProperty(System.Dynamic.ExpandoObject,System.String)">
+            <summary>
+            删除属性
+            </summary>
+            <param name="expandoObj">动态对象</param>
+            <param name="propertyName">属性名</param>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToDataTable(System.Collections.Generic.IEnumerable{System.Dynamic.ExpandoObject})">
+            <summary>
+            将动态属性对象ExpandoObject列表转为DataTable
+            </summary>
+            <param name="dataList">数据源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.BuildExtendSelectExpre``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            组合继承属性选择表达式树,无拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.BuildExtendSelectExpre``3(System.Linq.Expressions.Expression{System.Func{``0,``1,``2}})">
+            <summary>
+            组合继承属性选择表达式树,1个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.BuildExtendSelectExpre``4(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3}})">
+            <summary>
+            组合继承属性选择表达式树,2个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.BuildExtendSelectExpre``5(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4}})">
+            <summary>
+            组合继承属性选择表达式树,3个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="T3">拓展类型3</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.BuildExtendSelectExpre``6(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5}})">
+            <summary>
+            组合继承属性选择表达式树,4个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="T3">拓展类型3</typeparam>
+            <typeparam name="T4">拓展类型4</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.BuildExtendSelectExpre``7(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6}})">
+            <summary>
+            组合继承属性选择表达式树,5个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="T3">拓展类型3</typeparam>
+            <typeparam name="T4">拓展类型4</typeparam>
+            <typeparam name="T5">拓展类型5</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            连接表达式与运算
+            </summary>
+            <typeparam name="T">参数</typeparam>
+            <param name="one">原表达式</param>
+            <param name="another">新的表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.AndAlso``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            连接表达式与运算
+            </summary>
+            <typeparam name="T">参数</typeparam>
+            <param name="one">原表达式</param>
+            <param name="another">新的表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            连接表达式或运算
+            </summary>
+            <typeparam name="T">参数</typeparam>
+            <param name="one">原表达式</param>
+            <param name="another">新表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.GetConstantValue(System.Linq.Expressions.Expression)">
+            <summary>
+            获取表达式中的固定值
+            </summary>
+            <param name="expression">表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToSequentialGuid(System.Guid)">
+            <summary>
+            转为有序的GUID
+            注：长度为50字符
+            </summary>
+            <param name="guid">新的GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Copy``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            复制序列中的数据
+            </summary>
+            <typeparam name="T">泛型</typeparam>
+            <param name="iEnumberable">原数据</param>
+            <param name="startIndex">原数据开始复制的起始位置</param>
+            <param name="length">需要复制的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            给IEnumerable拓展ForEach方法
+            </summary>
+            <typeparam name="T">模型类</typeparam>
+            <param name="iEnumberable">数据源</param>
+            <param name="func">方法</param>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})">
+            <summary>
+            给IEnumerable拓展ForEach方法
+            </summary>
+            <typeparam name="T">模型类</typeparam>
+            <param name="iEnumberable">数据源</param>
+            <param name="func">方法</param>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.CastToList``1(System.Collections.IEnumerable)">
+            <summary>
+            IEnumerable转换为List'T'
+            </summary>
+            <typeparam name="T">参数</typeparam>
+            <param name="source">数据源</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToDataTable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            将IEnumerable'T'转为对应的DataTable
+            </summary>
+            <typeparam name="T">数据模型</typeparam>
+            <param name="iEnumberable">数据源</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToAscllStr(System.Int32)">
+            <summary>
+            int转Ascll字符
+            </summary>
+            <param name="ascllCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToDateTime_From_JsGetTime(System.Int64)">
+            <summary>
+            jsGetTime转为DateTime
+            </summary>
+            <param name="jsGetTime">js中Date.getTime()</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.GetErrors(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
+            <summary>
+            获取模型验证错误信息
+            常用的DataAnnotations注解 
+            1）非空验证  [Required]
+            2）长度验证 [StringLength(100, MinimumLength = 10)]
+            3）正则表达式验证 [RegularExpression("your expression")]
+            4）值范围验证 [Range(10, 100)]
+            5）对比验证 [Compare("Name")]
+            </summary>
+            <param name="self"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsNullOrEmpty(System.Object)">
+            <summary>
+            判断是否为Null或者空
+            </summary>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsNotNull(System.Object)">
+            <summary>
+            不等于NULL？
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsNull(System.Object)">
+            <summary>
+            等于NULL？
+            </summary>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToJson(System.Object)">
+            <summary>
+            将对象序列化成Json字符串
+            </summary>
+            <param name="obj">需要序列化的对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToJsonByIgnore(System.Object)">
+            <summary>
+            将对象序列化成Json字符串,同时忽略null字段
+            </summary>
+            <param name="obj">需要序列化的对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.EntityToJson(System.Object)">
+            <summary>
+            实体类转json数据，速度快
+            </summary>
+            <param name="t">实体类</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.DeepClone``1(``0)">
+            <summary>
+            深复制
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToXmlStr``1(``0)">
+            <summary>
+            将对象序列化为XML字符串
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToXmlStr``1(``0,System.String)">
+            <summary>
+            将对象序列化为XML字符串
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">对象</param>
+            <param name="rootNodeName">根节点名(建议设为xml)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToInt(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToInt(System.Object,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <param name="errorValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToMoney(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToMoney(System.Object,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <param name="errorValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToString(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToString(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <param name="errorValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToDecimal(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToDecimal(System.Object,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <param name="errorValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToDate(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToDate(System.Object,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <param name="errorValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToBool(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="thisValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ContainsProperty(System.Object,System.String)">
+            <summary>
+            是否拥有某属性
+            </summary>
+            <param name="obj">对象</param>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            获取某属性值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.SetPropertyValue(System.Object,System.String,System.Object)">
+            <summary>
+            设置某属性值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ContainsField(System.Object,System.String)">
+            <summary>
+            是否拥有某字段
+            </summary>
+            <param name="obj">对象</param>
+            <param name="fieldName">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.GetGetFieldValue(System.Object,System.String)">
+            <summary>
+            获取某字段值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="fieldName">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.SetFieldValue(System.Object,System.String,System.Object)">
+            <summary>
+            设置某字段值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="fieldName">字段名</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ChangeType(System.Object,System.Type)">
+            <summary>
+            改变实体类型
+            </summary>
+            <param name="obj">对象</param>
+            <param name="targetType">目标类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ChangeType``1(System.Object)">
+            <summary>
+            改变实体类型
+            </summary>
+            <typeparam name="T">目标泛型</typeparam>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ChangeType_ByConvert(System.Object,System.Type)">
+            <summary>
+            改变类型
+            </summary>
+            <param name="obj">原对象</param>
+            <param name="targetType">目标类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ReadToBytes(System.IO.Stream)">
+            <summary>
+            将流Stream转为byte数组
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ReadToString(System.IO.Stream)">
+            <summary>
+            将流读为字符串
+            注：默认使用UTF-8编码
+            </summary>
+            <param name="stream">流</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ReadToString(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            将流读为字符串
+            注：使用指定编码
+            </summary>
+            <param name="stream">流</param>
+            <param name="encoding">指定编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToBytes_FromBase64Str(System.String)">
+            <summary>
+            转为字节数组
+            </summary>
+            <param name="base64Str">base64字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToMd5String(System.String)">
+            <summary>
+            转换为MD5加密后的字符串（默认加密为32位）
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToMd5String16(System.String)">
+            <summary>
+            转换为MD5加密后的字符串（16位）
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Base64Encode(System.String)">
+            <summary>
+            Base64加密
+            注:默认采用UTF8编码
+            </summary>
+            <param name="source">待加密的明文</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Base64Encode(System.String,System.Text.Encoding)">
+            <summary>
+            Base64加密
+            </summary>
+            <param name="source">待加密的明文</param>
+            <param name="encoding">加密采用的编码方式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Base64Decode(System.String)">
+            <summary>
+            Base64解密
+            注:默认使用UTF8编码
+            </summary>
+            <param name="result">待解密的密文</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Base64Decode(System.String,System.Text.Encoding)">
+            <summary>
+            Base64解密
+            </summary>
+            <param name="result">待解密的密文</param>
+            <param name="encoding">解密采用的编码方式，注意和加密时采用的方式一致</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Base64UrlEncode(System.String)">
+            <summary>
+            Base64Url编码
+            </summary>
+            <param name="text">待编码的文本字符串</param>
+            <returns>编码的文本字符串</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.Base64UrlDecode(System.String)">
+            <summary>
+            Base64Url解码
+            </summary>
+            <param name="base64UrlStr">使用Base64Url编码后的字符串</param>
+            <returns>解码后的内容</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToSha1Bytes(System.String)">
+            <summary>
+            计算SHA1摘要
+            注：默认使用UTF8编码
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToSha1Bytes(System.String,System.Text.Encoding)">
+            <summary>
+            计算SHA1摘要
+            </summary>
+            <param name="str">字符串</param>
+            <param name="encoding">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToSha1String(System.String)">
+            <summary>
+            转为SHA1哈希加密字符串
+            注：默认使用UTF8编码
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToSha1String(System.String,System.Text.Encoding)">
+            <summary>
+            转为SHA1哈希
+            </summary>
+            <param name="str">字符串</param>
+            <param name="encoding">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToSha256String(System.String)">
+            <summary>
+            SHA256加密
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToHmacsha256String(System.String,System.String)">
+            <summary>
+            HMACSHA256算法
+            </summary>
+            <param name="text">内容</param>
+            <param name="secret">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToInt(System.String)">
+            <summary>
+            string转int
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToLong(System.String)">
+            <summary>
+            string转long
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToInt_FromBinString(System.String)">
+            <summary>
+            二进制字符串转为Int
+            </summary>
+            <param name="str">二进制字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToInt0X(System.String)">
+            <summary>
+            将16进制字符串转为Int
+            </summary>
+            <param name="str">数值</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToDouble(System.String)">
+            <summary>
+            转换为double
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToBytes(System.String)">
+            <summary>
+            string转byte[]
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToBytes(System.String,System.Text.Encoding)">
+            <summary>
+            string转byte[]
+            </summary>
+            <param name="str">字符串</param>
+            <param name="theEncoding">需要的编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.To0XBytes(System.String)">
+            <summary>
+            将16进制字符串转为Byte数组
+            </summary>
+            <param name="str">16进制字符串(2个16进制字符表示一个Byte)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToAsciiBytes(System.String)">
+            <summary>
+            将ASCII码形式的字符串转为对应字节数组
+            注：一个字节一个ASCII码字符
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToDateTime(System.String)">
+            <summary>
+            转换为日期格式
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToObject``1(System.String)">
+            <summary>
+            将Json字符串反序列化为对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="jsonStr">Json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.RemoveAt(System.String)">
+            <summary>
+            删除Json字符串中键中的@符号
+            </summary>
+            <param name="jsonStr">json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToObject(System.String,System.Type)">
+            <summary>
+            将Json字符串反序列化为对象
+            </summary>
+            <param name="jsonStr">json字符串</param>
+            <param name="type">对象类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.XmlStrToObject``1(System.String)">
+            <summary>
+            将XML字符串反序列化为对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="xmlStr">XML字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.XmlStrToJObject(System.String)">
+            <summary>
+            将XML字符串反序列化为对象
+            </summary>
+            <param name="xmlStr">XML字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToList``1(System.String)">
+            <summary>
+            将Json字符串转为List'T'
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="jsonStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToDataTable(System.String)">
+            <summary>
+            将Json字符串转为DataTable
+            </summary>
+            <param name="jsonStr">Json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToJObject(System.String)">
+            <summary>
+            将Json字符串转为JObject
+            </summary>
+            <param name="jsonStr">Json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToJArray(System.String)">
+            <summary>
+            将Json字符串转为JArray
+            </summary>
+            <param name="jsonStr">Json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToEntity``1(System.String)">
+            <summary>
+            json数据转实体类,仅仅应用于单个实体类，速度非常快
+            </summary>
+            <typeparam name="T">泛型参数</typeparam>
+            <param name="json">json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToFirstUpperStr(System.String)">
+            <summary>
+            转为首字母大写
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToFirstLowerStr(System.String)">
+            <summary>
+            转为首字母小写
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToIpEndPoint(System.String)">
+            <summary>
+            转为网络终结点IPEndPoint
+            </summary>=
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToEnum``1(System.String)">
+            <summary>
+            将枚举类型的文本转为枚举类型
+            </summary>
+            <typeparam name="T">枚举类型</typeparam>
+            <param name="enumText">枚举文本</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.ToMurmurHash(System.String)">
+            <summary>
+            转为MurmurHash
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsWeakPwd(System.String)">
+            <summary>
+            是否为弱密码
+            注:密码必须包含数字、小写字母、大写字母和其他符号中的两种并且长度大于8
+            </summary>
+            <param name="pwd">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsEmail(System.String)">
+            <summary>
+            判断是否邮箱
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsGeneric(System.Type,System.Type)">
+            <summary>
+            判断是否是泛型
+            </summary>
+            <param name="self">Type类</param>
+            <param name="innerType">泛型类型</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsNullable(System.Type)">
+            <summary>
+            判断是否为Nullable类型
+            </summary>
+            <param name="self"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsList(System.Type)">
+            <summary>
+            判断是否为List类型
+            </summary>
+            <param name="self"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsEnum(System.Type)">
+            <summary>
+            判断是否为枚举
+            </summary>
+            <param name="self">Type类</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsEnumOrNullableEnum(System.Type)">
+            <summary>
+            判断是否为枚举或者可空枚举
+            </summary>
+            <param name="self"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsPrimitive(System.Type)">
+            <summary>
+            判断是否为值类型
+            </summary>
+            <param name="self">Type类</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Extensions.ExtObject.IsBoolOrNullableBool(System.Type)">
+            <summary>
+            判断是否是 bool or bool?类型
+            </summary>
+            <param name="self"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Extensions.ParameterReplaceVisitor">
+            <summary>
+            继承ExpressionVisitor类，实现参数替换统一
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Extensions.UnixDateTimeConvertor">
+            <summary>
+            时间转换器 全局序列化使用
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Global.AppSettings">
+            <summary>
+            配置文件帮助类
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Global.AppSettings.ContentRootPath">
+            <summary>
+            网站根路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Global.AppSettings.WebRootPath">
+            <summary>
+            网站根路径(wwwroot)
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Global.AppSettings.GetValue(System.String)">
+            <summary>
+            从AppSettings获取key的值
+            </summary>
+            <param name="key">key</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Global.AppSettings.GetValue``1(System.String)">
+            <summary>
+            从AppSettings获取key的值
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="key">键路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Global.AppSettings.GetValue(System.String[])">
+            <summary>
+            从AppSettings获取key的值
+            </summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Global.AppSettings.GetValue``1(System.String[])">
+            <summary>
+            从AppSettings获取key的值
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="keys">键路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Global.AppSettings.ConvertValue``1(System.String)">
+            <summary>
+            值类型转换
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Global.AppSettings.ConvertValue(System.Type,System.String)">
+            <summary>
+            值类型转换
+            </summary>
+            <param name="type">类型</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Actort">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Acr">
+            <summary>
+            http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Amr">
+            <summary>
+            http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Aud">
+            <summary>
+            http://tools.ietf.org/html/rfc7519#section-4
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.AuthTime">
+            <summary>
+            http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Azp">
+            <summary>
+            http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Birthdate">
+            <summary>
+            https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.CHash">
+            <summary>
+            https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.AtHash">
+            <summary>
+            http://openid.net/specs/openid-connect-core-1_0.html#CodeIDToken
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Email">
+            <summary>
+            https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Exp">
+            <summary>
+            http://tools.ietf.org/html/rfc7519#section-4
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Gender">
+            <summary>
+            https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.FamilyName">
+            <summary>
+            https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.GivenName">
+            <summary>
+            https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Iat">
+            <summary>
+            http://tools.ietf.org/html/rfc7519#section-4
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Iss">
+            <summary>
+            http://tools.ietf.org/html/rfc7519#section-4
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Jti">
+            <summary>
+            http://tools.ietf.org/html/rfc7519#section-4
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.NameId">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Nonce">
+            <summary>
+            https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Nbf">
+            <summary>
+            http://tools.ietf.org/html/rfc7519#section-4
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Prn">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Sid">
+            <summary>
+            http://openid.net/specs/openid-connect-frontchannel-1_0.html#OPLogout
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Sub">
+            <summary>
+            http://tools.ietf.org/html/rfc7519#section-4
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.AuthConstants.JwtClaimTypes.Typ">
+            <summary>
+            https://tools.ietf.org/html/rfc7519#section-5
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Global.GlobalConstants.CachePrefix">
+            <summary>
+            缓存Key常量
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.OnlineKey">
+            <summary>
+            在线
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.CaptchaId">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.Threshold">
+            <summary>
+            登录失败阈值
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.Attempts">
+            <summary>
+            登录失败次数
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.EmailCaptcha">
+            <summary>
+            邮箱验证码
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.UserInfoById">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.UserMenuById">
+            <summary>
+            用户菜单
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.UserPermissionRoles">
+            <summary>
+            用户权限标识
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.UserPermissionUrls">
+            <summary>
+            用户权限Url
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.LoadMenusByPId">
+            <summary>
+            加载菜单根据PID
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.LoadMenusById">
+            <summary>
+            加载菜单根据ID
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.LoadAllMenu">
+            <summary>
+            全部菜单
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.UserMenuConstant">
+            <summary>
+            全部菜单
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.LoadSettingByName">
+            <summary>
+            加载设置信息
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.UserDataScopeById">
+            <summary>
+            用户数据权限
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.GlobalConstants.CachePrefix.LoadDictDetailByDictId">
+            <summary>
+            加载字典详情信息
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Global.GlobalType">
+            <summary>
+            程序集类型
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Global.LanguageKeyConstants">
+            <summary>
+            多语言Key
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Global.Mapper">
+            <summary>
+            对象映射
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Global.MimeTypes">
+            <summary>
+            常用的MimeType集合
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ApplicationForceDownload">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ApplicationJson">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ApplicationManifestJson">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ApplicationOctetStream">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ApplicationPdf">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ApplicationRssXml">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ApplicationXml">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ApplicationXWwwFormUrlencoded">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ApplicationXZipCo">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ApplicationZip">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ImageBmp">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ImageGif">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ImageJpeg">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ImagePJpeg">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ImagePng">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.ImageTiff">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.TextCss">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.TextCsv">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.TextJavascript">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.TextPlain">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Global.MimeTypes.TextXlsx">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.AsyncHelper">
+            <summary>
+            异步转同步,防止ASP.NET中死锁
+            https://cpratt.co/async-tips-tricks/
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.AsyncHelper.RunSync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            同步执行
+            </summary>
+            <param name="func">任务</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.AsyncHelper.RunSync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            同步执行
+            </summary>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="func">任务</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.BCryptHelper">
+            <summary>
+            哈希密码、验证
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.BCryptHelper.Hash(System.String)">
+            <summary>
+            密码哈希
+            </summary>
+            <param name="inputKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.BCryptHelper.Verify(System.String,System.String)">
+            <summary>
+            验证密码
+            </summary>
+            <param name="inputKey"></param>
+            <param name="hashKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.CmdHelper.Run(System.String,System.String)">
+            <summary>  
+            Windows操作系统，执行cmd命令
+            多命令请使用批处理命令连接符：  
+            <![CDATA[  
+            &:同时执行两个命令  
+            |:将上一个命令的输出,作为下一个命令的输入  
+            &&：当&&前的命令成功时,才执行&&后的命令  
+            ||：当||前的命令失败时,才执行||后的命令
+            ]]>
+            </summary>  
+        </member>
+        <member name="M:BearPlatform.Common.Helper.CmdHelper.Shell(System.String)">
+            <summary>
+            Linux操作系统，执行Shell
+            【 using https://github.com/phil-harmoniq/Shell.NET 】
+            </summary>
+            <param name="cmd"></param>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.CmdHelper.BashResult">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.CmdHelper.BashResult.Output">
+            <summary>
+            The command's standard output as a string. (if redirected)</summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.CmdHelper.BashResult.ErrorMsg">
+            <summary>
+            The command's error output as a string. (if redirected)</summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.CmdHelper.BashResult.ExitCode">
+            <summary>
+            The command's exit code as an integer.</summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.CmdHelper.BashResult.Lines">
+            <summary>
+            An array of the command's output split by newline characters. (if redirected)</summary>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.CmdHelper.Bash">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.CmdHelper.Bash.Native">
+            <summary>Determines whether bash is running in a native OS (Linux/MacOS).</summary>
+            <returns>True if in *nix, else false.</returns>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.CmdHelper.Bash.Subsystem">
+            <summary>Determines if using Windows and if Linux subsystem is installed.</summary>
+            <returns>True if in Windows and bash detected.</returns>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.CmdHelper.Bash.Output">
+            <summary>Stores output of the previous command if redirected.</summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.CmdHelper.Bash.Lines">
+            <summary>
+            Gets an array of the command output split by newline characters if redirected. </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.CmdHelper.Bash.ExitCode">
+            <summary>Stores the exit code of the previous command.</summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.CmdHelper.Bash.ErrorMsg">
+            <summary>Stores the error message of the previous command if redirected.</summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.CmdHelper.Bash.Command(System.String,System.Boolean)">
+            <summary>Execute a new Bash command.</summary>
+            <param name="input">The command to execute.</param>
+            <param name="redirect">Print output to terminal if false.</param>
+            <returns>A `BashResult` containing the command's output information.</returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ConsoleHelper.WriteLine(System.String,System.ConsoleColor)">
+            <summary>
+            打印控制台信息
+            </summary>
+            <param name="str">待打印的字符串</param>
+            <param name="color">想要打印的颜色</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.DateTimeHelper.FormatLongToTime(System.Int64)">
+            <summary>
+            格式化时间
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.DelegateHelper">
+            <summary>
+            委托帮助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.DelegateHelper.RunAsync(System.Action,System.Action)">
+            <summary>
+            异步执行方法
+            </summary>
+            <param name="firstFunc">首先执行的方法</param>
+            <param name="next">接下来执行的方法</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.DelegateHelper.RunAsync(System.Func{System.Object},System.Action{System.Object})">
+            <summary>
+            异步执行方法
+            </summary>
+            <param name="firstFunc">首先执行的方法</param>
+            <param name="next">接下来执行的方法</param>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.ExcelHelper.ExportTitleBackColor">
+            <summary>
+            导出文件第一行背景颜色，使用HSSFColor，例如：HSSFColor.Red.Index
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.ExcelHelper.ExportTitleFontColor">
+            <summary>
+            导出文件第一行文字颜色，使用HSSFColor，例如：HSSFColor.Red.Index
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ExcelHelper.GenerateWorkBook(System.Collections.Generic.List{BearPlatform.Common.Model.ExportBase})">
+            <summary>
+            根据集合生成单个Excel
+            </summary>
+            <param name="exportBases"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.ExceptionHelper">
+            <summary>
+            异常处理帮助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ExceptionHelper.GetExceptionAddr(System.Exception)">
+            <summary>
+            获取异常位置
+            </summary>
+            <param name="e">异常</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ExceptionHelper.GetExceptionAllMsg(System.Exception,System.Int32)">
+            <summary>
+            获取异常消息
+            </summary>
+            <param name="ex">捕捉的异常</param>
+            <param name="level">内部异常层级</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ExceptionHelper.GetExceptionAllMsg(System.Exception)">
+            <summary>
+            获取异常消息
+            </summary>
+            <param name="ex">捕捉的异常</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.FileHelper">
+            <summary>
+            文件操作帮助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.Exists(System.String)">
+            <summary>
+            判断文件是否存在
+            </summary>
+            <param name="path">文件目录</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.GetCurrentDir">
+            <summary>
+            获取当前程序根目录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.ReadText(System.String,System.Text.Encoding)">
+            <summary>
+            读取
+            </summary>
+            <param name="fileFullPath">文件完整物理路径</param>
+            <param name="e">编码 默认UTF8</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.WriteTxt(System.String,System.String)">
+            <summary>
+            输出字符串到文件
+            注：使用系统默认编码;若文件不存在则创建新的,若存在则覆盖
+            </summary>
+            <param name="content">内容</param>
+            <param name="path">文件路径</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.WriteTxt(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            输出字符串到文件
+            注：使用自定义编码;若文件不存在则创建新的,若存在则覆盖
+            </summary>
+            <param name="content">内容</param>
+            <param name="path">文件路径</param>
+            <param name="encoding">编码</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.WriteTxt(System.String,System.String,System.IO.FileMode)">
+            <summary>
+            输出字符串到文件
+            注：使用自定义模式,使用UTF-8编码
+            </summary>
+            <param name="content">内容</param>
+            <param name="path">文件路径</param>
+            <param name="fileModel">输出方法</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.WriteTxt(System.String,System.String,System.Text.Encoding,System.IO.FileMode)">
+            <summary>
+            输出字符串到文件
+            注：使用自定义编码以及写入模式
+            </summary>
+            <param name="content">内容</param>
+            <param name="path">文件路径</param>
+            <param name="encoding">字符编码</param>
+            <param name="fileModel">写入模式</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.WriteTxt(System.String,System.String,System.Text.Encoding,System.Nullable{System.IO.FileMode})">
+            <summary>
+            输出字符串到文件
+            注：使用自定义编码以及写入模式
+            </summary>
+            <param name="content">内容</param>
+            <param name="path">文件路径</param>
+            <param name="encoding">字符编码</param>
+            <param name="fileModel">写入模式</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.GetFileSize(System.Int64)">
+            <summary>
+            获取文件大小
+            </summary>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.GetExtensionName(System.String)">
+            <summary>
+            获取文件扩展名
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.GetFileTypeName(System.String)">
+            <summary>
+            获取文件类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.FileHelper.GetFileTypeNameEn(System.String)">
+            <summary>
+            获取文件英文名称 用于存储文件路径
+            </summary>
+            <param name="fileType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.GuidHelper">
+            <summary>
+            GUID帮助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.GuidHelper.GenerateKey">
+            <summary>
+            生成主键
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.HttpHelper">
+            <summary>
+            Http请求操作帮助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.#cctor">
+            <summary>
+            静态构造函数
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.GetData(System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.String},System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            发起GET请求
+            注：若使用证书,推荐使用X509Certificate2的pkcs12证书
+            </summary>
+            <param name="url">地址</param>
+            <param name="paramters">参数</param>
+            <param name="headers">请求头</param>
+            <param name="cerFile">证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.PostData(System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.String},BearPlatform.Common.Helper.ContentType,System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            发起POST请求
+            注：若使用证书,推荐使用X509Certificate2的pkcs12证书
+            </summary>
+            <param name="url">地址</param>
+            <param name="paramters">参数</param>
+            <param name="headers">请求头</param>
+            <param name="contentType">请求的ContentType</param>
+            <param name="cerFile">证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.PostData(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            发起POST请求
+            注：若使用证书,推荐使用X509Certificate2的pkcs12证书
+            </summary>
+            <param name="url">地址</param>
+            <param name="body">请求体</param>
+            <param name="contentType">请求的ContentType</param>
+            <param name="headers">请求头</param>
+            <param name="cerFile">证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.RequestData(BearPlatform.Common.Helper.HttpMethod,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.String},BearPlatform.Common.Helper.ContentType,System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            请求数据
+            注：若使用证书,推荐使用X509Certificate2的pkcs12证书
+            </summary>
+            <param name="method">请求方法</param>
+            <param name="url">URL地址</param>
+            <param name="paramters">参数</param>
+            <param name="headers">请求头信息</param>
+            <param name="contentType">请求数据类型</param>
+            <param name="cerFile">证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.RequestData(System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            请求数据
+            注：若使用证书,推荐使用X509Certificate2的pkcs12证书
+            </summary>
+            <param name="method">请求方法</param>
+            <param name="url">请求地址</param>
+            <param name="body">请求的body内容</param>
+            <param name="contentType">请求数据类型</param>
+            <param name="headers">请求头</param>
+            <param name="cerFile">证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.GetAllRequestParams(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            获取所有请求的参数（包括get参数和post参数）
+            </summary>
+            <param name="context">请求上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.BuildGetFullUrl(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            构建完全Url
+            </summary>
+            <param name="url">Url</param>
+            <param name="parameters">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.GetHtml(System.String)">
+            <summary>
+            从URL获取html文档
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.SafeSignRequest(System.String,System.String,System.String,System.String)">
+            <summary>
+            发起安全签名请求
+            注：使用本框架签名算法,ContentType为application/json
+            </summary>
+            <param name="url">地址</param>
+            <param name="body">请求body</param>
+            <param name="appId">应用Id</param>
+            <param name="appSecret">应用密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.HttpHelper.BuildApiSign(System.String,System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            生成接口签名sign
+            注：md5(appId+time+guid+body+appSecret)
+            </summary>
+            <param name="appId">应用Id</param>
+            <param name="appSecret">应用密钥</param>
+            <param name="guid">唯一GUID</param>
+            <param name="time">时间</param>
+            <param name="body">请求体</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.HttpMethod">
+            <summary>
+            Http请求方法定义
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Helper.ContentType.Form">
+            <summary>
+            传统Form表单,即application/x-www-form-urlencoded
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.Helper.ContentType.Json">
+            <summary>
+            使用Json,即application/json
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.ImgHelper">
+            <summary>
+            图片操作帮助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ImgHelper.GetImgFromFile(System.String)">
+            <summary>
+            从文件获取图片
+            </summary>
+            <param name="fileName">文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ImgHelper.GetImgFromBase64(System.String)">
+            <summary>
+            从base64字符串读入图片
+            </summary>
+            <param name="base64">base64字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ImgHelper.GetImgFromBase64Url(System.String)">
+            <summary>
+            从URL格式的Base64图片获取真正的图片
+            即去掉data:image/jpg;base64,这样的格式
+            </summary>
+            <param name="base64Url">图片Base64的URL形式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ImgHelper.CompressImg(System.Drawing.Image,System.Int32)">
+            <summary>
+            压缩图片
+            注:等比压缩
+            </summary>
+            <param name="img">原图片</param>
+            <param name="width">压缩后宽度</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ImgHelper.CompressImg(System.Drawing.Image,System.Int32,System.Int32)">
+            <summary>
+            压缩图片
+            </summary>
+            <param name="img">原图片</param>
+            <param name="width">压缩后宽度</param>
+            <param name="height">压缩后高度</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ImgHelper.ToBase64String(System.Drawing.Image)">
+            <summary>
+            将图片转为base64字符串
+            默认使用jpg格式
+            </summary>
+            <param name="img">图片对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ImgHelper.ToBase64String(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            将图片转为base64字符串
+            使用指定格式
+            </summary>
+            <param name="img">图片对象</param>
+            <param name="imageFormat">指定格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ImgHelper.ToBase64StringUrl(System.Drawing.Image)">
+            <summary>
+            将图片转为base64字符串
+            默认使用jpg格式,并添加data:image/jpg;base64,前缀
+            </summary>
+            <param name="img">图片对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ImgHelper.ToBase64StringUrl(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            将图片转为base64字符串
+            使用指定格式,并添加data:image/jpg;base64,前缀
+            </summary>
+            <param name="img">图片对象</param>
+            <param name="imageFormat">指定格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.ImgHelper.GetBase64String(System.String)">
+            <summary>
+            获取真正的图片base64数据
+            即去掉data:image/jpg;base64,这样的格式
+            </summary>
+            <param name="base64UrlStr">带前缀的base64图片字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.IocHelper">
+            <summary>
+            Ioc容器帮助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IocHelper.RegisterType``2">
+            <summary>
+            注册类型
+            </summary>
+            <typeparam name="TFrom">定义类型</typeparam>
+            <typeparam name="TTo">实现类型</typeparam>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IocHelper.RegisterType``2(System.String)">
+            <summary>
+            注册类型
+            </summary>
+            <param name="name">注册名</param>
+            <typeparam name="TFrom">定义类型</typeparam>
+            <typeparam name="TTo">实现类型</typeparam>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IocHelper.RegisterType(System.Type,System.Type,System.String)">
+            <summary>
+            注册类型
+            </summary>
+            <param name="typeFrom">定义类型</param>
+            <param name="typeTo">实现类型</param>
+            <param name="name">注册名</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IocHelper.Resolve``1">
+            <summary>
+            获取对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IocHelper.Resolve``1(System.Object[])">
+            <summary>
+            获取对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="paramters">构造参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IocHelper.Resolve``1(System.String)">
+            <summary>
+            获取对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="name">注册名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IocHelper.Resolve``1(System.String,System.Object[])">
+            <summary>
+            获取对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="name">注册名</param>
+            <param name="paramters">构造参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IocHelper.Resolve(System.Type,System.String,System.Object[])">
+            <summary>
+            获取对象
+            </summary>
+            <param name="typeFrom">对象类型</param>
+            <param name="name">注册名</param>
+            <param name="paramters">构造参数</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.IpHelper">
+            <summary>
+            Ip地址帮助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IpHelper.GetLocalIp">
+            <summary>
+            获取本地IP地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IpHelper.GetFirstAvailablePort">
+            <summary>
+            获取第一个可用的端口号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IpHelper.PortIsAvailable(System.Int32)">
+            <summary>
+            检查指定端口是否已用
+            </summary>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.IpHelper.PortIsUsed">
+            <summary>
+            获取操作系统已用的端口号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.JobHelper">
+            <summary>
+            时间帮助类
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.LinqHelper">
+            <summary>
+            Linq操作帮助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.LinqHelper.True``1">
+            <summary>
+            创建初始条件为True的表达式
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.LinqHelper.False``1">
+            <summary>
+            创建初始条件为False的表达式
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.LogHelper">
+            <summary>
+            日志操作类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.LogHelper.WriteError(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            文本日志
+            </summary>
+            <param name="folder">文件夹</param>
+            <param name="message">消息</param>   
+        </member>
+        <member name="M:BearPlatform.Common.Helper.LogHelper.WriteLog(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            写日志文件数据库日志文件
+            </summary>
+            <param name="folder">文件夹</param>
+            <param name="message">消息</param> 
+        </member>
+        <member name="M:BearPlatform.Common.Helper.LogHelper.AddLog(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            文本日志
+            </summary>
+            <param name="folder">文件夹</param>
+            <param name="message">日志存储目录名称</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.LogHelper.WriteSqlLog(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            SQL日志
+            </summary>
+            <param name="filename"></param>
+            <param name="dataParas"></param>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.RandomHelper">
+            <summary>
+            Random随机数帮助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.RandomHelper.Next(System.Int32,System.Int32)">
+            <summary>
+            下一个随机数
+            </summary>
+            <param name="minValue">最小值</param>
+            <param name="maxValue">最大值</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.RandomHelper.Next``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            下一个随机值
+            </summary>
+            <typeparam name="T">值类型</typeparam>
+            <param name="source">值的集合</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.RsaHelper">
+            <summary>
+            RSA加解密 使用OpenSSL的公钥加密/私钥解密
+            
+            公私钥请使用openssl生成  ssh-keygen -t rsa 命令生成的公钥私钥是不行的
+            
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.RsaHelper.#ctor(System.String,System.String,BearPlatform.Common.Enums.RsaType)">
+            <summary>
+            实例化RSAHelper
+            </summary>
+            <param name="rsaType">加密算法类型 RSA SHA1;RSA2 SHA256 密钥长度至少为2048</param>
+            <param name="privateKey">私钥</param>
+            <param name="publicKey">公钥</param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.RsaHelper.Sign(System.String)">
+            <summary>
+            使用私钥签名
+            </summary>
+            <param name="data">原始数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.RsaHelper.Verify(System.String,System.String)">
+            <summary>
+            使用公钥验证签名
+            </summary>
+            <param name="data">原始数据</param>
+            <param name="sign">签名</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.RuntimeHelper.GetAllAssemblies">
+            <summary>
+            获取项目程序集，排除所有的系统程序集(Microsoft.***、System.***等)、Nuget下载包
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.SixLaborsImageHelper.CreateValidateCode(System.Int32)">
+            <summary>     
+            生成验证码     
+            </summary>     
+            <param name="length">指定验证码的长度</param>     
+            <returns></returns>     
+        </member>
+        <member name="M:BearPlatform.Common.Helper.SixLaborsImageHelper.BuildVerifyCode(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取验证码
+            </summary>
+            <param name="width">图像宽度</param>
+            <param name="height">图像高度</param>
+            <param name="fontSize">字体大小</param>
+            <param name="length">验证码长度，如果是0则使用算数验证码</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.TaskHelper">
+            <summary>
+            异步转同步,防止ASP.NET中死锁
+            https://stackoverflow.com/questions/5095183/how-would-i-run-an-async-taskt-method-synchronously
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.TenantHelper.GetConnectionConfig(System.String,SqlSugar.DbType,System.String)">
+            <summary>
+            获取租户数据库连接
+            </summary>
+            <param name="configId">唯一标识</param>
+            <param name="dbType">数据库类型</param>
+            <param name="connection">连接符</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.TreeHelper`1">
+            <summary>
+            构建树
+            </summary>
+            <typeparam name="T">泛型</typeparam>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.TreeHelper`1.ListToTrees(System.Collections.Generic.List{`0},System.String,System.String,System.Int64,System.String)">
+            <summary>
+            构建树结构
+            </summary>
+            <param name="lists">数据源</param>
+            <param name="code">ID编码</param>
+            <param name="parentCode">父级编码</param>
+            <param name="value">父级编码值</param>
+            <param name="childNodeName">子节点属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.TypeBuilderHelper">
+            <summary>
+            运行时创建类型
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.TypeBuilderHelper.BuildType(BearPlatform.Common.Helper.TypeConfig)">
+            <summary>
+            创建类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.TypeBuilderHelper.GetConfig(System.Type)">
+            <summary>
+            获取配置
+            </summary>
+            <param name="type">原类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.TypeConfig">
+            <summary>
+            类型配置
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.TypeConfig.FullName">
+            <summary>
+            类型名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.TypeConfig.AssemblyName">
+            <summary>
+            程序集名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.TypeConfig.Properties">
+            <summary>
+            拥有的属性
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.TypeConfig.Attributes">
+            <summary>
+            拥有的特性
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.PropertyConfig">
+            <summary>
+            属性配置
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.PropertyConfig.PropertyName">
+            <summary>
+            属性名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.PropertyConfig.PropertyType">
+            <summary>
+            属性类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.PropertyConfig.Attributes">
+            <summary>
+            属性包含的自定义特性
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.AttributeConfig">
+            <summary>
+            特性配置
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.AttributeConfig.Attribute">
+            <summary>
+            特性类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.AttributeConfig.ConstructorArgs">
+            <summary>
+            构造函数参数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Helper.AttributeConfig.Properties">
+            <summary>
+            初始化属性
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Helper.XmlCommentHelper">
+            <summary>
+            注释辅助类
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.LoadAll">
+            <summary>
+            从当前dll文件中加载所有的xml文件
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.LoadXml(System.String[])">
+            <summary>
+            从xml中加载
+            </summary>
+            <param name="xmls"></param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.Load(System.String[])">
+            <summary>
+            从文件中加载
+            </summary>
+            <param name="xmlFiles"></param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.Load(System.IO.Stream[])">
+            <summary>
+            从流中加载
+            </summary>
+            <param name="streams"></param>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetTypeComment(System.Type,System.String,System.Boolean)">
+            <summary>
+            读取类型中的注释
+            </summary>
+            <param name="type">类型</param>
+            <param name="xPath">注释路径</param>
+            <param name="humanize">可读性优化(比如：去掉xml标记)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetFieldOrPropertyComment(System.Reflection.MemberInfo,System.String,System.Boolean)">
+            <summary>
+            读取字段或者属性的注释
+            </summary>
+            <param name="fieldOrPropertyInfo">字段或者属性</param>
+            <param name="xPath">注释路径</param>
+            <param name="humanize">可读性优化(比如：去掉xml标记)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetMethodComment(System.Reflection.MethodInfo,System.String,System.Boolean)">
+            <summary>
+            读取方法中的注释
+            </summary>
+            <param name="methodInfo">方法</param>
+            <param name="xPath">注释路径</param>
+            <param name="humanize">可读性优化(比如：去掉xml标记)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetMethodReturnComment(System.Reflection.MethodInfo,System.Boolean)">
+            <summary>
+            读取方法中的返回值注释
+            </summary>
+            <param name="methodInfo">方法</param>
+            <param name="humanize">可读性优化(比如：去掉xml标记)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetParameterComment(System.Reflection.ParameterInfo,System.Boolean)">
+            <summary>
+            读取参数的注释
+            </summary>
+            <param name="parameterInfo">参数</param>
+            <param name="humanize">可读性优化(比如：去掉xml标记)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetParameterComments(System.Reflection.MethodInfo,System.Boolean)">
+            <summary>
+            读取方法的所有参数的注释
+            </summary>
+            <param name="methodInfo">方法</param>
+            <param name="humanize">可读性优化(比如：去掉xml标记)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetComment(System.String,System.String,System.Boolean)">
+            <summary>
+            读取指定名称节点的注释
+            </summary>
+            <param name="name">节点名称</param>
+            <param name="xPath">注释路径</param>
+            <param name="humanize">可读性优化(比如：去掉xml标记)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetSummary(System.String,System.Boolean)">
+            <summary>
+            读取指定节点的summary注释
+            </summary>
+            <param name="name">节点名称</param>
+            <param name="humanize">可读性优化(比如：去掉xml标记)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetExample(System.String,System.Boolean)">
+            <summary>
+            读取指定节点的example注释
+            </summary>
+            <param name="name">节点名称</param>
+            <param name="humanize">可读性优化(比如：去掉xml标记)</param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetMemberNameForMethod(System.Reflection.MethodInfo)">
+            <summary>
+            获取方法的节点名称
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetMemberNameForType(System.Type)">
+            <summary>
+            获取类型的节点名称
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Helper.XmlCommentHelper.GetMemberNameForFieldOrProperty(System.Reflection.MemberInfo)">
+            <summary>
+            获取字段或者属性的节点名称
+            </summary>
+            <param name="fieldOrPropertyInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions">
+            <summary>
+            Id参数配置
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.BaseTime">
+            <summary>
+            基础时间（UTC格式）
+            不能超过当前系统时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.WorkerId">
+            <summary>
+            机器码
+            必须由外部设定，最大值 2^WorkerIdBitLength-1
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.WorkerIdBitLength">
+            <summary>
+            机器码位长
+            默认值6，取值范围 [1, 15]（要求：序列数位长+机器码位长不超过22）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.SeqBitLength">
+            <summary>
+            序列数位长
+            默认值6，取值范围 [3, 21]（要求：序列数位长+机器码位长不超过22）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.MaxSeqNumber">
+            <summary>
+            最大序列数（含）
+            设置范围 [MinSeqNumber, 2^SeqBitLength-1]，默认值0，表示最大序列数取最大值（2^SeqBitLength-1]）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.MinSeqNumber">
+            <summary>
+            最小序列数（含）
+            默认值5，取值范围 [5, MaxSeqNumber]，每毫秒的前5个序列数对应编号0-4是保留位，其中1-4是时间回拨相应预留位，0是手工新值预留位
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.TopOverCostCount">
+            <summary>
+            最大漂移次数（含），
+            默认2000，推荐范围500-10000（与计算能力有关）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.DataCenterId">
+            <summary>
+            数据中心ID（默认0）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.DataCenterIdBitLength">
+            <summary>
+            数据中心ID长度（默认0）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.TimestampType">
+            <summary>
+            时间戳类型（0-毫秒，1-秒），默认0
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions.SleepTime">
+            <summary>
+            在使用漂移算法时启动的休眠时间，默认500毫秒
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.IdGenerator.Contract.IIdGenerator.NewId">
+            <summary>
+            生成一个新的Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.IdGenerator.IdHelper">
+            <summary>
+            Id生成
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.IdGenerator.IdHelper.SetIdGeneratorOptions(BearPlatform.Common.IdGenerator.Contract.IdGeneratorOptions)">
+            <summary>
+            设置参数，程序初始化时执行
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:BearPlatform.Common.IdGenerator.IdHelper.NextId">
+            <summary>
+            生成新的Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:BearPlatform.Common.IdGenerator.SnowWorkerVm.BaseTime">
+            <summary>
+            基础时间
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.IdGenerator.SnowWorkerVm.WorkerId">
+            <summary>
+            机器码
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.IdGenerator.SnowWorkerVm.WorkerIdBitLength">
+            <summary>
+            机器码位长
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.IdGenerator.SnowWorkerVm.SeqBitLength">
+            <summary>
+            自增序列数位长
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.IdGenerator.SnowWorkerVm.MaxSeqNumber">
+            <summary>
+            最大序列数（含）
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.IdGenerator.SnowWorkerVm.MinSeqNumber">
+            <summary>
+            最小序列数（含）
+            </summary>
+        </member>
+        <member name="F:BearPlatform.Common.IdGenerator.SnowWorkerVm.TopOverCostCount">
+            <summary>
+            最大漂移次数（含）
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.IdGenerator.StringToUuidConverter.GenerateVersion3Uuid(System.String,System.Nullable{System.Guid})">
+            <summary>
+            将字符串转换为 UUID（版本3，基于MD5）
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.IdGenerator.StringToUuidConverter.GenerateVersion5Uuid(System.String,System.Nullable{System.Guid})">
+            <summary>
+            将字符串转换为 UUID（版本5，基于SHA-1）
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.IdGenerator.StringToUuidConverter.CreateUuidFromHash(System.Byte[],System.Int32)">
+            <summary>
+            根据哈希值生成符合规范的 UUID
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Model.ActionError">
+            <summary>
+            错误
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ActionError.Errors">
+            <summary>
+            错误集合
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Model.ActionError.GetFirstError">
+            <summary>
+            第一个错误
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Model.ActionResultVm">
+            <summary>
+            请求响应结果
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ActionResultVm.Status">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ActionResultVm.ActionError">
+            <summary>
+            错误集合
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ActionResultVm.Message">
+            <summary>
+            默认显示的错误消息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ActionResultVm.Timestamp">
+            <summary>
+            时间戳(毫秒)
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ActionResultVm.Path">
+            <summary>
+            请求路径
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Model.ActionResultVm`1">
+            <summary>
+            请求响应结果 泛型
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ActionResultVm`1.Content">
+            <summary>
+            返回数据
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ActionResultVm`1.TotalElements">
+            <summary>
+            总条数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ActionResultVm`1.TotalPages">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ApisTree.Label">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ApisTree.Leaf">
+            <summary>
+            页
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ApisTree.HasChildren">
+            <summary>
+            是否有子节点
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ApisTree.Children">
+            <summary>
+            子节点
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Model.DateRange">
+            <summary>
+            日期范围
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.DateRange.CreateTime">
+            <summary>
+            开始[0]--结束[1]
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ExportBase.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ExportBase.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Model.ICreateByEntity">
+            <summary>
+            创建人接口
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ICreateByEntity.CreateBy">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Model.ISoftDeletedEntity">
+            <summary>
+            删除接口
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ISoftDeletedEntity.IsDeleted">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Model.ITenantEntity">
+            <summary>
+            租户标识(Id隔离)
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.ITenantEntity.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.Model.OperateResult">
+            <summary>
+            操作结果
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.OperateResult.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.Model.OperateResult.Message">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.Model.OperateResult.Result(System.Boolean)">
+            <summary>
+            结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Model.OperateResult.Success(System.String)">
+            <summary>
+            成功
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.Common.Model.OperateResult.Error(System.String)">
+            <summary>
+            错误
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.Models.ExcutedResult`1">
+            <summary>
+            配合swagger 输出
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:BearPlatform.Common.MultiLanguage.Contract.ILocalizationService">
+            <summary>
+            语言本地化服务的接口。
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.MultiLanguage.Contract.ILocalizationService.R(System.String)">
+            <summary>
+            获取带有给定名称的字符串资源。
+            </summary>
+            <param name="name">字符串资源的名称。</param>
+        </member>
+        <member name="M:BearPlatform.Common.MultiLanguage.Contract.ILocalizationService.R(System.String,System.Object[])">
+            <summary>
+            获取带有给定名称的字符串资源，并用提供的参数格式化。
+            </summary>
+            <param name="name">字符串资源的名称。</param>
+            <param name="arguments">使用字符串格式化的值。</param>
+        </member>
+        <member name="M:BearPlatform.Common.MultiLanguage.Contract.ILocalizationService.GetAllStrings(System.Boolean)">
+            <summary>
+            获取所有字符串资源。
+            <param name="includeParentCultures">指示是否包括父母文化的字符串。</param>
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.MultiLanguage.Resources.Localizer">
+            <summary>
+            语言本地化
+            </summary>
+        </member>
+        <member name="M:BearPlatform.Common.MultiLanguage.Resources.Localizer.R(System.String)">
+            <summary>
+            Gets the string resource with the given name.
+            </summary>
+            <param name="name">The name of the string resource.</param>
+            <returns>The string resource as a <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.</returns>
+        </member>
+        <member name="M:BearPlatform.Common.MultiLanguage.Resources.Localizer.R(System.String,System.Object[])">
+            <summary>
+            Gets the string resource with the given name and formatted with the supplied arguments.
+            </summary>
+            <param name="name">The name of the string resource.</param>
+            <param name="arguments">The values to format the string with.</param>
+            <returns>The formatted string resource as a <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.</returns>
+        </member>
+        <member name="M:BearPlatform.Common.MultiLanguage.Resources.Localizer.GetAllStrings(System.Boolean)">
+            <summary>
+            Gets all string resources.
+            </summary>
+            <param name="includeParentCultures">
+            A <see cref="T:System.Boolean"/> indicating whether to include strings from parent cultures.
+            </param>
+            <returns>The strings.</returns>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.HttpUser.Id">
+            <summary>
+            登录ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.HttpUser.Account">
+            <summary>
+            登录账号
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.HttpUser.DeptId">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.HttpUser.TenantId">
+            <summary>
+            租户ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.HttpUser.JwtToken">
+            <summary>
+            jwt token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.HttpUser.IsAuthenticated">
+            <summary>
+            是否已认证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.WebApp.IHttpUser">
+            <summary>
+            当前用户
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.IHttpUser.Id">
+            <summary>
+            当前登录用户ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.IHttpUser.Account">
+            <summary>
+            当前登录用户名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.IHttpUser.DeptId">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.IHttpUser.TenantId">
+            <summary>
+            租户ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.IHttpUser.JwtToken">
+            <summary>
+            请求携带的Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.IHttpUser.IsAuthenticated">
+            <summary>
+            是否已认证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.Common.WebApp.LoginAttempt">
+            <summary>
+            登录尝试
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginAttempt.Count">
+            <summary>
+            次数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginAttempt.IsLocked">
+            <summary>
+            是否锁定
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginAttempt.LockUntil">
+            <summary>
+            解锁时间
+            </summary>
+        </member>
+        <member name="T:BearPlatform.Common.WebApp.LoginUserInfo">
+            <summary>
+            在线用户
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.Account">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.NickName">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.DeptId">
+            <summary>
+            部门ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.DeptName">
+            <summary>
+            用户部门
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.Ip">
+            <summary>
+            请求IP
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.Address">
+            <summary>
+            IP详细地址
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.OperatingSystem">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.DeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.BrowserName">
+            <summary>
+            浏览器名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.Version">
+            <summary>
+            浏览器版本
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.AccessToken">
+            <summary>
+            在线唯一表示KEY
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.LoginTime">
+            <summary>
+            登录时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.IsAdmin">
+            <summary>
+            是否系统管理员
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Common.WebApp.LoginUserInfo.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+    </members>
+</doc>

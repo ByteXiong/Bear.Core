@@ -1,0 +1,71 @@
+# 开发环境
+.env.local
+.env.*.local
+
+# 日志文件
+*.log
+npm-debug.log*
+
+# 运行时文件
+**/bin/
+**/obj/
+
+# 依赖目录
+# Node.js 依赖目录
+node_modules/
+**/node_modules/
+# 包管理工具缓存目录
+**/package-lock.json
+**/yarn.lock
+
+# 构建输出
+**/dist/
+**/out/
+
+# IDE配置
+.vscode/
+.idea/
+*.suo
+*.user
+*.vspscc
+
+# NuGet包
+# 原配置保持不变
+# 新增Visual Studio完整排除规则
+**/.vs/
+*.user
+*.suo
+*.vspscc
+*.vssscc
+*.VC.db
+*.VC.VC.opendb
+
+# 补充项目缓存文件
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.sln.docstates
+# 新增packages目录忽略
+# 删除以下packages相关规则
+# packages/
+# **/packages/
+# 移除以下行
+# **/**/[Pp]ackages/
+
+# 保留其他配置
+*.dll
+*.exe
+*.user
+*.suo
+*.ntvs*
+*.njsproj
+*.sw?
+
+package-lock.json
+yarn.lock
+
+.VSCodeCounter
+
+
+

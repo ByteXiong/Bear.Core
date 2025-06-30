@@ -1,0 +1,2174 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BearPlatform.ViewModel</name>
+    </assembly>
+    <members>
+        <member name="T:BearPlatform.ViewModel.Core.Message.Email.EmailAccountVo">
+            <summary>
+            邮箱账户Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailAccountVo.Email">
+             <summary>
+            电子邮件地址
+             </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailAccountVo.DisplayName">
+            <summary>
+            电子邮件显示名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailAccountVo.Host">
+            <summary>
+            电子邮件主机
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailAccountVo.Port">
+            <summary>
+            电子邮件端口
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailAccountVo.UserName">
+            <summary>
+            电子邮件用户名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailAccountVo.Password">
+            <summary>
+            电子邮件密码
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailAccountVo.EnableSsl">
+            <summary>
+            是否SSL
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailAccountVo.UseDefaultCredentials">
+            <summary>
+            是否与请求一起发送应用程序的默认系统凭据
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Message.Email.EmailMessageTemplateVo">
+            <summary>
+            邮箱模板Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailMessageTemplateVo.Name">
+            <summary>
+            模板名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailMessageTemplateVo.BccEmailAddresses">
+            <summary>
+            抄送邮箱地址
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailMessageTemplateVo.Subject">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailMessageTemplateVo.Body">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailMessageTemplateVo.IsActive">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Message.Email.EmailMessageTemplateVo.EmailAccountId">
+            <summary>
+            发送邮箱账户
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Monitor.AuditLogVo">
+            <summary>
+            审计日志Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.Area">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.Controller">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.Action">
+            <summary>
+            方法
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.Method">
+            <summary>
+            请求方法
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.RequestUrl">
+            <summary>
+            请求Url
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.RequestParameters">
+            <summary>
+            请求参数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.ResponseData">
+            <summary>
+            相应结果
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.ExecutionDuration">
+            <summary>
+            执行耗时(毫秒)
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.RequestIp">
+            <summary>
+            请求IP
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.IpAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.OperatingSystem">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.DeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.BrowserName">
+            <summary>
+            浏览器名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.AuditLogVo.Version">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo">
+            <summary>
+            系统异常Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.Area">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.Controller">
+            <summary>
+            控制器
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.Action">
+            <summary>
+            方法
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.Method">
+            <summary>
+            请求方法
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.RequestUrl">
+            <summary>
+            请求Url
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.RequestParameters">
+            <summary>
+            请求参数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.ExceptionMessage">
+            <summary>
+            异常消息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.ExceptionMessageFull">
+            <summary>
+            异常完整消息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.ExceptionStack">
+            <summary>
+            异常堆栈信息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.LogLevel">
+            <summary>
+            日志等级
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.RequestIp">
+            <summary>
+            请求IP
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.IpAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.OperatingSystem">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.DeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.BrowserName">
+            <summary>
+            浏览器名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Monitor.ExceptionLogVo.Version">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.ApisVo">
+            <summary>
+            Api路由 Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.ApisVo.Group">
+            <summary>
+            组
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.ApisVo.Url">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.ApisVo.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.ApisVo.Method">
+            <summary>
+            请求方法
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.Dept.DeptSmallVo">
+            <summary>
+            部门Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptSmallVo.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptSmallVo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.Dept.DeptVo">
+            <summary>
+            部门Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptVo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptVo.ParentId">
+            <summary>
+            父级Id
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptVo.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptVo.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptVo.Children">
+            <summary>
+            子节点
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptVo.SubCount">
+            <summary>
+            子节点个数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptVo.HasChildren">
+            <summary>
+            是否有子节点
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptVo.Leaf">
+            <summary>
+            页
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Dept.DeptVo.Label">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.Job.JobSmallDto">
+            <summary>
+            岗位Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Job.JobSmallDto.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Job.JobSmallDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.Job.JobVo">
+            <summary>
+            岗位Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Job.JobVo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Job.JobVo.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Job.JobVo.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.Menu.MenuMetaVo">
+            <summary>
+            菜单Meta
+            </summary>
+        </member>
+        <member name="M:BearPlatform.ViewModel.Core.Permission.Menu.MenuMetaVo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:BearPlatform.ViewModel.Core.Permission.Menu.MenuMetaVo.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="title"></param>
+            <param name="icon"></param>
+            <param name="noCache"></param>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Menu.MenuMetaVo.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Menu.MenuMetaVo.Icon">
+            <summary>
+            Icon
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Menu.MenuMetaVo.NoCache">
+            <summary>
+            不缓存
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.Menu.MenuTreeVo">
+            <summary>
+            菜单视图  构建菜单树
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Menu.MenuTreeVo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Menu.MenuTreeVo.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Menu.MenuTreeVo.Hidden">
+            <summary>
+            印象
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Menu.MenuTreeVo.Redirect">
+            <summary>
+            重定向
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Menu.MenuTreeVo.Component">
+            <summary>
+            组件
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Menu.MenuTreeVo.AlwaysShow">
+            <summary>
+            总是显示
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Menu.MenuTreeVo.Children">
+            <summary>
+            子节点
+            </summary>
+        </member>
+        <member name="F:BearPlatform.ViewModel.Core.Permission.Menu.MenuTreeVo.Meta">
+            <summary>
+            Meta
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.Role.RoleLevelVo">
+            <summary>
+            角色等级
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Role.RoleLevelVo.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.Role.RoleSmallVo">
+            <summary>
+            角色Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Role.RoleSmallVo.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Role.RoleSmallVo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Role.RoleSmallVo.Permission">
+            <summary>
+            权限标识符
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Role.RoleSmallVo.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.Role.RoleSmallVo.DataScopeType">
+            <summary>
+            数据权限
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.User.UserDeptVo">
+            <summary>
+            用户部门Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserDeptVo.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.User.UserJobDto">
+            <summary>
+            用户岗位Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserJobDto.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserJobDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.User.UserRoleVo">
+            <summary>
+            用户角色Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserRoleVo.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserRoleVo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Permission.User.UserVo">
+            <summary>
+            用户Vo
+            </summary>
+        </member>
+        <member name="M:BearPlatform.ViewModel.Core.Permission.User.UserVo.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.IsAdmin">
+            <summary>
+            内置管理员
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.Enabled">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.DeptId">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.AvatarPath">
+            <summary>
+            头像文件路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.PasswordReSetTime">
+            <summary>
+            最后修改密码时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.Roles">
+            <summary>
+            角色列表
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.Dept">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.Jobs">
+            <summary>
+            岗位列表
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.TenantId">
+            <summary>
+            租户ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Permission.User.UserVo.Tenant">
+            <summary>
+            租户
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo">
+            <summary>
+            邮件队列Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.From">
+            <summary>
+            发件邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.FromName">
+            <summary>
+            发件人名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.To">
+            <summary>
+            收件邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.ToName">
+            <summary>
+            收件人名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.ReplyTo">
+            <summary>
+            回复邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.ReplyToName">
+            <summary>
+            回复人名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.Priority">
+            <summary>
+            优先级
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.Cc">
+            <summary>
+            抄送
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.Bcc">
+            <summary>
+            密件抄送
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.Subject">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.Body">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.SentTries">
+            <summary>
+            发送上限次数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.IsSend">
+            <summary>
+            是否已发送
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.SendTime">
+            <summary>
+            发送时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.Queued.QueuedEmailVo.EmailAccountId">
+            <summary>
+            发件邮箱ID
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.System.AppSecretVo">
+            <summary>
+            应用密钥Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.AppSecretVo.AppId">
+            <summary>
+            应用ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.AppSecretVo.AppSecretKey">
+            <summary>
+            签名Key
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.AppSecretVo.AppName">
+            <summary>
+            应用名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.AppSecretVo.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.System.Dict.DictDetailVo">
+            <summary>
+            字典详情Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.Dict.DictDetailVo.DictId">
+            <summary>
+            字典ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.Dict.DictDetailVo.Label">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.Dict.DictDetailVo.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.Dict.DictDetailVo.DictSort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.System.Dict.DictVo">
+            <summary>
+            字典Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.Dict.DictVo.DictType">
+            <summary>
+            字典类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.Dict.DictVo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.Dict.DictVo.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.Dict.DictVo.DictDetails">
+            <summary>
+            字典详情
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.System.FileRecordVo">
+            <summary>
+            文件记录Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.FileRecordVo.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.FileRecordVo.ContentType">
+            <summary>
+            文件类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.FileRecordVo.ContentTypeName">
+            <summary>
+            文件类型名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.FileRecordVo.ContentTypeNameEn">
+            <summary>
+            文件类型名称(EN)
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.FileRecordVo.OriginalName">
+            <summary>
+            源名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.FileRecordVo.NewName">
+            <summary>
+            新名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.FileRecordVo.FilePath">
+            <summary>
+            存储路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.FileRecordVo.Size">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo">
+            <summary>
+            任务调度日志Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo.TaskId">
+            <summary>
+            任务ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo.TaskName">
+            <summary>
+            任务名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo.TaskGroup">
+            <summary>
+            任务分组
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo.AssemblyName">
+            <summary>
+            程序集名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo.ClassName">
+            <summary>
+            任务所在类
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo.Cron">
+            <summary>
+            cron 表达式
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo.ExceptionDetail">
+            <summary>
+            异常详情
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo.ExecutionDuration">
+            <summary>
+            执行耗时（毫秒）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo.RunParams">
+            <summary>
+            执行传参
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetLogVo.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo">
+            <summary>
+            任务调度Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.TaskName">
+            <summary>
+            任务名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.TaskGroup">
+            <summary>
+            任务分组
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.Cron">
+            <summary>
+            cron 表达式
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.AssemblyName">
+            <summary>
+            程序集名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.ClassName">
+            <summary>
+            任务所在类
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.Description">
+            <summary>
+            任务描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.Principal">
+            <summary>
+            任务负责人
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.AlertEmail">
+            <summary>
+            告警邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.PauseAfterFailure">
+            <summary>
+            任务失败后是否继续
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.RunTimes">
+            <summary>
+            执行次数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.StartTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.TriggerType">
+            <summary>
+            触发器类型（0、simple 1、cron）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.IntervalSecond">
+            <summary>
+            执行间隔时间, 秒为单位
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.CycleRunTimes">
+            <summary>
+            循环执行次数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.IsEnable">
+            <summary>
+            是否启动
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.RunParams">
+            <summary>
+            执行传参
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.QuartzNet.QuartzNetVo.TriggerStatus">
+            <summary>
+            触发器状态
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.System.SettingVo">
+            <summary>
+            全局设置Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.SettingVo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.SettingVo.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.SettingVo.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.SettingVo.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Core.System.TenantVo">
+            <summary>
+            租户Vo
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.TenantVo.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.TenantVo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.TenantVo.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.TenantVo.TenantType">
+            <summary>
+            租户类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.TenantVo.ConfigId">
+            <summary>
+            库Id
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.TenantVo.DbType">
+            <summary>
+            库类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Core.System.TenantVo.ConnectionString">
+            <summary>
+            库连接
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ExceptionLogParam">
+            <summary>
+            系统日志
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ExceptionLogDTO">
+            <summary>
+             分页
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.UpdateExceptionLogParam">
+            <summary>
+            更新
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Jwt.CaptchaVo">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.CaptchaVo.Img">
+            <summary>
+            图片base64
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.CaptchaVo.CaptchaId">
+            <summary>
+            验证码ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.CaptchaVo.ShowCaptcha">
+            <summary>
+            是否显示验证码
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Jwt.JwtUserInfo">
+            <summary>
+            JWT令牌用户
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.JwtUserInfo.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.JwtUserInfo.Roles">
+            <summary>
+            角色权限
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.JwtUserInfo.DataScopes">
+            <summary>
+            数据权限
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Jwt.LoginToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.LoginToken.AccessToken">
+            <summary>
+            授权token
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.LoginToken.Expires">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.LoginToken.TokenType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.LoginToken.RefreshToken">
+            <summary>
+            刷新token
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.LoginToken.RefreshTokenExpires">
+            <summary>
+            允许token时间内
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Jwt.UrlAccessControlVo">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.UrlAccessControlVo.Url">
+            <summary>
+            请求路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Jwt.UrlAccessControlVo.Method">
+            <summary>
+            请求方法
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.Message.Email.Account.EmailAccountExport">
+            <summary>
+            邮箱账户导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Message.Email.Account.EmailAccountExport.Email">
+             <summary>
+            邮箱
+             </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Message.Email.Account.EmailAccountExport.DisplayName">
+            <summary>
+            电子邮件显示名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Message.Email.Account.EmailAccountExport.Host">
+            <summary>
+            电子邮件主机
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Message.Email.Account.EmailAccountExport.Port">
+            <summary>
+            电子邮件端口
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Message.Email.Account.EmailAccountExport.UserName">
+            <summary>
+            电子邮件用户名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Message.Email.Account.EmailAccountExport.Password">
+            <summary>
+            电子邮件密码
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Message.Email.Account.EmailAccountExport.EnableSsl">
+            <summary>
+            是否SSL
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Message.Email.Account.EmailAccountExport.UseDefaultCredentials">
+            <summary>
+            是否与请求一起发送应用程序的默认系统凭据
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport">
+            <summary>
+            在线用户导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.Account">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.NickName">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.Dept">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.Ip">
+            <summary>
+            登录IP
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.Address">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.OperatingSystem">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.DeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.BrowserName">
+            <summary>
+            浏览器名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.Version">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.LoginTime">
+            <summary>
+            登录时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Monitor.OnlineUserExport.AccessToken">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.Permission.DeptExport">
+            <summary>
+            部门导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.DeptExport.Name">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.DeptExport.ParentId">
+            <summary>
+            部门父ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.DeptExport.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.DeptExport.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.DeptExport.SubCount">
+            <summary>
+            子部门个数
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.Permission.JobExport">
+            <summary>
+            岗位导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.JobExport.Name">
+            <summary>
+            岗位名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.JobExport.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.JobExport.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.Permission.MenuExport">
+            <summary>
+            菜单导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.Title">
+            <summary>
+            菜单标题
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.Path">
+            <summary>
+            组件路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.Permission">
+            <summary>
+            权限标识符
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.IsFrame">
+            <summary>
+            是否IFrame
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.Component">
+            <summary>
+            组件
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.ComponentName">
+            <summary>
+            组件名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.PId">
+            <summary>
+            菜单父ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.Icon">
+            <summary>
+            Icon图标
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.MenuType">
+            <summary>
+            菜单类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.IsCache">
+            <summary>
+            是否缓存
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.IsHidden">
+            <summary>
+            是否隐藏
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.MenuExport.SubCount">
+            <summary>
+            子菜单个数
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.Permission.RoleExport">
+            <summary>
+            角色导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.RoleExport.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.RoleExport.Level">
+            <summary>
+            角色等级
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.RoleExport.Description">
+            <summary>
+            角色描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.RoleExport.DataScopeType">
+            <summary>
+            数据范围
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.RoleExport.DataDept">
+            <summary>
+            数据部门
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.RoleExport.Permission">
+            <summary>
+            角色代码
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.Permission.UserExport">
+            <summary>
+            用户导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.UserExport.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.UserExport.Role">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.UserExport.NickName">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.UserExport.Phone">
+            <summary>
+            用户电话
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.UserExport.Email">
+            <summary>
+            用户邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.UserExport.Enabled">
+            <summary>
+            是否激活
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.UserExport.Dept">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.UserExport.Job">
+            <summary>
+            岗位名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.Permission.UserExport.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.System.AppSecretExport">
+            <summary>
+            密钥导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.AppSecretExport.AppId">
+            <summary>
+            应用ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.AppSecretExport.AppSecretKey">
+            <summary>
+            应用密钥
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.AppSecretExport.AppName">
+            <summary>
+            应用名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.AppSecretExport.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.System.DictExport">
+            <summary>
+            字典导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.DictExport.DictType">
+            <summary>
+            字典类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.DictExport.Name">
+            <summary>
+            字典名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.DictExport.Description">
+            <summary>
+            字典描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.DictExport.Lable">
+            <summary>
+            字典标签
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.DictExport.Value">
+            <summary>
+            字典值
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.System.FileRecordExport">
+            <summary>
+            文件记录导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.FileRecordExport.Description">
+            <summary>
+            文件描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.FileRecordExport.ContentType">
+            <summary>
+            文件类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.FileRecordExport.ContentTypeName">
+            <summary>
+            文件类型名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.FileRecordExport.ContentTypeNameEn">
+            <summary>
+            文件类型名称(EN)
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.FileRecordExport.OriginalName">
+            <summary>
+            源名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.FileRecordExport.NewName">
+            <summary>
+            新名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.FileRecordExport.FilePath">
+            <summary>
+            存储路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.FileRecordExport.Size">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.System.QuartzNetExport">
+            <summary>
+            任务调度导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.TaskName">
+            <summary>
+            任务名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.TaskGroup">
+            <summary>
+            任务分组
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.Cron">
+            <summary>
+            cron 表达式
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.AssemblyName">
+            <summary>
+            程序集名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.ClassName">
+            <summary>
+            任务所在类
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.Description">
+            <summary>
+            任务描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.Principal">
+            <summary>
+            任务负责人
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.AlertEmail">
+            <summary>
+            告警邮箱
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.PauseAfterFailure">
+            <summary>
+            任务失败后是否继续
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.RunTimes">
+            <summary>
+            执行次数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.StartTime">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.EndTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.TriggerType">
+            <summary>
+            触发器类型（0、simple 1、cron）
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.IntervalSecond">
+            <summary>
+            执行间隔时间, 秒为单位
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.CycleRunTimes">
+            <summary>
+            循环执行次数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.IsEnable">
+            <summary>
+            是否启动
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.RunParams">
+            <summary>
+            执行传参
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetExport.TriggerStatus">
+            <summary>
+            触发器状态
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.System.QuartzNetLogExport">
+            <summary>
+            任务调度日志导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetLogExport.TaskId">
+            <summary>
+            任务ID
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetLogExport.TaskName">
+            <summary>
+            任务名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetLogExport.TaskGroup">
+            <summary>
+            任务组
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetLogExport.AssemblyName">
+            <summary>
+            程序集名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetLogExport.ClassName">
+            <summary>
+            执行类
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetLogExport.Cron">
+            <summary>
+            Cron表达式
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetLogExport.ExceptionDetail">
+            <summary>
+            异常详情
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetLogExport.ExecutionDuration">
+            <summary>
+            执行耗时
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetLogExport.RunParams">
+            <summary>
+            执行传参
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.QuartzNetLogExport.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.System.SettingExport">
+            <summary>
+            设置导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.SettingExport.Name">
+            <summary>
+            键
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.SettingExport.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.SettingExport.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.SettingExport.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.Report.System.TenantExport">
+            <summary>
+            租户导出模板
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.TenantExport.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.TenantExport.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.TenantExport.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.TenantExport.TenantType">
+            <summary>
+            租户类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.TenantExport.ConfigId">
+            <summary>
+            库Id
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.TenantExport.DbType">
+            <summary>
+            库类型
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.Report.System.TenantExport.ConnectionString">
+            <summary>
+            库连接
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ServerInfo.Cpu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Cpu.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Cpu.Package">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Cpu.Core">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Cpu.CoreNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Cpu.Logic">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Cpu.Used">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Cpu.Idle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ServerInfo.Disk">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Disk.Total">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Disk.Available">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Disk.Used">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Disk.UsageRate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ServerInfo.Memory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Memory.Total">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Memory.Available">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Memory.Used">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Memory.UsageRate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ServerInfo.OsInfo">
+            <summary>
+            系统信息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.Is64BitOperatingSystem">
+            <summary>
+            确定当前操作系统是否为64位操作系统
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.MachineName">
+            <summary>
+            获取此本地计算机的NetBIOS名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.OsVersion">
+            <summary>
+            获取当前平台标识符和版本号
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.NumberOfCores">
+            <summary>
+            获取当前计算机上的物理处理器核心数量
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.PhysicalProcessorCount">
+            <summary>
+            获取当前计算机上的物理处理器数量
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.LogicProcessorCount">
+            <summary>
+            获取当前计算机上的逻辑处理器数量
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.ProcessorName">
+            <summary>
+            处理器名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.SystemDirectory">
+            <summary>
+            获取系统目录的标准路径
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.SystemPageSize">
+            <summary>
+            获取操作系统的内存页面中的字节数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.TickCount">
+            <summary>
+            获取自系统启动以来经过的毫秒数
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.UserDomainName">
+            <summary>
+            获取与当前用户关联的网络域名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.UserName">
+            <summary>
+            获取当前登录到操作系统的用户的用户名
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.Version">
+            <summary>
+            获取公共语言运行时的主要，次要，内部和修订版本号
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.FrameworkDescription">
+            <summary>
+            获取运行应用程序的.NET安装的名称
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.OsDescription">
+            <summary>
+            获取描述应用程序正在运行的操作系统的字符串
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.Os">
+            <summary>
+            代表操作系统平台
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.TotalPhysicalMemory">
+            <summary>
+            总物理内存 B
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.FreePhysicalMemory">
+            <summary>
+            可用物理内存 B
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.SwapTotal">
+            <summary>
+            总交换空间（Linux）B
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.SwapFree">
+            <summary>
+            可用交换空间（Linux）B
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.LogicalDisk">
+            <summary>
+            逻辑磁盘
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.OsInfo.LocalIp">
+            <summary>
+            本机IP
+            </summary>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForWindows">
+            <summary>
+            WINDOWS
+            </summary>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForWindows.TotalPhysicalMemory">
+            <summary>
+            获取物理内存 B
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForWindows.FreePhysicalMemory">
+            <summary>
+            获取可用内存 B
+            </summary>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForWindows.LogicalDisk">
+            <summary>
+            获取磁盘信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForWindows.ProcessorName">
+            <summary>
+            获取处理器名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForWindows.RunTime">
+            <summary>
+            运行时长
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForWindows.PhysicalProcessorCount">
+            <summary>
+            物理CPU数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForWindows.LogicProcessorCount">
+            <summary>
+            逻辑CPU数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForWindows.NumberOfCores">
+            <summary>
+            物理处理器核心数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForLinux">
+            <summary>
+            Linux系统
+            </summary>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForLinux.MemInfo(System.String)">
+            <summary>
+            获取 /proc/meminfo
+            </summary>
+            <param name="pkey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForLinux.CpuInfo(System.String)">
+            <summary>
+            获取 /proc/cpuinfo
+            </summary>
+            <param name="pkey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForLinux.LogicalDisk">
+            <summary>
+            获取磁盘信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForLinux.CpuLoad">
+            <summary>
+            获取CPU使用率 %
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForLinux.RunTime">
+            <summary>
+            运行时长
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForLinux.PhysicalProcessorCount">
+            <summary>
+            物理CPU数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForLinux.LogicProcessorCount">
+            <summary>
+            逻辑CPU数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BearPlatform.ViewModel.ServerInfo.OsInfo.PlatformForLinux.NumberOfCores">
+            <summary>
+            物理处理器核心数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ServerInfo.DiskInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ServerInfo.ServerResourcesInfo">
+            <summary>
+            服务器资源信息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.ServerResourcesInfo.Time">
+            <summary>
+            运行时间
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.ServerResourcesInfo.Sys">
+            <summary>
+            系统信息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.ServerResourcesInfo.Cpu">
+            <summary>
+            Cpu信息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.ServerResourcesInfo.Memory">
+            <summary>
+            内存信息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.ServerResourcesInfo.Swap">
+            <summary>
+            交换区信息
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.ServerResourcesInfo.Disk">
+            <summary>
+            磁盘信息
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ServerInfo.Swap">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Swap.Total">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Swap.Used">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Swap.Available">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Swap.UsageRate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BearPlatform.ViewModel.ServerInfo.Sys">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Sys.Os">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Sys.Day">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BearPlatform.ViewModel.ServerInfo.Sys.Ip">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
