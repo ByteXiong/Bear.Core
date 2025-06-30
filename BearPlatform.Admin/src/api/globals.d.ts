@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Bear Api 后端接口文档 Web端网站 - version 1.0
+ * BearPlatform Api 后端接口文档 Web端网站 - version 1.0
  *
  *
  *
@@ -2004,9 +2004,16 @@ export type TableColumn = {
    */
   sort: number;
   /**
-   * 是否隐藏
+   * 是否显示
    */
   isShow: boolean;
+  /**
+   * 是否Excel
+   */
+  isExcel: boolean;
+  /**
+   * 是否逻辑删除
+   */
   isEditDel: boolean;
   /**
    * 多余参数
@@ -11030,8 +11037,11 @@ declare global {
        *       isCustom: boolean
        *       // 排序
        *       sort: number
-       *       // 是否隐藏
+       *       // 是否显示
        *       isShow: boolean
+       *       // 是否Excel
+       *       isExcel: boolean
+       *       // 是否逻辑删除
        *       isEditDel: boolean
        *       // 多余参数
        *       attrs: string | null
@@ -11164,8 +11174,11 @@ declare global {
        *       isCustom: boolean
        *       // 排序
        *       sort: number
-       *       // 是否隐藏
+       *       // 是否显示
        *       isShow: boolean
+       *       // 是否Excel
+       *       isExcel: boolean
+       *       // 是否逻辑删除
        *       isEditDel: boolean
        *       // 多余参数
        *       attrs: string | null
@@ -11270,8 +11283,11 @@ declare global {
        *     isCustom: boolean
        *     // 排序
        *     sort: number
-       *     // 是否隐藏
+       *     // 是否显示
        *     isShow: boolean
+       *     // 是否Excel
+       *     isExcel: boolean
+       *     // 是否逻辑删除
        *     isEditDel: boolean
        *     // 多余参数
        *     attrs: string | null

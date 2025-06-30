@@ -1469,7 +1469,17 @@
         </member>
         <member name="P:BearPlatform.Entity.TableColumn.IsShow">
             <summary>
-            是否隐藏
+            是否显示
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.IsExcel">
+            <summary>
+            是否Excel
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.IsEditDel">
+            <summary>
+            是否逻辑删除
             </summary>
         </member>
         <member name="P:BearPlatform.Entity.TableColumn.Attrs">

@@ -2,9 +2,20 @@
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import type { ColumnCls, TableColumnCtx } from 'element-plus';
-import { ElButton, ElCheckbox, ElInput, ElMessage, ElMessageBox, ElOption, ElPopconfirm, ElSelect } from 'element-plus';
+import {
+  ElButton,
+  ElCheckbox,
+  ElInput,
+  ElMessage,
+  ElMessageBox,
+  ElOption,
+  ElPopconfirm,
+  ElSelect,
+  ElSwitch
+} from 'element-plus';
 import { useForm, useRequest } from '@sa/alova/client';
 import { VueDraggable } from 'vue-draggable-plus';
+import { Hide, View } from '@element-plus/icons-vue';
 import { ColumnTypeEnum, OrderTypeEnum } from '@/api/apiEnums';
 import { ConditionalType } from '@/api/sqlSugar';
 import type { TableColumn, TableView, UpdateTableViewParam } from '@/api/globals';
@@ -183,23 +194,41 @@ const columns = ref<Array<Partial<TableColumnCtx<TableColumn>> & { checked?: boo
   },
   {
     prop: 'isShow',
-    label: $t('table.isShow'),
+    label: $t('table.table'),
     align: 'center',
-    width: 100,
+    width: 80,
     checked: true,
     formatter: row => {
       return (
-        <ElCheckbox
-          checked={row.isShow as boolean}
-          checked-value={true}
+        <ElSwitch
           v-model={row.isShow}
-          disabled={submitLoading.value}
+          active-action-icon={View}
+          inactive-action-icon={Hide}
+          active-value={true}
+          inactive-value={false}
           onChange={() => {
-            row.isEditDel = false;
+            row.isExcel = row.isShow;
           }}
-        >
-          {row.isShow ? '显示' : '隐藏'}
-        </ElCheckbox>
+        />
+      );
+    }
+  },
+  {
+    prop: 'isExcel',
+    label: $t('table.excel'),
+    align: 'center',
+    width: 80,
+    checked: true,
+    formatter: row => {
+      return (
+        <ElSwitch
+          disabled={!row.isShow}
+          v-model={row.isExcel}
+          active-action-icon={View}
+          inactive-action-icon={Hide}
+          active-value={true}
+          inactive-value={false}
+        />
       );
     }
   },
@@ -292,17 +321,16 @@ function handleAdd() {
     isCustom: true
   } as TableColumn);
 }
-const rowClassName = ({ row, rowIndex }: { row: TableColumn; rowIndex: number }) => {
+const rowClassName = ({ row }: { row: TableColumn; rowIndex: number }) => {
   if (row.isEditDel) return 'info-row';
   return '';
 };
 
 const openMonacoCode = async (row: TableColumn) => {
   // 函数式组件 instance 为 ref , on 为 emit , unmount 为 destroy
-  const { instance, on, unmount } = await createComponent(MonacoCode, { modelValue: row.attrs, visible: true });
+  const { on, unmount } = await createComponent(MonacoCode, { modelValue: row.attrs, visible: true });
 
   on('Change', (code: string) => {
-    console.log(code);
     row.attrs = code;
   });
   on('update:visible', () => {
@@ -311,7 +339,7 @@ const openMonacoCode = async (row: TableColumn) => {
 };
 
 const openI180n = async () => {
-  const { instance, on, unmount } = await createComponent(I18nDrawer, { visible: true });
+  const { on, unmount } = await createComponent(I18nDrawer, { visible: true });
   on('update:visible', res => {
     if (!res) {
       unmount();

@@ -119,10 +119,16 @@ namespace BearPlatform.Entity
         public Int32 Sort { get; set; }
 
         /// <summary>
-        /// 是否隐藏
+        /// 是否显示
         /// </summary>
         public bool IsShow { get; set; }
-
+        /// <summary>
+        /// 是否Excel
+        /// </summary>
+        public bool IsExcel { get; set; }
+        /// <summary>
+        /// 是否逻辑删除
+        /// </summary>
         public bool IsEditDel { get; set; }
         /// <summary>
         /// 多余参数 

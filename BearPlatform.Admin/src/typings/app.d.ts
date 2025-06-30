@@ -286,35 +286,38 @@ declare namespace App {
       invalid: string;
     };
 
-        type Schema = {
-          enum:{
-               asc:string,
-               desc:string
-          },
+    type Schema = {
+      enum: {
+        asc: string;
+        desc: string;
+      };
       table: {
+        table: string;
         sorts: string;
         selection: string;
         dragsort: string;
         prop: string;
         label: string;
-        isShow: string;
+        show: string;
+        hide: string;
+        excel: string;
         columnType: string;
         searchType: string;
         use: string;
         setting: string;
-        isMultiple:string
+        isMultiple: string;
       };
       sqlSugar: {
-        Equal:string,
-        Like:string,
-        GreaterThan:string,
-        GreaterThanOrEqual:string,
-        LessThan:string,
-        LessThanOrEqual:string,
-        In:string,
-        NotIn:string,
-        LikeLeft:string,
-        LikeRight:string,
+        Equal: string;
+        Like: string;
+        GreaterThan: string;
+        GreaterThanOrEqual: string;
+        LessThan: string;
+        LessThanOrEqual: string;
+        In: string;
+        NotIn: string;
+        LikeLeft: string;
+        LikeRight: string;
         NoEqual: string;
         IsNullOrEmpty: string;
         IsNot: string;
@@ -322,16 +325,15 @@ declare namespace App {
         EqualNull: string;
         InLike: string;
         Range: string;
-      }
-        system: {
+      };
+      system: {
         title: string;
         updateTitle: string;
         updateContent: string;
         updateConfirm: string;
         updateCancel: string;
       };
-        common: {
-
+      common: {
         placeholder: string;
         action: string;
         add: string;
@@ -371,11 +373,11 @@ declare namespace App {
         updateSuccess: string;
         userCenter: string;
         yesOrNo: {
-           yes: string;
-           no: string;
-          };
+          yes: string;
+          no: string;
+        };
       };
-        theme: {
+      theme: {
         themeSchema: { title: string } & Record<UnionKey.ThemeScheme, string>;
         grayscale: string;
         colourWeakness: string;
@@ -484,7 +486,7 @@ declare namespace App {
           };
         };
       };
-       icon: {
+      icon: {
         themeConfig: string;
         themeSchema: string;
         lang: string;
@@ -499,7 +501,7 @@ declare namespace App {
       datatable: {
         itemCount: string;
       };
-    }
+    };
 
     type GetI18nKey<T extends Record<string, unknown>, K extends keyof T = keyof T> = K extends string
       ? T[K] extends Record<string, unknown>

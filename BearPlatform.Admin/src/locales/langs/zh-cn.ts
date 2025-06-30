@@ -1,39 +1,42 @@
 const local: App.I18n.Schema = {
   enum: {
-    asc: "正序",
-    desc: "倒序"
+    asc: '正序',
+    desc: '倒序'
   },
   table: {
-     sorts: '排序',
+    table: '表格',
+    sorts: '排序',
     selection: '多选',
     dragsort: '拖拽排序',
     prop: '字段',
     label: '注释',
-    isShow: '是否显示',
+    show: '显示',
+    hide: '隐藏',
+    excel: 'Excel',
     columnType: '数据类型',
     searchType: '搜索类型',
     use: '操作',
     setting: '配置',
-    isMultiple: "是否多选"
+    isMultiple: '是否多选'
   },
   sqlSugar: {
-    Equal: "等于",
-    Like: "模糊查询",
-    GreaterThan: "大于",
-    GreaterThanOrEqual: "大于等于",
-    LessThan: "小于",
-    LessThanOrEqual: "小于等于",
-    In: "In操作",
-    NotIn: "	Not in操作 参数和in一样",
-    LikeLeft: "左模糊",
-    LikeRight: "右模糊",
-    NoEqual: "不等于",
-    IsNullOrEmpty: "是null或者",
-    IsNot: "情况1   value不等于null",
-    NoLike: "模糊查询取反",
-    EqualNull: "等于null",
-    InLike: "多个like",
-    Range: "区间",
+    Equal: '等于',
+    Like: '模糊查询',
+    GreaterThan: '大于',
+    GreaterThanOrEqual: '大于等于',
+    LessThan: '小于',
+    LessThanOrEqual: '小于等于',
+    In: 'In操作',
+    NotIn: '	Not in操作 参数和in一样',
+    LikeLeft: '左模糊',
+    LikeRight: '右模糊',
+    NoEqual: '不等于',
+    IsNullOrEmpty: '是null或者',
+    IsNot: '情况1   value不等于null',
+    NoLike: '模糊查询取反',
+    EqualNull: '等于null',
+    InLike: '多个like',
+    Range: '区间'
   },
   system: {
     title: 'Bear 管理系统',
@@ -43,7 +46,6 @@ const local: App.I18n.Schema = {
     updateCancel: '稍后再说'
   },
   common: {
-
     placeholder: '请输入',
     action: '操作',
     add: '新增',
@@ -248,7 +250,6 @@ const local: App.I18n.Schema = {
   },
   datatable: {
     itemCount: '共 {total} 条'
-  },
-
+  }
 };
 export default local;

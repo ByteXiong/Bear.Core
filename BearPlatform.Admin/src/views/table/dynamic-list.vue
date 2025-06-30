@@ -64,6 +64,7 @@ const columnData = computed<Array<Partial<TableColumnCtx<TableColumn>> & TableCo
         //     </div>;
 
         // },
+        className: item.isExcel ? 'onExcel' : '',
         prop: item.prop,
         label: $t(item.label),
         sortable: 'custom'

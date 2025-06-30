@@ -1,41 +1,44 @@
 const local: App.I18n.Schema = {
-    enum: {
-    asc: "Asc",
-    desc: "Desc"
+  enum: {
+    asc: 'Asc',
+    desc: 'Desc'
   },
-   table: {
-     sorts: 'Sorts',
+  table: {
+    table: 'Table',
+    sorts: 'Sorts',
     selection: 'Selection',
     dragsort: 'DragSort',
     prop: 'Prop',
     label: 'Label',
-    isShow: 'IsShow',
+    show: 'Show',
+    hide: 'Hide',
+    excel: 'Excel',
     columnType: 'ColumnType',
     searchType: 'SearchType',
     use: 'Use',
     setting: 'Setting',
-    isMultiple:"IsMultiple"
+    isMultiple: 'IsMultiple'
   },
-  sqlSugar:{
-    Equal:"Equal",
-    Like:"Like",
-    GreaterThan:"GreaterThan",
-    GreaterThanOrEqual:"GreaterThanOrEqual",
-    LessThan:"LessThan",
-    LessThanOrEqual:"LessThanOrEqual",
-    In:"In",
-    NotIn:"NotIn",
-    LikeLeft:"LikeLeft",
-    LikeRight:"LikeRight",
-    NoEqual:"NoEqual",
-    IsNullOrEmpty:"IsNullOrEmpty",
-    IsNot:"IsNot",
-    NoLike:"NoLike",
-    EqualNull:"EqualNull",
-    InLike:"InLike",
-    Range:"Range",
+  sqlSugar: {
+    Equal: 'Equal',
+    Like: 'Like',
+    GreaterThan: 'GreaterThan',
+    GreaterThanOrEqual: 'GreaterThanOrEqual',
+    LessThan: 'LessThan',
+    LessThanOrEqual: 'LessThanOrEqual',
+    In: 'In',
+    NotIn: 'NotIn',
+    LikeLeft: 'LikeLeft',
+    LikeRight: 'LikeRight',
+    NoEqual: 'NoEqual',
+    IsNullOrEmpty: 'IsNullOrEmpty',
+    IsNot: 'IsNot',
+    NoLike: 'NoLike',
+    EqualNull: 'EqualNull',
+    InLike: 'InLike',
+    Range: 'Range'
   },
-    system: {
+  system: {
     title: 'Bear.Admin',
     updateTitle: 'System Version Update Notification',
     updateContent: 'A new version of the system has been detected. Do you want to refresh the page immediately?',
@@ -43,7 +46,6 @@ const local: App.I18n.Schema = {
     updateCancel: 'Later'
   },
   common: {
-
     placeholder: 'Please enter',
     action: 'Action',
     add: 'Add',
@@ -87,7 +89,7 @@ const local: App.I18n.Schema = {
       no: 'No'
     }
   },
-    theme: {
+  theme: {
     themeSchema: {
       title: 'Theme Schema',
       light: 'Light',
@@ -232,9 +234,9 @@ const local: App.I18n.Schema = {
       bindWeChat: {
         title: 'Bind WeChat'
       }
-    },
+    }
   },
-   icon: {
+  icon: {
     themeConfig: 'Theme Configuration',
     themeSchema: 'Theme Schema',
     lang: 'Switch Language',
