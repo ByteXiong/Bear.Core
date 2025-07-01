@@ -72,6 +72,7 @@ public class LoginController : BaseApiController
     [HttpGet]
     [AllowAnonymous]
     [NotAudit]
+    [ApiVersion((int)VersionEnum.App, Deprecated = false)]
     [ApiVersion((int)VersionEnum.Pc, Deprecated = false)]
     public async Task<CaptchaVo> Captcha()
     {
@@ -118,6 +119,7 @@ public class LoginController : BaseApiController
     /// <returns></returns>
     [HttpPost]
     [AllowAnonymous]
+    [ApiVersion((int)VersionEnum.App, Deprecated = false)]
     [ApiVersion((int)VersionEnum.Pc, Deprecated = false)]
     public async Task<LoginToken> LoginAsync([FromBody] LoginParam authUser)
     {
@@ -281,6 +283,7 @@ public class LoginController : BaseApiController
     /// <returns></returns>
     [HttpPost]
     [AllowAnonymous]
+    [ApiVersion((int)VersionEnum.App, Deprecated = false)]
     [ApiVersion((int)VersionEnum.Pc, Deprecated = false)]
     public async Task<LoginToken> RefreshToken(string token)
     {
@@ -322,6 +325,7 @@ public class LoginController : BaseApiController
 
     [HttpGet]
     [NotAudit]
+    [ApiVersion((int)VersionEnum.App, Deprecated = false)]
     [ApiVersion((int)VersionEnum.Pc, Deprecated = false)]
     public async Task<JwtUserInfo> GetInfo()
     {

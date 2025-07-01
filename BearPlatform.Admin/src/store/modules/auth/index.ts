@@ -1,17 +1,17 @@
-import { computed, reactive, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { defineStore } from 'pinia';
 import { useRequest } from 'alova/client';
-import { SetupStoreId } from '@/enum';
+import type { JwtUserInfo, LoginParam, LoginToken } from '@/api/globals';
 import { useRouterPush } from '@/hooks/common/router';
 import { localStg } from '@/utils/storage';
+import { encrypt } from '@/utils/rsaEncrypt';
+import { SetupStoreId } from '@/enum';
 import { $t } from '@/locales';
-import type { JwtUserInfo, LoginParam, LoginToken } from '@/api/globals';
 import { useRouteStore } from '../route';
 import { useTabStore } from '../tab';
 import { clearAuthStorage, getToken } from './shared';
 import '@/api';
-import { encrypt } from '@/utils/rsaEncrypt';
 
 export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
   const route = useRoute();
@@ -21,23 +21,13 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
 
   const token = ref(getToken());
 
-  const userInfo: JwtUserInfo = reactive({
-    user: {
-      id: '',
-      username: '',
-      realName: '',
-      avatar: '',
-      email: ''
-    },
-    roles: [],
-    dataScopes: []
-  });
+  const userInfo = ref<JwtUserInfo>();
 
   /** is super role in static route */
   const isStaticSuper = computed(() => {
     const { VITE_AUTH_ROUTE_MODE, VITE_STATIC_SUPER_ROLE } = import.meta.env;
 
-    return VITE_AUTH_ROUTE_MODE === 'static' && userInfo.roles?.includes(VITE_STATIC_SUPER_ROLE);
+    return VITE_AUTH_ROUTE_MODE === 'static' && userInfo.value?.roles?.includes(VITE_STATIC_SUPER_ROLE);
   });
 
   /** Is login */
@@ -82,7 +72,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
   const { send: login, loading: loginLoading } = useRequest(
     (loginData: LoginParam) =>
       Apis.Login.post_login({
-        data:{...loginData,password: encrypt(loginData.password)},
+        data: { ...loginData, password: encrypt(loginData.password) },
         transform: async res => {
           if (res.success) {
             const pass = await loginByToken(res.data);
@@ -93,7 +83,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
               if (routeStore.isInitAuthRoute) {
                 window.$notification?.success({
                   title: $t('page.login.common.loginSuccess'),
-                  message: $t('page.login.common.welcomeBack', { userName: userInfo.user?.userName }),
+                  message: $t('page.login.common.welcomeBack', { userName: userInfo.value?.user?.userName }),
                   duration: 4500
                 });
               }
