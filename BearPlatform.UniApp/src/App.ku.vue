@@ -10,7 +10,7 @@ const { theme, themeVars } = useTheme({
 </script>
 
 <template>
-  <div>Hello AppKuVue</div>
+  <!-- <div>Hello AppKuVue</div> -->
   <!-- 需要确保已注册 WdConfigProvider 组件 -->
   <wd-config-provider :theme="theme" :theme-vars="themeVars">
     <KuRootView />
