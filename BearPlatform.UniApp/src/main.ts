@@ -8,9 +8,8 @@ import 'uno.css';
 export function createApp() {
   const app = createSSRApp(App);
 
-  setupStore(app);
-
   setupRouter(app);
+  setupStore(app);
 
   return {
     app,

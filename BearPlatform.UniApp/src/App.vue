@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useUserStore } from '@/stores/modules/user';
 import { onHide, onLaunch, onShow } from '@dcloudio/uni-app';
+import { useUserStore } from '@/stores/modules/user';
 
 onLaunch(() => {
   console.log('App Launch');
 });
-onShow(() => {
+onShow(async () => {
   const userStore = useUserStore();
-  userStore.initUserInfo();
+  await userStore.initUserInfo();
   console.log('App Show');
 });
 onHide(() => {

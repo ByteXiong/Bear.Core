@@ -2,6 +2,7 @@ import type { PluginOption } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
 import Components from '@uni-helper/vite-plugin-uni-components';
 import { WotResolver } from '@uni-helper/vite-plugin-uni-components/resolvers';
+import UniKuRoot from '@uni-ku/root';
 import { visualizer } from 'rollup-plugin-visualizer';
 import Unocss from 'unocss/vite';
 import autoImport from 'unplugin-auto-import/vite';
@@ -17,6 +18,7 @@ export function createVitePlugins({ isProd }: VitePluginConfig): PluginOption[] 
     Components({
       resolvers: [WotResolver()],
     }),
+    UniKuRoot(),
     // @ts-expect-error TODO uni() 会报错：uni is not a function,暂时使用此方式解决
     uni?.default(),
     Unocss({

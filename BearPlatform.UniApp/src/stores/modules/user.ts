@@ -1,48 +1,50 @@
-import type { UserInfoModel } from '@/services/model/userModel';
-import { TOKEN_KEY } from '@/enums/cacheEnum';
-import { login as loginApi } from '@/services/api/auth';
-import { getUserInfoApi } from '@/services/api/user';
-import { getToken, isLogin, setToken } from '@/utils/auth';
-import { removeCache } from '@/utils/cache';
+import type { JwtUserInfo, LoginParam, LoginToken } from '@/api/globals';
 import { defineStore } from 'pinia';
+import { TOKEN_KEY } from '@/enums/cacheEnum';
+import { getToken } from '@/utils/auth';
+import { removeCache, setCache } from '@/utils/cache';
+import { encrypt } from '@/utils/rsaEncrypt';
+import '@/api';
 
 export const useUserStore = defineStore('UserStore', () => {
-  const token = ref<string | null>(null);
-  const userInfo = ref<UserInfoModel | null>(null);
-
-  // 初始化
-  async function initUserInfo() {
-    if (isLogin()) {
-      token.value = getToken();
-      await getUserInfo();
-    }
-  }
+  const token = ref<string | null>(getToken());
+  const userInfo = ref<JwtUserInfo | null>(null);
 
   // 是否登录
   const loggedIn = computed(() => !!token.value);
 
   // 登录
-  const { send: sendLogin } = useRequest(loginApi, { immediate: false });
-  async function login(params: LoginParams) {
-    try {
-      const res = await sendLogin(params);
-      token.value = res.token;
-      setToken(res.token);
-      await getUserInfo();
-    } catch (error) {
-      throw error;
-    }
-  }
+  const { send: login } = useRequest((loginData: LoginParam) =>
+    Apis.Login.post_login({
+      data: { ...loginData, password: encrypt(loginData.password) },
+      transform: async (res) => {
+        if (res.success) {
+          await loginByToken(res.data);
+        }
+        return res;
+      },
+    }), { immediate: false, force: true });
 
   // 获取用户信息
-  const { send: _getUserInfo } = useRequest(getUserInfoApi, { immediate: false });
-  async function getUserInfo() {
-    try {
-      userInfo.value = await _getUserInfo();
-    } catch (error) {
-      throw error;
-    }
-  }
+  const { send: getUserInfo } = useRequest(
+    () =>
+      Apis.Login.get_getinfo({
+        transform: ({ data }) => {
+          userInfo.value = data;
+          return true;
+        },
+      }),
+    {
+      immediate: false,
+      force: true,
+      // async middleware(_, next) {
+      //   if (userInfo.user?.id === 0) {
+      //     await next();
+      //   }
+      //   return userInfo;
+      // }
+    },
+  );
 
   // 登出
   // const { send: sendLogout } = useRequest(logoutApi, { immediate: false });
@@ -56,8 +58,38 @@ export const useUserStore = defineStore('UserStore', () => {
       throw err;
     }
   }
+  async function loginByToken(loginToken: LoginToken) {
+    // 1. stored in the localStorage, the later requests need it in headers
+    token.value = `${loginToken.tokenType} ${loginToken.accessToken}` || '';
+    setCache('token', token.value);
+    setCache('refreshToken', loginToken.refreshToken || '');
+    // 2. get user info
+    const pass = await getUserInfo();
+    if (pass) {
+      return true;
+    } else {
+      token.value = null;
+      setCache('token', null);
+      setCache('refreshToken', null);
+    }
+
+    return false;
+  }
+  // 初始化
+  async function initUserInfo() {
+    const hasToken = getToken();
+    console.log('token', hasToken);
+
+    if (hasToken) {
+      const pass = await getUserInfo();
+      if (!pass) {
+        logout();
+      }
+    }
+  }
 
   return {
+    token,
     userInfo,
     loggedIn,
     login,

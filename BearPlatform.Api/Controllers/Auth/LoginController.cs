@@ -323,6 +323,10 @@ public class LoginController : BaseApiController
         throw new BusException(App.L.R("Error.TokenParseFailed"), 401);
     }
 
+    /// <summary>
+    /// 获取当前登录用户
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     [NotAudit]
     [ApiVersion((int)VersionEnum.App, Deprecated = false)]

@@ -53,7 +53,8 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     () =>
       Apis.Login.get_getinfo({
         transform: ({ data }) => {
-          Object.assign(userInfo, data);
+          // Object.assign(userInfo, data);
+          userInfo.value = data;
           return true;
         }
       }),

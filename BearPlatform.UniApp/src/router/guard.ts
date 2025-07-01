@@ -1,5 +1,5 @@
 import type { Router } from 'uni-mini-router/lib/interfaces';
-import { isLogin } from '@/utils/auth';
+import { useUserStore } from '@/stores/modules/user';
 
 export function createRouterGuard(router: Router) {
   createBeforeEachGuard(router);
@@ -8,7 +8,8 @@ export function createRouterGuard(router: Router) {
 
 function createBeforeEachGuard(router: Router) {
   router.beforeEach((to, _, next) => {
-    const _isLogin = isLogin();
+    const userStore = useUserStore();
+    const _isLogin = userStore.loggedIn;
     if (to && to?.meta?.ignoreAuth) {
       // 如果目标路由忽略验证直接跳转
       next();
@@ -30,7 +31,8 @@ function createAfterEachGuard(router: Router) {
   router.afterEach((to) => {
     if (to && to?.meta?.ignoreAuth)
       return;
-    const _isLogin = isLogin();
+    const userStore = useUserStore();
+    const _isLogin = userStore.loggedIn;
     if (!_isLogin && to && to.name !== 'Login') {
       // 如果没有登录且目标路由不是登录页面则跳转到登录页面
       router.push({ name: 'Login', params: { ...to.query } });

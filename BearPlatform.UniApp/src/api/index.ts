@@ -1,17 +1,15 @@
-// import defaultSettings from '@/settings';
-// import { useAuthStoreHook } from '@/store/modules/user';
-
 import AdapterUniapp from '@alova/adapter-uniapp';
 import { createAlova } from 'alova';
-import vueHook from 'alova/vue';
+
+// import vueHook from 'alova/vue';
 // import { mockAdapter } from '@/mock';
-// import { useAuthStore } from '@/stores/auth';
-import { getCache } from '@/utils/cache';
+
+import { useUserStore } from '@/stores/modules/user';
 import { getBaseUrl } from '@/utils/env';
 import { createApis, withConfigType } from './createApis';
 
 const BASE_URL = getBaseUrl();
-// const authStore = useAuthStore();
+
 interface ICodeMessage {
   [key: number]: string
 }
@@ -43,15 +41,16 @@ export const alovaInstance = createAlova({
   //   }),
   ...AdapterUniapp(),
   beforeRequest: (method) => {
+    const userStore = useUserStore();
     method.config.headers['api-version'] = 2.0;
     method.config.headers['Content-Type'] = 'application/json';
-    const { config } = method;
-    const ignoreAuth = !config.meta?.ignoreAuth;
-    const authorization = ignoreAuth ? getCache('token') : null;
-    if (ignoreAuth && !authorization) {
-      throw new Error('[请求错误]：未登录');
-    }
-    method.config.headers.Authorization = getCache('token');
+    // const { config } = method;
+    // const ignoreAuth = !config.meta?.ignoreAuth;
+    // const authorization = ignoreAuth ? userStore.token : null;
+    // if (ignoreAuth && !authorization) {
+    //   throw new Error('[请求错误]：未登录');
+    // }
+    method.config.headers.Authorization = userStore.token;
   },
   responded: {
     onSuccess: async (response) => {
@@ -65,7 +64,8 @@ export const alovaInstance = createAlova({
           title: '当前页面已失效，请重新登录',
           duration: 2000,
         });
-        // authStore.logout();
+        const userStore = useUserStore();
+        userStore.logout();
       }
 
       Promise.reject(rawData);
