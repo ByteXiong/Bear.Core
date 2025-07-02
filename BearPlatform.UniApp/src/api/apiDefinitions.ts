@@ -16,6 +16,10 @@
  * **Do not edit the file manually.**
  */
 export default {
+  'I18n.post_add': ['POST', '/api/I18n/Add'],
+  'I18n.delete_delete': ['DELETE', '/api/I18n/Delete'],
+  'I18n.get_getpage': ['GET', '/api/I18n/GetPage'],
+  'I18n.put_update': ['PUT', '/api/I18n/Update'],
   'Login.get_captcha': ['GET', '/api/Login/Captcha'],
   'Login.get_getinfo': ['GET', '/api/Login/GetInfo'],
   'Login.post_login': ['POST', '/api/Login/Login'],

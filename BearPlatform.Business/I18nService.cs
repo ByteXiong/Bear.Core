@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BearPlatform.Common.IdGenerator;
 using BearPlatform.Core;
 using BearPlatform.Entity;
 using BearPlatform.IBusiness;
@@ -27,7 +28,17 @@ namespace BearPlatform.Business
         /// <param name="param"></param>
         /// <returns></returns>
         public async Task<PagedResults<I18nDTO>> GetPageAsync(I18nParam param) {
-         
+
+            //for (int i = 0; i < 100; i++)
+            //{
+            //   var model=  new I18n() { 
+            //     Id=IdHelper.NextId(),
+            //     Key="test"+ i,
+            //      EnUs="test"+i,
+            //       ZhCn="测试"+i
+            //    };
+            //    await AddAsync(model);
+            //}
             var page = await GetIQueryable().Select(x => new I18nDTO {
             }, true).SearchWhere(param).ToPagedResultsAsync(param);
             return page;
