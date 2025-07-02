@@ -51,7 +51,7 @@ export const useUserStore = defineStore('UserStore', () => {
   async function logout() {
     try {
       // await sendLogout();
-      removeCache(TOKEN_KEY);
+      removeCache('token');
       userInfo.value = null;
       token.value = null;
     } catch (err: any) {

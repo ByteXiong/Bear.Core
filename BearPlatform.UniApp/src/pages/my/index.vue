@@ -8,57 +8,61 @@ const menuList = ref([
   {
     title: '分享好友',
     icon: '/static/images/share.png',
-    url: '',
+    url: '/pages/open-wx',
   },
   {
     title: '点赞',
-    icon: '/static/images/praise.png',
-    url: '/pages/my/praise',
+    icon: '/static/images/star.png',
+    url: `/pages/open-link?link=${encodeURI('https://bear.js.org/')}`,
   },
   {
     title: '意见反馈',
     icon: '/static/images/feedback.png',
-    url: '/pages/my/feedback',
+    url: '/pages/open-wx',
   },
   {
     title: '我要合作',
     icon: '/static/images/cooperate.png',
-    url: '/pages/my/cooperate',
+    url: '/pages/open-wx',
   },
 ]);
 const list = ref([
   {
     title: '设置',
     icon: '/static/images/share.png',
-    url: '/pages/my/share',
+    url: '/pages/my/setting',
   },
   {
     title: '功能介绍',
     icon: '/static/images/share.png',
-    url: '/pages/my/share',
+    url: `/pages/open-link?link=${encodeURI('https://bear.js.org/')}`,
   },
   {
     title: '开源地址',
     icon: '/static/images/share.png',
-    url: '/pages/my/share',
+    url: `/pages/open-link?link=${encodeURI('https://bear.js.org/')}`,
+    // query: {
+    //  ,
+    // },
   },
   {
     title: '帮助中心',
     icon: '/static/images/share.png',
-    url: '/pages/my/share',
+    url: `/pages/open-link?link=${encodeURI('https://bear.js.org/')}`,
   },
   {
     title: '关于我们',
     icon: '/static/images/share.png',
-    url: '/pages/my/share',
+    url: '/pages/open-wx',
   },
   {
     title: '合作伙伴',
     icon: '/static/images/share.png',
-    url: '/pages/my/share',
+    url: '/pages/open-wx',
   },
 ]);
 function handleClick(item: any) {
+  //   console.log(item);
   uni.navigateTo({
     url: item.url,
   });
@@ -105,7 +109,7 @@ const userInfo = computed<JwtUserInfo | null>(() => userStore.userInfo);
 
       <!-- 菜单列表 -->
       <wd-cell-group>
-        <wd-cell v-for="item, index in list" :key="index" :title="item.title" :to="item.url" is-link />
+        <wd-cell v-for="item, index in list" :key="index" :title="item.title" is-link @click="handleClick(item)" />
       </wd-cell-group>
     </view>
   </view>

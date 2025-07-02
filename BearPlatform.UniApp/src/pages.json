@@ -38,6 +38,43 @@
       }
     },
     {
+      "name": "link",
+      "path": "pages/open-link",
+      "style": {
+        "navigationBarTitleText": "外部链接",
+        "navigationStyle": "custom"
+      },
+      "meta": {
+        "tabBar": true,
+        "ignoreAuth": true
+      }
+    },
+    {
+      "name": "wx",
+      "path": "pages/open-wx",
+      "style": {
+        "navigationBarTitleText": "联系我们"
+        // "navigationStyle": "custom"
+      },
+      "meta": {
+        "tabBar": true,
+        "ignoreAuth": true
+      }
+    },
+    {
+      "name": "setting",
+      "path": "pages/my/setting",
+      "style": {
+        "navigationBarTitleText": "设置"
+        // "navigationStyle": "custom"
+      },
+      "meta": {
+        "tabBar": true,
+        "ignoreAuth": true
+      }
+    },
+
+    {
       "name": "login",
       "path": "pages/login/index",
       "style": {
