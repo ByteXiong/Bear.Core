@@ -36,7 +36,9 @@ const {
     preloadNextPage: false, // 是否预加载上一页
     total: res => res.data?.pagerInfo?.totalRowCount,
     data: (res) => {
-      list.value.push(...res.data?.data || []);
+      // res的类型
+      console.log(res, typeof res);
+        list.value.push(...res.data?.data || []);
       return res.data?.data || [];
     },
   },
