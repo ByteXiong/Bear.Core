@@ -6,7 +6,7 @@
     "./fetch": "./src/fetch.ts",
     "./client": "./src/client.ts",
     "./mock": "./src/mock.ts",
-     "./adapter-axios": "./src/adapter-axios.ts"
+    "./adapter-axios": "./src/adapter-axios.ts"
   },
   "typesVersions": {
     "*": {
@@ -14,9 +14,9 @@
     }
   },
   "dependencies": {
-       "@alova/adapter-axios": "^2.0.13",
+    "@alova/adapter-axios": "^2.0.13",
     "@alova/mock": "2.0.12",
-     "@alova/wormhole": "^1.0.6",
+    "@alova/wormhole": "^1.0.6",
     "@sa/utils": "workspace:*",
     "alova": "3.2.9"
   }

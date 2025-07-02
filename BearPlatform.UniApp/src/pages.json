@@ -1,0 +1,132 @@
+{
+  "pages": [
+
+    {
+      "name": "Home",
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "首页",
+        "navigationStyle": "custom"
+      },
+      "meta": {
+        "tabBar": true,
+        "ignoreAuth": true
+      }
+    },
+    {
+      "name": "function",
+      "path": "pages/function/index",
+      "style": {
+        "navigationBarTitleText": "功能",
+        "navigationStyle": "custom"
+      },
+      "meta": {
+        "tabBar": true,
+        "ignoreAuth": true
+      }
+    },
+    {
+      "name": "my",
+      "path": "pages/my/index",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationStyle": "custom"
+      },
+      "meta": {
+        "tabBar": true,
+        "ignoreAuth": true
+      }
+    },
+    {
+      "name": "link",
+      "path": "pages/open-link",
+      "style": {
+        "navigationBarTitleText": "外部链接",
+        "navigationStyle": "custom"
+      },
+      "meta": {
+        "tabBar": true,
+        "ignoreAuth": true
+      }
+    },
+    {
+      "name": "wx",
+      "path": "pages/open-wx",
+      "style": {
+        "navigationBarTitleText": "联系我们"
+        // "navigationStyle": "custom"
+      },
+      "meta": {
+        "tabBar": true,
+        "ignoreAuth": true
+      }
+    },
+    {
+      "name": "setting",
+      "path": "pages/my/setting",
+      "style": {
+        "navigationBarTitleText": "设置"
+        // "navigationStyle": "custom"
+      },
+      "meta": {
+        "tabBar": true,
+        "ignoreAuth": true
+      }
+    },
+
+    {
+      "name": "login",
+      "path": "pages/login/index",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationStyle": "custom"
+      },
+      "meta": {
+        "tabBar": true,
+        "ignoreAuth": true
+      }
+    }
+  ],
+
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue"
+    }
+  },
+  "subPackages": [],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F2F2F2",
+    "backgroundColor": "#F2F2F2",
+    "navigationStyle": "default",
+    "renderingMode": "seperated",
+    "pageOrientation": "portrait"
+  },
+  "tabBar": {
+    "color": "#868e96",
+    "selectedColor": "#465cff",
+    "backgroundColor": "#f1f3f5",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "static/images/tabbar/home.png",
+        "selectedIconPath": "static/images/tabBar/home-active.png"
+      },
+      {
+        "pagePath": "pages/function/index",
+        "text": "功能",
+        "iconPath": "static/images/tabbar/function.png",
+        "selectedIconPath": "static/images/tabBar/function-active.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "static/images/tabbar/my.png",
+        "selectedIconPath": "static/images/tabBar/my-active.png"
+      }
+    ]
+  }
+}

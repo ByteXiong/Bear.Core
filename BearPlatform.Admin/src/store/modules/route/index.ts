@@ -4,8 +4,8 @@ import { defineStore } from 'pinia';
 import { useBoolean } from '@sa/hooks';
 import type { CustomRoute, ElegantConstRoute, LastLevelRouteKey, RouteKey, RouteMap } from '@elegant-router/types';
 import { useRequest } from '@sa/alova/client';
-import { SetupStoreId } from '@/enum';
 import { router } from '@/router';
+import { SetupStoreId } from '@/enum';
 import { createStaticRoutes, getAuthVueRoutes } from '@/router/routes';
 import { ROOT_ROUTE } from '@/router/routes/builtin';
 import { getRouteName, getRoutePath } from '@/router/elegant/transform';
@@ -205,7 +205,7 @@ export const useRouteStore = defineStore(SetupStoreId.Route, () => {
   /** Init auth route */
   async function initAuthRoute() {
     // check if user info is initialized
-    if (!authStore.userInfo.userId) {
+    if (!authStore.userInfo?.user?.id) {
       await authStore.initUserInfo();
     }
 
@@ -225,7 +225,7 @@ export const useRouteStore = defineStore(SetupStoreId.Route, () => {
     if (authStore.isStaticSuper) {
       addAuthRoutes(staticAuthRoutes);
     } else {
-      const filteredAuthRoutes = filterAuthRoutesByRoles(staticAuthRoutes, authStore.userInfo.roles);
+      const filteredAuthRoutes = filterAuthRoutesByRoles(staticAuthRoutes, authStore.userInfo.roles || []);
 
       addAuthRoutes(filteredAuthRoutes);
     }

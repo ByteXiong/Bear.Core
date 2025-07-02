@@ -188,6 +188,12 @@
             <param name="token"></param>
             <returns></returns>
         </member>
+        <member name="M:BearPlatform.Api.Controllers.Auth.LoginController.GetInfo">
+            <summary>
+            获取当前登录用户
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:BearPlatform.Api.Controllers.Auth.LoginController.LoginResult(BearPlatform.Models.UserInfo,System.String)">
             <summary>
             登录或刷新token相应结果
