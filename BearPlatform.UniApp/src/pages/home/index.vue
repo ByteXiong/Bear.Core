@@ -30,15 +30,17 @@ const {
     // watchingStates: [keyWord, sortList],
     force: true,
     immediate: false,
+    append: true, // 追加
     initialPage: 1, // 初始页码，默认为1
     initialPageSize: 20, // 初始每页数据条数，默认为10
     preloadPreviousPage: false, // 是否预加载下一页
     preloadNextPage: false, // 是否预加载上一页
+
     total: res => res.data?.pagerInfo?.totalRowCount,
     data: (res) => {
       // res的类型
-      console.log(res, typeof res);
-        list.value.push(...res.data?.data || []);
+      //   console.log(res, typeof res);
+      //   list.value.push(...res.data?.data || []);
       return res.data?.data || [];
     },
   },
@@ -54,6 +56,7 @@ onPullDownRefresh(() => {
   page.value = 1;
   reload();
   console.log('refresh');
+  uni.stopPullDownRefresh();
 });
 onReachBottom(() => {
   if (page.value < Math.ceil((total.value || 0) / pageSize.value)) {
@@ -68,10 +71,10 @@ onReachBottom(() => {
 <template>
   <view>
     <text>{{ page }}</text>
-    <text>{{ list.length }}</text>
+    <text>{{ data.length }}</text>
     <wd-input v-model="keyWord" />
     <wd-cell-group>
-      <wd-cell v-for="item, index in list" :key="index" vertical>
+      <wd-cell v-for="item, index in data" :key="index" vertical>
         <wd-text :text="item.key || ''" bold />
         <wd-text :text="item.zhCn || ''" />
         <wd-text :text="item.enUs || ''" />

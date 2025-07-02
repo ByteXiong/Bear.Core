@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue';
+import { computed, reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { defineStore } from 'pinia';
 import { useRequest } from 'alova/client';
@@ -21,13 +21,23 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
 
   const token = ref(getToken());
 
-  const userInfo = ref<JwtUserInfo>();
+  const userInfo: JwtUserInfo = reactive({
+    user: {
+      id: '',
+      username: '',
+      realName: '',
+      avatar: '',
+      email: ''
+    },
+    roles: [],
+    dataScopes: []
+  });
 
   /** is super role in static route */
   const isStaticSuper = computed(() => {
     const { VITE_AUTH_ROUTE_MODE, VITE_STATIC_SUPER_ROLE } = import.meta.env;
 
-    return VITE_AUTH_ROUTE_MODE === 'static' && userInfo.value?.roles?.includes(VITE_STATIC_SUPER_ROLE);
+    return VITE_AUTH_ROUTE_MODE === 'static' && userInfo.roles?.includes(VITE_STATIC_SUPER_ROLE);
   });
 
   /** Is login */
@@ -53,8 +63,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     () =>
       Apis.Login.get_getinfo({
         transform: ({ data }) => {
-          // Object.assign(userInfo, data);
-          userInfo.value = data;
+          Object.assign(userInfo, data);
           return true;
         }
       }),
@@ -84,7 +93,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
               if (routeStore.isInitAuthRoute) {
                 window.$notification?.success({
                   title: $t('page.login.common.loginSuccess'),
-                  message: $t('page.login.common.welcomeBack', { userName: userInfo.value?.user?.userName }),
+                  message: $t('page.login.common.welcomeBack', { userName: userInfo.user?.userName }),
                   duration: 4500
                 });
               }

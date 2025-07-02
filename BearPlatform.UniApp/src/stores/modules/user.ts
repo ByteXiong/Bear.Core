@@ -78,8 +78,6 @@ export const useUserStore = defineStore('UserStore', () => {
   // 初始化
   async function initUserInfo() {
     const hasToken = getToken();
-    console.log('token', hasToken);
-
     if (hasToken) {
       const pass = await getUserInfo();
       if (!pass) {
