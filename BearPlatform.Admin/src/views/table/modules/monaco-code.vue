@@ -1,20 +1,19 @@
 <script setup lang="tsx">
-import type * as monaco from 'monaco-editor';
 import { ref } from 'vue';
-import { $t } from '@/locales';
+import type * as monaco from 'monaco-editor';
 import customRender from '@/utils/customRender';
+import { $t } from '@/locales';
 const language = ref('javascript');
 
 // 根据提示，将 defineModelValue 替换为 defineModel
 const value = defineModel<string>({
   default: ''
 });
-const visible =defineModel<boolean>('visible', {
+const visible = defineModel<boolean>('visible', {
   default: false
-})
+});
 interface Emits {
   (e: 'Change', value: string): void;
-
 }
 const emit = defineEmits<Emits>();
 const columns = ref<Array<any>>([
@@ -43,7 +42,6 @@ const title = ref('插槽编辑');
 const handleSubmit = () => {
   emit('Change', value.value);
   visible.value = false;
-
 };
 const handleClose = () => {
   visible.value = false;
@@ -51,7 +49,7 @@ const handleClose = () => {
 </script>
 
 <template>
-  <ElDialog v-model="visible" :title="title" :append-to-body="true" class="w-1400px" >
+  <ElDialog v-model="visible" :title="title" :append-to-body="true" class="w-1400px">
     <ElRow :gutter="24">
       <ElCol :span="24">
         <MonacoEditor

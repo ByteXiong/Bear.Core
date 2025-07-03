@@ -1,42 +1,41 @@
-import { Component, createApp, DefineComponent, EmitsOptions } from "vue";
+import type { Component, DefineComponent, EmitsOptions } from 'vue';
+import { createApp } from 'vue';
 
 type Data = Record<string, unknown>;
 
 /**
  * 推断组件的事件参数类型
+ *
  * @template T - 组件类型
  */
-type EventParams<T> = T extends DefineComponent<any, any, any, any, any, any, any, infer Emits extends EmitsOptions>
-  ? Emits extends Record<string, (...args: infer Args) => any>
-    ? { [K in keyof Emits]: Parameters<Emits[K]> }
-    : Emits extends string[]
-      ? { [K in Emits[number]]: any[] }
-      : { [key: string]: any[] }
-  : { [key: string]: any[] };
+type EventParams<T> =
+  T extends DefineComponent<any, any, any, any, any, any, any, infer Emits extends EmitsOptions>
+    ? Emits extends Record<string, (...args: infer Args) => any>
+      ? { [K in keyof Emits]: Parameters<Emits[K]> }
+      : Emits extends string[]
+        ? { [K in Emits[number]]: any[] }
+        : { [key: string]: any[] }
+    : { [key: string]: any[] };
 
 /**
  * 创建一个 Vue 组件实例
+ *
  * @template T - 组件类型
  * @param {T} rootComponent - 要创建的根组件
  * @param {Data | null} [rootProps] - 传递给组件的 props
  * @returns {Promise<{
  *   instance: T;
- *   on: <K extends keyof EventParams<T>>(
- *     event: K,
- *     handler: (...args: EventParams<T>[K]) => void
- *   ) => void;
+ *   on: <K extends keyof EventParams<T>>(event: K, handler: (...args: EventParams<T>[K]) => void) => void;
  *   unmount: () => void;
- * }>} - 返回包含组件实例、事件监听和卸载方法的对象
+ * }>}
+ *   - 返回包含组件实例、事件监听和卸载方法的对象
  */
 async function createComponent<T extends Component>(
   rootComponent: T,
   rootProps?: Data | null
 ): Promise<{
   instance: T;
-  on: <K extends keyof EventParams<T>>(
-    event: K,
-    handler: (...args: EventParams<T>[K]) => void
-  ) => void;
+  on: <K extends keyof EventParams<T>>(event: K, handler: (...args: EventParams<T>[K]) => void) => void;
   unmount: () => void;
 }> {
   const mountNode = document.createElement('div');
@@ -67,8 +66,7 @@ async function createComponent<T extends Component>(
     unmount: () => {
       app.unmount();
       document.body.removeChild(mountNode);
-      console.log("unmount");
-
+      console.log('销毁弹窗');
     }
   };
 }

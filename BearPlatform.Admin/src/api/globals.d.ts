@@ -90,7 +90,7 @@ type Alova2Method<
 
 export type DataScopeType = 0 | 1 | 2 | 3 | 4 | 5;
 export type LayoutTypeEnum = 1 | 2;
-export type MenuType = 1 | 2 | 3 | 4;
+export type MenuTypeEnum = 1 | 2 | 3 | 4;
 export type IconTypeEnum = 1 | 2;
 export type Menu = {
   /**
@@ -142,7 +142,7 @@ export type Menu = {
    * 父级
    */
   parentId: string | null;
-  menuType: MenuType;
+  menuType: MenuTypeEnum;
   iconType: IconTypeEnum;
   /**
    * 状态
@@ -197,6 +197,10 @@ export type Menu = {
    */
   fixedIndexInTab: number;
   props: boolean;
+  /**
+   * 系统菜单
+   */
+  parent: Menu;
   /**
    * 子菜单集合
    */
@@ -1121,7 +1125,7 @@ export type MenuInfo = {
    * 父级
    */
   parentId: string | null;
-  menuType: MenuType;
+  menuType: MenuTypeEnum;
   iconType: IconTypeEnum;
   /**
    * 状态
@@ -1176,6 +1180,10 @@ export type MenuInfo = {
    */
   fixedIndexInTab: number;
   props: boolean;
+  /**
+   * 系统菜单
+   */
+  parent: Menu;
   /**
    * 子菜单集合
    */
@@ -1427,7 +1435,7 @@ export type UpdateMenuParam = {
    * 父级
    */
   parentId: string | null;
-  menuType: MenuType;
+  menuType: MenuTypeEnum;
   iconType: IconTypeEnum;
   /**
    * 状态
@@ -1482,6 +1490,10 @@ export type UpdateMenuParam = {
    */
   fixedIndexInTab: number;
   props: boolean;
+  /**
+   * 系统菜单
+   */
+  parent: Menu;
   /**
    * 子菜单集合
    */
@@ -1593,7 +1605,7 @@ export type RouteDTO = {
    * 父级
    */
   parentId: string | null;
-  type: MenuType;
+  type: MenuTypeEnum;
   /**
    * 状态
    */
@@ -1615,6 +1627,9 @@ export type MenuTreeDTO = {
    * 路由名称
    */
   name: string | null;
+  path: string | null;
+  routeName: string | null;
+  routePath: string | null;
   /**
    * 父级菜单ID
    */
@@ -1628,7 +1643,7 @@ export type MenuTreeDTO = {
    */
   icon: string | null;
   iconType: IconTypeEnum;
-  menuType: MenuType;
+  menuType: MenuTypeEnum;
   /**
    * 是否隐藏
    */
@@ -1657,7 +1672,7 @@ export type RouteTreeSelectDTO = {
    * 标题
    */
   title: string | null;
-  menuType: MenuType;
+  menuType: MenuTypeEnum;
   children: RouteTreeSelectDTO[] | null;
 };
 export type RoleDeptDto = {
@@ -2386,6 +2401,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -3108,6 +3125,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -3611,6 +3630,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -4406,6 +4427,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -6085,7 +6108,7 @@ declare global {
       /**
        * ---
        *
-       * [GET]  (Auth policies: Permission)
+       * [GET] 获取当前登录用户
        *
        * **path:** /api/Login/GetInfo
        *
@@ -6214,8 +6237,8 @@ declare global {
        *           // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *           fixedIndexInTab: number
        *           props: boolean
-       *           // 子菜单集合
-       *           children: Array<{
+       *           // 系统菜单
+       *           parent: {
        *             // 主键
        *             id: string
        *             // 创建者名称
@@ -6270,11 +6293,15 @@ declare global {
        *             // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *             fixedIndexInTab: number
        *             props: boolean
+       *             // 系统菜单
+       *             parent: Menu
        *             // 子菜单集合
        *             children: Array<Menu> | null
        *             // 菜单集合
        *             roles: Array<Role> | null
-       *           }> | null
+       *           }
+       *           // 子菜单集合
+       *           children: Array<Menu> | null
        *           // 菜单集合
        *           roles: Array<{
        *             // 主键
@@ -6354,6 +6381,8 @@ declare global {
        *               // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *               fixedIndexInTab: number
        *               props: boolean
+       *               // 系统菜单
+       *               parent: Menu
        *               // 子菜单集合
        *               children: Array<Menu> | null
        *               // 菜单集合
@@ -6929,8 +6958,8 @@ declare global {
        *   // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *   fixedIndexInTab: number
        *   props: boolean
-       *   // 子菜单集合
-       *   children: Array<{
+       *   // 系统菜单
+       *   parent: {
        *     // 主键
        *     id: string
        *     // 创建者名称
@@ -6985,11 +7014,15 @@ declare global {
        *     // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *     fixedIndexInTab: number
        *     props: boolean
+       *     // 系统菜单
+       *     parent: Menu
        *     // 子菜单集合
        *     children: Array<Menu> | null
        *     // 菜单集合
        *     roles: Array<Role> | null
-       *   }> | null
+       *   }
+       *   // 子菜单集合
+       *   children: Array<Menu> | null
        *   // 菜单集合
        *   roles: Array<{
        *     // 主键
@@ -7069,6 +7102,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -7633,8 +7668,8 @@ declare global {
        *     // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *     fixedIndexInTab: number
        *     props: boolean
-       *     // 子菜单集合
-       *     children: Array<{
+       *     // 系统菜单
+       *     parent: {
        *       // 主键
        *       id: string
        *       // 创建者名称
@@ -7689,11 +7724,15 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
        *       roles: Array<Role> | null
-       *     }> | null
+       *     }
+       *     // 子菜单集合
+       *     children: Array<Menu> | null
        *     // 菜单集合
        *     roles: Array<{
        *       // 主键
@@ -7773,6 +7812,8 @@ declare global {
        *         // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *         fixedIndexInTab: number
        *         props: boolean
+       *         // 系统菜单
+       *         parent: Menu
        *         // 子菜单集合
        *         children: Array<Menu> | null
        *         // 菜单集合
@@ -8064,6 +8105,9 @@ declare global {
        *     title: string | null
        *     // 路由名称
        *     name: string | null
+       *     path: string | null
+       *     routeName: string | null
+       *     routePath: string | null
        *     // 父级菜单ID
        *     parentId: string | null
        *     // 排序
@@ -8483,8 +8527,8 @@ declare global {
        *   // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *   fixedIndexInTab: number
        *   props: boolean
-       *   // 子菜单集合
-       *   children: Array<{
+       *   // 系统菜单
+       *   parent: {
        *     // 主键
        *     id: string
        *     // 创建者名称
@@ -8539,11 +8583,15 @@ declare global {
        *     // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *     fixedIndexInTab: number
        *     props: boolean
+       *     // 系统菜单
+       *     parent: Menu
        *     // 子菜单集合
        *     children: Array<Menu> | null
        *     // 菜单集合
        *     roles: Array<Role> | null
-       *   }> | null
+       *   }
+       *   // 子菜单集合
+       *   children: Array<Menu> | null
        *   // 菜单集合
        *   roles: Array<{
        *     // 主键
@@ -8623,6 +8671,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合

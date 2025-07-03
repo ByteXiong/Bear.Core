@@ -1047,6 +1047,11 @@
             如果设置，路线将固定在制表符中，值是固定制表符的顺序
             </summary>
         </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Parent">
+            <summary>
+            父菜单
+            </summary>
+        </member>
         <member name="P:BearPlatform.Entity.Permission.Menu.Children">
             <summary>
             子菜单集合

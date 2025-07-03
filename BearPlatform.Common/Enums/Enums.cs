@@ -140,7 +140,7 @@ public enum LayoutTypeEnum
     Blank = 2,
 }
 
-public enum MenuType
+public enum MenuTypeEnum
 {
     /// <summary>
     /// 目录
@@ -168,8 +168,8 @@ public enum MenuType
 
 public enum IconTypeEnum
 {
-    iconify图标 = 1,
-    本地图标 = 2,
+    iconify = 1,
+    local = 2,
 
 }
 

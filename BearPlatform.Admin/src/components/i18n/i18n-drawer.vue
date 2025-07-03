@@ -6,6 +6,7 @@ import type { Sort, TableColumnCtx } from 'element-plus';
 import { ElButton, ElInput } from 'element-plus';
 import { useForm, usePagination } from '@sa/alova/client';
 import type { I18nDTO, UpdateI18nParam } from '@/api/globals';
+import { OrderTypeEnum } from '@/api/apiEnums';
 import { $t } from '@/locales';
 const { copy, isSupported } = useClipboard();
 const visible = defineModel<boolean>('visible', {
@@ -15,16 +16,16 @@ const visible = defineModel<boolean>('visible', {
 
 type DataType = I18nDTO & { isEdit: boolean };
 const keyWord = ref('');
-const sortList = ref<Record<string, string>>({ id: 'asc' });
+const sortList = ref<Record<string, OrderTypeEnum>>({ id: OrderTypeEnum.asc });
 /** 获取数据 */
 const {
   data,
   page,
   pageSize,
   total,
-  loading,
-  send: getData,
-  reload
+  loading
+  // send: getData,
+  // reload
 } = usePagination(
   // Method实例获取函数，它将接收page和pageSize，并返回一个Method实例
   (upPageIndex, upPageSize) =>
@@ -51,12 +52,12 @@ const {
 
 /** 提交详情 */
 const {
-  send: handleSubmit,
-  form: formData,
-  reset: resetFrom,
-  updateForm
+  send: handleSubmit
+  // form: formData,
+  // reset: resetFrom,
+  // updateForm
 } = useForm(
-  (form, row) =>
+  (_, row) =>
     (row?.id ? Apis.I18n.put_update : Apis.I18n.post_add)({
       data: row,
       transform: () => {
@@ -168,7 +169,7 @@ const columns = ref<Array<Partial<TableColumnCtx<DataType>>>>([
 ]);
 const sortChange = ({ prop, order }: Sort) => {
   sortList.value = {};
-  sortList.value[prop] = order?.replace('ending', '');
+  sortList.value[prop] = (order?.replace('ending', '') as unknown as OrderTypeEnum) || OrderTypeEnum.asc;
 };
 
 const submit = (row: DataType) => {

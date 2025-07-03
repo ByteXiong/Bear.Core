@@ -19,6 +19,31 @@ const local: App.I18n.Schema = {
     setting: 'Setting',
     isMultiple: 'IsMultiple'
   },
+  menu: {
+    menuType: 'Menu Type',
+    menuName: 'Menu Name',
+    routeName: 'Route Name',
+    routePath: 'Route Path',
+    pathParam: 'Path Param',
+    layout: 'Layout Component',
+    page: 'Page Component',
+    icon: 'Icon',
+    iconType: 'Icon Type',
+    order: 'Order',
+    constant: 'Constant',
+    keepAlive: 'Keep Alive',
+    href: 'Href',
+    hideInMenu: 'Hide In Menu',
+    activeMenu: 'Active Menu',
+    multiTab: 'Multi Tab',
+    fixedIndexInTab: 'Fixed Index In Tab',
+    query: 'Query Params',
+    button: 'Button',
+    buttonCode: 'Button Code',
+    buttonDesc: 'Button Desc',
+    menuStatus: 'Menu Status',
+    addChildren: 'Add Children'
+  },
   sqlSugar: {
     Equal: 'Equal',
     Like: 'Like',
@@ -46,6 +71,7 @@ const local: App.I18n.Schema = {
     updateCancel: 'Later'
   },
   common: {
+    i18n: 'I18n',
     placeholder: 'Please enter',
     action: 'Action',
     add: 'Add',

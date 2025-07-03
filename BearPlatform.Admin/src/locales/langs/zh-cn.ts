@@ -19,6 +19,31 @@ const local: App.I18n.Schema = {
     setting: '配置',
     isMultiple: '是否多选'
   },
+  menu: {
+    menuType: '菜单类型',
+    menuName: '菜单名称',
+    routeName: '路由名称',
+    routePath: '路由路径',
+    order: '排序',
+    hideInMenu: '隐藏菜单',
+    activeMenu: '高亮的菜单',
+    menuStatus: '菜单状态',
+    addChildren: '添加子菜单',
+    pathParam: '路径参数',
+    layout: '布局',
+    page: '页面组件',
+    icon: '图标',
+    iconType: '图标类型',
+    constant: '常量路由',
+    keepAlive: '缓存路由',
+    href: '外链',
+    multiTab: '支持多页签',
+    fixedIndexInTab: '固定在页签中的序号',
+    query: '路由参数',
+    button: '按钮',
+    buttonCode: '按钮编码',
+    buttonDesc: '按钮描述'
+  },
   sqlSugar: {
     Equal: '等于',
     Like: '模糊查询',
@@ -45,7 +70,9 @@ const local: App.I18n.Schema = {
     updateConfirm: '立即刷新',
     updateCancel: '稍后再说'
   },
+
   common: {
+    i18n: '国际化',
     placeholder: '请输入',
     action: '操作',
     add: '新增',

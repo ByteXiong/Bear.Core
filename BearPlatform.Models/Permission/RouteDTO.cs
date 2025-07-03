@@ -44,7 +44,7 @@ public class RouteDTO : BaseEntityDTO<long>
     /// <summary>
     /// 类型
     /// </summary>
-    public MenuType Type { get; set; }
+    public MenuTypeEnum Type { get; set; }
 
     /// <summary>
     /// 状态
@@ -188,8 +188,11 @@ public class MenuTreeDTO
     /// 路由名称
     /// </summary>
     public string Name { get; set; }
+    
+    public string Path { get; set; }
 
-
+    public string RouteName { get; set; }
+    public string RoutePath { get; set; }
     /// <summary>
     /// 父级菜单ID
     /// </summary>
@@ -212,7 +215,7 @@ public class MenuTreeDTO
     /// <summary>
     /// 类型
     /// </summary>
-    public MenuType MenuType { get; set; }
+    public MenuTypeEnum MenuType { get; set; }
 
     /// <summary>
     /// 是否隐藏
@@ -231,8 +234,6 @@ public class MenuTreeDTO
     /// 状态
     /// </summary>
     public bool Status { get; set; }
-
-
 
     public List<MenuTreeDTO> Children { get; set; }
 
@@ -268,7 +269,7 @@ public class RouteTreeSelectDTO
     /// <summary>
     /// 
     /// </summary>
-    public MenuType MenuType { get; set; }
+    public MenuTypeEnum MenuType { get; set; }
     /// <summary>
     /// 
     /// </summary>

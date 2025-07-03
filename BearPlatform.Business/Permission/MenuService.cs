@@ -62,7 +62,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
     {
         var menuList = await SugarClient
             .Queryable<UserRole, RoleMenu, Menu>((ur, rm, m) => ur.RoleId == rm.RoleId && rm.MenuId == m.Id)
-            .Where((ur, rm, m) => ur.UserId == userId && m.MenuType != MenuType.Button)
+            .Where((ur, rm, m) => ur.UserId == userId && m.MenuType != MenuTypeEnum.Button)
             .OrderBy((ur, rm, m) => m.Order)
             .ClearFilter<ICreateByEntity>()
             .Select((ur, rm, m) => m).Distinct().ToListAsync();
@@ -92,7 +92,9 @@ public class MenuService : BaseServices<Menu>, IMenuService
     public async Task<List<MenuTreeDTO>> GetTreeAsync()
     {
         //排除公共模块
-        var tree = await GetIQueryable(x => !x.Constant).OrderBy(x => x.Order).Select<MenuTreeDTO>().ToTreeAsync(it => it.Children, it => it.ParentId, null, it => it.Id);
+  
+        var tree = await GetIQueryable(x => !x.Constant).OrderBy(x => x.Order)
+            .Select<MenuTreeDTO>().ToTreeAsync(it => it.Children, it => it.ParentId, null, it => it.Id);
         return tree;
     }
 
@@ -125,7 +127,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
 
         }, true).FirstAsync();
 
-        entity.Buttons = await GetIQueryable(x => x.ParentId == id && x.MenuType == MenuType.Button).Select(x => new MenuButton
+        entity.Buttons = await GetIQueryable(x => x.ParentId == id && x.MenuType == MenuTypeEnum.Button).Select(x => new MenuButton
         {
             Id = x.Id,
             Code = x.Name,
@@ -134,7 +136,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
             Status = x.Status
         }).ToListAsync();
 
-        entity.Querys = await GetIQueryable(x => x.ParentId == id && x.MenuType == MenuType.Query).Select(x => new MenuQuery
+        entity.Querys = await GetIQueryable(x => x.ParentId == id && x.MenuType == MenuTypeEnum.Query).Select(x => new MenuQuery
         {
             Id = x.Id,
             Key = x.Name,
@@ -162,7 +164,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
 
         var addButtons = param.Buttons?.Select(x => new Menu
         {
-            MenuType = MenuType.Button,
+            MenuType = MenuTypeEnum.Button,
             Title = x.Desc,
             Name = x.Code.ToLower(),
             ParentId = model.Id,
@@ -174,7 +176,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
 
         var addQuerys = param.Querys?.Select(x => new Menu
         {
-            MenuType = MenuType.Query,
+            MenuType = MenuTypeEnum.Query,
             Title = x.Key,
             Name = x.Value,
             ParentId = model.Id,
@@ -201,14 +203,14 @@ public class MenuService : BaseServices<Menu>, IMenuService
         var buttons = param.Buttons.Select(x => new Menu
         {
             Id = x.Id,
-            MenuType = MenuType.Button,
+            MenuType = MenuTypeEnum.Button,
             Title = x.Desc,
             Name = x.Code.ToLower(),
             ParentId = param.Id,
             Status = x.Status
         }).ToList();
         //删除
-        await  LogicDeleteAsync<Menu>(x => x.MenuType == MenuType.Button && x.ParentId == param.Id && buttons.Any(z => z.Id != x.Id));
+        await  LogicDeleteAsync<Menu>(x => x.MenuType == MenuTypeEnum.Button && x.ParentId == param.Id && buttons.Any(z => z.Id != x.Id));
         await SugarClient.Storageable(buttons).ExecuteCommandAsync();
 
 
@@ -216,7 +218,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
         var querys = param.Querys.Select(x => new Menu
         {
             Id = x.Id,
-            MenuType = MenuType.Query,
+            MenuType = MenuTypeEnum.Query,
             Title = x.Key,
             Name = x.Value,
             ParentId = param.Id,
@@ -224,7 +226,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
         }).ToList();
 
         //删除
-        await LogicDeleteAsync<Menu>(x => x.MenuType == MenuType.Query && x.ParentId == param.Id && querys.Any(z => z.Id != x.Id));
+        await LogicDeleteAsync<Menu>(x => x.MenuType == MenuTypeEnum.Query && x.ParentId == param.Id && querys.Any(z => z.Id != x.Id));
         await SugarClient.Storageable(querys).ExecuteCommandAsync();
         return param.Id;
     }
@@ -247,7 +249,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
     {
 
 
-        var db = await GetIQueryable(x => x.Status && !x.Constant && x.MenuType != MenuType.Query).OrderBy(x => x.Order).Select(x => new RouteTreeSelectDTO
+        var db = await GetIQueryable(x => x.Status && !x.Constant && x.MenuType != MenuTypeEnum.Query).OrderBy(x => x.Order).Select(x => new RouteTreeSelectDTO
         {
             Id = x.Id,
             ParentId = x.ParentId,
@@ -282,7 +284,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
 
     {
         //查出请求参数有
-        var querys = GetIQueryable(x => x.Status && x.MenuType == MenuType.Query && menus.Any(y => y.Id == x.ParentId)).Select(x => new MenuQuery
+        var querys = GetIQueryable(x => x.Status && x.MenuType == MenuTypeEnum.Query && menus.Any(y => y.Id == x.ParentId)).Select(x => new MenuQuery
         {
             ParentId = x.ParentId,
             Key = x.Name,

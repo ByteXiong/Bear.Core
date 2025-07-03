@@ -34,7 +34,7 @@ public class PermissionService : BaseServices<Role>, IPermissionService
         var permissionIdentifierList = await SugarClient
             .Queryable<UserRole, RoleMenu, Menu>((ur, rm, m) => ur.RoleId == rm.RoleId && rm.MenuId == m.Id)
             .GroupBy((ur, rm, m) => m.Permission)
-            .Where((ur, rm, m) => ur.UserId == userId && m.MenuType != MenuType.Directory && m.Permission != null)
+            .Where((ur, rm, m) => ur.UserId == userId && m.MenuType != MenuTypeEnum.Directory && m.Permission != null)
             .OrderBy((ur, rm, m) => m.Permission)
             .ClearFilter<ICreateByEntity>()
             .Select((ur, rm, m) => m.Permission).ToListAsync();

@@ -67,7 +67,7 @@ public class MenuExport : ExportBase
     /// 菜单类型
     /// </summary>
     [Display(Name = "Menu.MenuType")]
-    public MenuType MenuType { get; set; }
+    public MenuTypeEnum MenuType { get; set; }
 
     /// <summary>
     /// 是否缓存
