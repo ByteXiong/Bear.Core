@@ -1480,6 +1480,11 @@
             父级ID
             </summary>
         </member>
+        <member name="P:BearPlatform.Models.Permission.RouteTreeSelectDTO.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
         <member name="P:BearPlatform.Models.Permission.RouteTreeSelectDTO.Title">
             <summary>
             标题
@@ -1488,6 +1493,16 @@
         <member name="P:BearPlatform.Models.Permission.RouteTreeSelectDTO.MenuType">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Models.Permission.RouteTreeSelectDTO.Icon">
+            <summary>
+            icon图标
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Models.Permission.RouteTreeSelectDTO.IconType">
+            <summary>
+            icon图标
             </summary>
         </member>
         <member name="P:BearPlatform.Models.Permission.RouteTreeSelectDTO.Children">

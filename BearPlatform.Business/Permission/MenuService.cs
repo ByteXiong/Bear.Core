@@ -245,30 +245,13 @@ public class MenuService : BaseServices<Menu>, IMenuService
     /// 菜单下拉
     /// </summary>
     /// <returns></returns>
-    public async Task<List<RouteTreeSelectDTO>> TreeSelectAsync()
+    public async Task<List<RouteTreeSelectDTO>> TreeSelectAsync(MenuTypeEnum[] types) 
     {
-
-
-        var db = await GetIQueryable(x => x.Status && !x.Constant && x.MenuType != MenuTypeEnum.Query).OrderBy(x => x.Order).Select(x => new RouteTreeSelectDTO
-        {
-            Id = x.Id,
-            ParentId = x.ParentId,
-            Title = x.Title,
-            MenuType = x.MenuType,
-        }).ToListAsync();
-        var list = new List<RouteTreeSelectDTO>();
-        //递归
-        db.ForEach(x =>
-        {
-            x.Children = db.Where(y => y.ParentId == x.Id)?.ToList();
-            x.Children = x.Children.Count() == 0 ? null : x.Children;
-            if (x.ParentId == null)
-            {
-                list.Add(x);
-            }
-        });
-
-        return list;
+        var tree = await GetIQueryable(x => !x.Constant)
+            .WhereIF(types != null, x => types.Contains(x.MenuType))
+            .OrderBy(x => x.Order)
+            .Select<RouteTreeSelectDTO>().ToTreeAsync(it => it.Children, it => it.ParentId, null, it => it.Id);
+        return tree;
     }
 
 

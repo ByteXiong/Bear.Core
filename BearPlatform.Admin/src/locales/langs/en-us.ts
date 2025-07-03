@@ -20,6 +20,7 @@ const local: App.I18n.Schema = {
     isMultiple: 'IsMultiple'
   },
   menu: {
+    parent: 'Parent Menu',
     menuType: 'Menu Type',
     menuName: 'Menu Name',
     routeName: 'Route Name',
@@ -73,6 +74,7 @@ const local: App.I18n.Schema = {
   common: {
     i18n: 'I18n',
     placeholder: 'Please enter',
+    placeholderSelect: 'Please select',
     action: 'Action',
     add: 'Add',
     addSuccess: 'Add Success',

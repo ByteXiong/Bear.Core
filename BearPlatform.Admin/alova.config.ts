@@ -81,13 +81,12 @@ module.exports = {
           required: ['code', 'data', 'msg', 'success']
         };
 
-  // 去掉 operationId 中的控制器信息
-  if (apiDescriptor.operationId) {
-    // const parts = apiDescriptor.url.replace(/{|}/g, "").split("/").slice(3);
-    const parts =apiDescriptor.operationId.split("_").slice(3)
-    apiDescriptor.operationId = apiDescriptor.method + "_" + parts.join("_");
-  }
-
+        // 去掉 operationId 中的控制器信息
+        if (apiDescriptor.operationId) {
+          // const parts = apiDescriptor.url.replace(/{|}/g, "").split("/").slice(3);
+          const parts = apiDescriptor.operationId.split('_').slice(3);
+          apiDescriptor.operationId = `${apiDescriptor.method}_${parts.join('_')}`;
+        }
 
         return apiDescriptor;
       }

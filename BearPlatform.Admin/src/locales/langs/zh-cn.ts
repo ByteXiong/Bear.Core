@@ -20,6 +20,7 @@ const local: App.I18n.Schema = {
     isMultiple: '是否多选'
   },
   menu: {
+    parent: '父级菜单',
     menuType: '菜单类型',
     menuName: '菜单名称',
     routeName: '路由名称',
@@ -74,6 +75,7 @@ const local: App.I18n.Schema = {
   common: {
     i18n: '国际化',
     placeholder: '请输入',
+    placeholderSelect: '请选择',
     action: '操作',
     add: '新增',
     addSuccess: '添加成功',

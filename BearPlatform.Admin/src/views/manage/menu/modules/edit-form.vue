@@ -10,6 +10,7 @@ import createComponent from '@/utils/createComponent';
 import SvgIcon from '@/components/custom/svg-icon.vue';
 import { $t } from '@/locales';
 import I18nDrawer from '@/components/i18n/i18n-drawer.vue';
+import TreeSelect from './tree-select.vue';
 defineOptions({
   name: 'MenuEditForm'
 });
@@ -189,83 +190,17 @@ defineExpose({
       <ElForm ref="formRef" :model="formData" :rules="rules" label-placement="left" :label-width="100">
         <ElRow>
           <ElCol :span="12">
-            <ElFormItem :label="$t('menu.menuType')" prop="menuType">
-              <ElRadioGroup v-model="formData.menuType">
-                <ElRadio
-                  v-for="item in getEnumValue(MenuTypeEnum).filter(
-                    item => item !== MenuTypeEnum.Button && item !== MenuTypeEnum.Query
-                  )"
-                  :key="item"
-                  :value="item"
-                  :label="$t(MenuTypeEnum[item])"
-                />
-              </ElRadioGroup>
+            <ElFormItem :label="$t('menu.parent')" prop="menuType">
+              <TreeSelect
+                v-model="formData.parentId"
+                val-key="id"
+                :types="[MenuTypeEnum.Directory]"
+                :placeholder="$t('common.placeholderSelect')"
+              ></TreeSelect>
             </ElFormItem>
           </ElCol>
-          <ElCol :span="12">
-            <ElFormItem :label="$t('menu.menuName')" prop="title" class="flex-center justify-around">
-              <ElInput
-                v-model="formData.title"
-                :placeholder="$t('common.placeholder') + $t('common.placeholder') + $t('menu.menuName')"
-                class="flex-1"
-              />
-              <ElText
-                type="primary"
-                @click="
-                  () => {
-                    openI180n();
-                  }
-                "
-              >
-                {{ $t('common.i18n') }}
-              </ElText>
-            </ElFormItem>
-          </ElCol>
-          <ElCol :span="12">
-            <ElFormItem :label="$t('menu.routeName')" prop="name">
-              <ElInput v-model="formData.name" :placeholder="$t('common.placeholder') + $t('menu.routeName')" />
-            </ElFormItem>
-          </ElCol>
-          <ElCol :span="12">
-            <ElFormItem :label="$t('menu.routePath')" prop="path">
-              <ElInput
-                v-model="formData.path"
-                disabled
-                :placeholder="$t('common.placeholder') + $t('menu.routePath')"
-              />
-            </ElFormItem>
-          </ElCol>
-          <ElCol :span="12">
-            <ElFormItem :label="$t('menu.pathParam')" prop="pathParam">
-              <ElInput v-model="formData.pathParam" :placeholder="$t('common.placeholder') + $t('menu.pathParam')" />
-            </ElFormItem>
-          </ElCol>
-          <ElCol v-if="!formData.parentId" :span="12">
-            <ElFormItem :label="$t('menu.layout')" prop="layout">
-              <ElSelect v-model="formData.layout" clearable :placeholder="$t('common.placeholder') + $t('menu.layout')">
-                <ElOption
-                  v-for="item in getEnumValue(LayoutType)"
-                  :key="item"
-                  :value="item"
-                  :label="$t(LayoutType[item])"
-                ></ElOption>
-              </ElSelect>
-            </ElFormItem>
-          </ElCol>
-          <ElCol v-if="formData.menuType === MenuTypeEnum.Menu" :span="12">
-            <ElFormItem :label="$t('menu.page')" prop="page">
-              <ElInput v-model="formData.component" :placeholder="$t('common.placeholder') + $t('menu.page')" />
-            </ElFormItem>
-          </ElCol>
-          <ElCol :span="12">
-            <ElFormItem :label="$t('menu.order')" prop="order">
-              <ElInputNumber
-                v-model="formData.order"
-                class="w-full"
-                :placeholder="$t('common.placeholder') + $t('menu.order')"
-              />
-            </ElFormItem>
-          </ElCol>
+
+          <ElCol :span="12"></ElCol>
           <ElCol :span="12">
             <ElFormItem :label="$t('menu.iconType')" prop="iconType">
               <ElRadioGroup v-model="formData.iconType">
@@ -315,6 +250,77 @@ defineExpose({
             </ElFormItem>
           </ElCol>
           <ElCol :span="12">
+            <ElFormItem :label="$t('menu.menuType')" prop="menuType">
+              <ElRadioGroup v-model="formData.menuType">
+                <ElRadio
+                  v-for="item in getEnumValue(MenuTypeEnum).filter(
+                    item => item !== MenuTypeEnum.Button && item !== MenuTypeEnum.Query
+                  )"
+                  :key="item"
+                  :value="item"
+                  :label="$t(MenuTypeEnum[item])"
+                />
+              </ElRadioGroup>
+            </ElFormItem>
+          </ElCol>
+          <ElCol :span="12">
+            <ElFormItem :label="$t('menu.menuName')" prop="title" class="flex-center justify-around">
+              <ElInput
+                v-model="formData.title"
+                :placeholder="$t('common.placeholder') + $t('menu.menuName')"
+                class="flex-1"
+              />
+              <ElText
+                type="primary"
+                @click="
+                  () => {
+                    openI180n();
+                  }
+                "
+              >
+                {{ $t('common.i18n') }}
+              </ElText>
+            </ElFormItem>
+          </ElCol>
+          <ElCol :span="12">
+            <ElFormItem :label="$t('menu.routeName')" prop="name">
+              <ElInput v-model="formData.name" :placeholder="$t('common.placeholder') + $t('menu.routeName')" />
+            </ElFormItem>
+          </ElCol>
+          <ElCol :span="12">
+            <ElFormItem :label="$t('menu.pathParam')" prop="pathParam">
+              <ElInput v-model="formData.pathParam" :placeholder="$t('common.placeholder') + $t('menu.pathParam')" />
+            </ElFormItem>
+          </ElCol>
+
+          <ElCol v-if="!formData.parentId" :span="12">
+            <ElFormItem :label="$t('menu.layout')" prop="layout">
+              <ElSelect v-model="formData.layout" clearable :placeholder="$t('common.placeholder') + $t('menu.layout')">
+                <ElOption
+                  v-for="item in getEnumValue(LayoutType)"
+                  :key="item"
+                  :value="item"
+                  :label="$t(LayoutType[item])"
+                ></ElOption>
+              </ElSelect>
+            </ElFormItem>
+          </ElCol>
+          <ElCol v-if="formData.menuType === MenuTypeEnum.Menu" :span="12">
+            <ElFormItem :label="$t('menu.page')" prop="page">
+              <ElInput v-model="formData.component" :placeholder="$t('common.placeholder') + $t('menu.page')" />
+            </ElFormItem>
+          </ElCol>
+          <ElCol :span="12">
+            <ElFormItem :label="$t('menu.order')" prop="order">
+              <ElInputNumber
+                v-model="formData.order"
+                class="w-full"
+                :placeholder="$t('common.placeholder') + $t('menu.order')"
+              />
+            </ElFormItem>
+          </ElCol>
+
+          <ElCol :span="12">
             <ElFormItem :label="$t('menu.menuStatus')" prop="status">
               <ElRadioGroup v-model="formData.status">
                 <ElRadio :value="true" label="启用" />
@@ -356,7 +362,6 @@ defineExpose({
             <ElFormItem :label="$t('menu.activeMenu')" prop="activeMenu">
               <ElSelect
                 v-model="formData.activeMenu as string"
-                :options="pageOptions"
                 clearable
                 :placeholder="$t('common.placeholder') + $t('menu.activeMenu')"
               >

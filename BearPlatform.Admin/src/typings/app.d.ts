@@ -308,6 +308,7 @@ declare namespace App {
         isMultiple: string;
       };
       menu: {
+        parent: string;
         menuType: string;
         menuName: string;
         routeName: string;
@@ -362,6 +363,7 @@ declare namespace App {
       common: {
         i18n: string;
         placeholder: string;
+        placeholderSelect: string;
         action: string;
         add: string;
         addSuccess: string;

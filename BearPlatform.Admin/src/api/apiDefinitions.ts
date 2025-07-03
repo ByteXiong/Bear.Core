@@ -48,7 +48,7 @@ export default {
   'Menu.get_gettree': ['GET', '/api/Menu/GetTree'],
   'Menu.get_isrouteexist': ['GET', '/api/Menu/IsRouteExist'],
   'Menu.get_myroutes': ['GET', '/api/Menu/MyRoutes'],
-  'Menu.get_treeselect': ['GET', '/api/Menu/TreeSelect'],
+  'Menu.post_treeselect': ['POST', '/api/Menu/TreeSelect'],
   'Menu.put_update': ['PUT', '/api/Menu/Update'],
   'Role.post_add': ['POST', '/api/Role/Add'],
   'Role.delete_delete': ['DELETE', '/api/Role/Delete'],

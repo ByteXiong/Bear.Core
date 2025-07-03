@@ -262,6 +262,11 @@ public class RouteTreeSelectDTO
     /// 父级ID
     /// </summary>
     public long? ParentId { get; set; }
+
+    /// <summary>
+    /// 名称
+    /// </summary>
+    public string Name { get; set; }
     /// <summary>
     /// 标题
     /// </summary>
@@ -271,8 +276,19 @@ public class RouteTreeSelectDTO
     /// </summary>
     public MenuTypeEnum MenuType { get; set; }
     /// <summary>
+    /// icon图标
+    /// </summary>
+    public string Icon { get; set; }
+
+    /// <summary>
+    /// icon图标
+    /// </summary>
+    public IconTypeEnum IconType { get; set; }
+    /// <summary>
     /// 
     /// </summary>
     public List<RouteTreeSelectDTO> Children { get; set; }
+
+ 
 
 }

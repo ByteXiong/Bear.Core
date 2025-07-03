@@ -26,8 +26,8 @@ const {
       transform: res => {
         const forch = (item: MenuTreeDTO, parent?: MenuTreeDTO) => {
           item.path = `/${item.name}`;
-          item.routeName = `${item.name}`;
-          item.routePath = parent?.path + item?.path;
+          item.routeName = parent ? `${parent?.routeName}_${item.name}` : item.name;
+          item.routePath = parent ? parent?.path + item?.path : item.path;
           if (item.children) {
             item.children.forEach((child: MenuTreeDTO) => {
               forch(child, item);
@@ -63,7 +63,7 @@ const checkedRowKeys = ref<string[]>([]);
 
 const openForm = async (id?: string | null) => {
   const { instance, on, unmount } = await createComponent(EditForm, { visible: true });
-  instance.value?.openForm(null, id);
+  instance?.openForm(null, id);
   on('refresh', () => {
     getData();
   });
@@ -77,7 +77,7 @@ const openForm = async (id?: string | null) => {
 
 const handleAddChildMenu = async (row: MenuTreeDTO) => {
   const { instance, on, unmount } = await createComponent(EditForm, { visible: true });
-  instance.value?.openForm(row.id, null);
+  instance?.openForm(row.id, null);
   on('refresh', () => {
     getData();
   });
@@ -95,7 +95,7 @@ function onStart() {
 
 const columns = ref<UI.TableColumnCheck[] | (Partial<TableColumnCtx<MenuTreeDTO>> & { checked?: boolean })[]>([
   { type: 'selection', width: 48, checked: true, label: $t('table.selection') },
-  { prop: 'name', label: $t('menu.routeName'), checked: true, minWidth: 120 },
+  { prop: 'routeName', label: $t('menu.routeName'), checked: true, minWidth: 120 },
   {
     prop: 'menuType',
     label: $t('menu.menuType'),
@@ -117,7 +117,7 @@ const columns = ref<UI.TableColumnCheck[] | (Partial<TableColumnCtx<MenuTreeDTO>
         return '';
       }
 
-      return <ElTag type={row.status ? 'success' : 'danger'}>{row.status}</ElTag>;
+      return <ElTag type={row.status ? 'success' : 'danger'}>{row.status ? '启用' : '禁用'}</ElTag>;
     }
   },
   {
@@ -126,7 +126,7 @@ const columns = ref<UI.TableColumnCheck[] | (Partial<TableColumnCtx<MenuTreeDTO>
     width: 80,
     checked: true,
     formatter: row => {
-      return <ElTag type={row.hideInMenu ? 'danger' : 'success'}>{row.hideInMenu}</ElTag>;
+      return <ElTag type={row.hideInMenu ? 'danger' : 'success'}>{row.hideInMenu ? '是' : '否'}</ElTag>;
     }
   },
   { prop: 'order', label: $t('menu.order'), checked: true, width: 60 },

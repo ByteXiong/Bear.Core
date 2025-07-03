@@ -1669,10 +1669,19 @@ export type RouteTreeSelectDTO = {
    */
   parentId: string | null;
   /**
+   * 名称
+   */
+  name: string | null;
+  /**
    * 标题
    */
   title: string | null;
   menuType: MenuTypeEnum;
+  /**
+   * icon图标
+   */
+  icon: string | null;
+  iconType: IconTypeEnum;
   children: RouteTreeSelectDTO[] | null;
 };
 export type RoleDeptDto = {
@@ -8390,9 +8399,16 @@ declare global {
       /**
        * ---
        *
-       * [GET] 菜单下拉
+       * [POST] 菜单下拉
        *
        * **path:** /api/Menu/TreeSelect
+       *
+       * ---
+       *
+       * **RequestBody**
+       * ```ts
+       * type RequestBody = (1 | 2 | 3 | 4)[]
+       * ```
        *
        * ---
        *
@@ -8406,9 +8422,14 @@ declare global {
        *     id: string
        *     // 父级ID
        *     parentId: string | null
+       *     // 名称
+       *     name: string | null
        *     // 标题
        *     title: string | null
        *     menuType: 1 | 2 | 3 | 4
+       *     // icon图标
+       *     icon: string | null
+       *     iconType: 1 | 2
        *     children: Array<RouteTreeSelectDTO> | null
        *   }>
        *   // [required]
@@ -8418,7 +8439,7 @@ declare global {
        * }
        * ```
        */
-      get_treeselect<
+      post_treeselect<
         Config extends Alova2MethodConfig<{
           /**
            * [required]
@@ -8436,9 +8457,11 @@ declare global {
            * [required]
            */
           success: boolean;
-        }>
+        }> & {
+          data: MenuTypeEnum[];
+        }
       >(
-        config?: Config
+        config: Config
       ): Alova2Method<
         {
           /**
@@ -8458,7 +8481,7 @@ declare global {
            */
           success: boolean;
         },
-        'Menu.get_treeselect',
+        'Menu.post_treeselect',
         Config
       >;
       /**
