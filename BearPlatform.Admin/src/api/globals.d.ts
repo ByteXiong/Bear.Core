@@ -90,7 +90,7 @@ type Alova2Method<
 
 export type DataScopeType = 0 | 1 | 2 | 3 | 4 | 5;
 export type LayoutTypeEnum = 1 | 2;
-export type MenuTypeEnum = 1 | 2 | 3 | 4;
+export type MenuTypeEnum = 1 | 2 | 3;
 export type IconTypeEnum = 1 | 2;
 export type Menu = {
   /**
@@ -1043,25 +1043,6 @@ export type CaptchaVo = {
    */
   showCaptcha: boolean;
 };
-export type MenuButton = {
-  id: string;
-  /**
-   * 按钮编码
-   */
-  code: string | null;
-  /**
-   * 描述
-   */
-  desc: string | null;
-  /**
-   * 父级Id
-   */
-  parentId: string | null;
-  /**
-   * 状态
-   */
-  status: boolean;
-};
 export type MenuQuery = {
   id: string;
   /**
@@ -1192,7 +1173,6 @@ export type MenuInfo = {
    * 菜单集合
    */
   roles: Role[] | null;
-  buttons: MenuButton[] | null;
   querys: MenuQuery[] | null;
 };
 export type RoleInfo = {
@@ -1502,7 +1482,6 @@ export type UpdateMenuParam = {
    * 菜单集合
    */
   roles: Role[] | null;
-  buttons: MenuButton[] | null;
   querys: MenuQuery[] | null;
 };
 export type RouteMeta = {
@@ -2381,7 +2360,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -3105,7 +3084,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -3610,7 +3589,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -4407,7 +4386,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -6217,7 +6196,7 @@ declare global {
        *           component: string | null
        *           // 父级
        *           parentId: string | null
-       *           menuType: 1 | 2 | 3 | 4
+       *           menuType: 1 | 2 | 3
        *           iconType: 1 | 2
        *           // 状态
        *           status: boolean
@@ -6273,7 +6252,7 @@ declare global {
        *             component: string | null
        *             // 父级
        *             parentId: string | null
-       *             menuType: 1 | 2 | 3 | 4
+       *             menuType: 1 | 2 | 3
        *             iconType: 1 | 2
        *             // 状态
        *             status: boolean
@@ -6361,7 +6340,7 @@ declare global {
        *               component: string | null
        *               // 父级
        *               parentId: string | null
-       *               menuType: 1 | 2 | 3 | 4
+       *               menuType: 1 | 2 | 3
        *               iconType: 1 | 2
        *               // 状态
        *               status: boolean
@@ -6584,17 +6563,6 @@ declare global {
        *               // 角色集合
        *               roles: Array<Role> | null
        *             }> | null
-       *           }> | null
-       *           buttons: Array<{
-       *             id: string
-       *             // 按钮编码
-       *             code: string | null
-       *             // 描述
-       *             desc: string | null
-       *             // 父级Id
-       *             parentId: string | null
-       *             // 状态
-       *             status: boolean
        *           }> | null
        *           querys: Array<{
        *             id: string
@@ -6938,7 +6906,7 @@ declare global {
        *   component: string | null
        *   // 父级
        *   parentId: string | null
-       *   menuType: 1 | 2 | 3 | 4
+       *   menuType: 1 | 2 | 3
        *   iconType: 1 | 2
        *   // 状态
        *   status: boolean
@@ -6994,7 +6962,7 @@ declare global {
        *     component: string | null
        *     // 父级
        *     parentId: string | null
-       *     menuType: 1 | 2 | 3 | 4
+       *     menuType: 1 | 2 | 3
        *     iconType: 1 | 2
        *     // 状态
        *     status: boolean
@@ -7082,7 +7050,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -7306,17 +7274,6 @@ declare global {
        *       roles: Array<Role> | null
        *     }> | null
        *   }> | null
-       *   buttons: Array<{
-       *     id: string
-       *     // 按钮编码
-       *     code: string | null
-       *     // 描述
-       *     desc: string | null
-       *     // 父级Id
-       *     parentId: string | null
-       *     // 状态
-       *     status: boolean
-       *   }> | null
        *   querys: Array<{
        *     id: string
        *     // 父级Id
@@ -7427,7 +7384,7 @@ declare global {
        *     component: string | null
        *     // 父级
        *     parentId: string | null
-       *     type: 1 | 2 | 3 | 4
+       *     type: 1 | 2 | 3
        *     // 状态
        *     status: boolean
        *     meta: {
@@ -7648,7 +7605,7 @@ declare global {
        *     component: string | null
        *     // 父级
        *     parentId: string | null
-       *     menuType: 1 | 2 | 3 | 4
+       *     menuType: 1 | 2 | 3
        *     iconType: 1 | 2
        *     // 状态
        *     status: boolean
@@ -7704,7 +7661,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -7792,7 +7749,7 @@ declare global {
        *         component: string | null
        *         // 父级
        *         parentId: string | null
-       *         menuType: 1 | 2 | 3 | 4
+       *         menuType: 1 | 2 | 3
        *         iconType: 1 | 2
        *         // 状态
        *         status: boolean
@@ -8016,17 +7973,6 @@ declare global {
        *         roles: Array<Role> | null
        *       }> | null
        *     }> | null
-       *     buttons: Array<{
-       *       id: string
-       *       // 按钮编码
-       *       code: string | null
-       *       // 描述
-       *       desc: string | null
-       *       // 父级Id
-       *       parentId: string | null
-       *       // 状态
-       *       status: boolean
-       *     }> | null
        *     querys: Array<{
        *       id: string
        *       // 父级Id
@@ -8124,7 +8070,7 @@ declare global {
        *     // icon图标
        *     icon: string | null
        *     iconType: 1 | 2
-       *     menuType: 1 | 2 | 3 | 4
+       *     menuType: 1 | 2 | 3
        *     // 是否隐藏
        *     hideInMenu: boolean
        *     // 跳转路由
@@ -8301,7 +8247,7 @@ declare global {
        *     component: string | null
        *     // 父级
        *     parentId: string | null
-       *     type: 1 | 2 | 3 | 4
+       *     type: 1 | 2 | 3
        *     // 状态
        *     status: boolean
        *     meta: {
@@ -8407,7 +8353,7 @@ declare global {
        *
        * **RequestBody**
        * ```ts
-       * type RequestBody = (1 | 2 | 3 | 4)[]
+       * type RequestBody = (1 | 2 | 3)[]
        * ```
        *
        * ---
@@ -8426,7 +8372,7 @@ declare global {
        *     name: string | null
        *     // 标题
        *     title: string | null
-       *     menuType: 1 | 2 | 3 | 4
+       *     menuType: 1 | 2 | 3
        *     // icon图标
        *     icon: string | null
        *     iconType: 1 | 2
@@ -8521,7 +8467,7 @@ declare global {
        *   component: string | null
        *   // 父级
        *   parentId: string | null
-       *   menuType: 1 | 2 | 3 | 4
+       *   menuType: 1 | 2 | 3
        *   iconType: 1 | 2
        *   // 状态
        *   status: boolean
@@ -8577,7 +8523,7 @@ declare global {
        *     component: string | null
        *     // 父级
        *     parentId: string | null
-       *     menuType: 1 | 2 | 3 | 4
+       *     menuType: 1 | 2 | 3
        *     iconType: 1 | 2
        *     // 状态
        *     status: boolean
@@ -8665,7 +8611,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -8888,17 +8834,6 @@ declare global {
        *       // 角色集合
        *       roles: Array<Role> | null
        *     }> | null
-       *   }> | null
-       *   buttons: Array<{
-       *     id: string
-       *     // 按钮编码
-       *     code: string | null
-       *     // 描述
-       *     desc: string | null
-       *     // 父级Id
-       *     parentId: string | null
-       *     // 状态
-       *     status: boolean
        *   }> | null
        *   querys: Array<{
        *     id: string
@@ -9251,7 +9186,7 @@ declare global {
        *         component: string | null
        *         // 父级
        *         parentId: string | null
-       *         type: 1 | 2 | 3 | 4
+       *         type: 1 | 2 | 3
        *         // 状态
        *         status: boolean
        *         meta: {

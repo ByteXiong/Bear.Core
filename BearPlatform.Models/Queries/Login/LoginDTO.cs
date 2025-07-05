@@ -28,4 +28,5 @@ public class LoginParam
     /// 验证码ID
     /// </summary>
     public string CaptchaId { get; set; }
+
 }

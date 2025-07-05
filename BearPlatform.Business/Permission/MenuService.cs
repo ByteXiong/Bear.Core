@@ -18,6 +18,7 @@ using BearPlatform.IBusiness.Permission;
 using BearPlatform.Models.Permission;
 using BearPlatform.Repository.SugarHandler;
 using BearPlatform.ViewModel.Core.Permission.Menu;
+using NPOI.POIFS.FileSystem;
 using SqlSugar;
 
 namespace BearPlatform.Business.Permission;
@@ -62,7 +63,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
     {
         var menuList = await SugarClient
             .Queryable<UserRole, RoleMenu, Menu>((ur, rm, m) => ur.RoleId == rm.RoleId && rm.MenuId == m.Id)
-            .Where((ur, rm, m) => ur.UserId == userId && m.MenuType != MenuTypeEnum.Button)
+            .Where((ur, rm, m) => ur.UserId == userId && m.MenuType != MenuTypeEnum.Query)
             .OrderBy((ur, rm, m) => m.Order)
             .ClearFilter<ICreateByEntity>()
             .Select((ur, rm, m) => m).Distinct().ToListAsync();
@@ -93,9 +94,31 @@ public class MenuService : BaseServices<Menu>, IMenuService
     {
         //排除公共模块
   
-        var tree = await GetIQueryable(x => !x.Constant).OrderBy(x => x.Order)
-            .Select<MenuTreeDTO>().ToTreeAsync(it => it.Children, it => it.ParentId, null, it => it.Id);
-        return tree;
+        var entity = await GetIQueryable(x => !x.Constant).OrderBy(x => x.Order).Select<MenuTreeDTO>(x=>new MenuTreeDTO {
+
+           Path = "/" + x.Name + x.PathParam,
+
+        },true).ToListAsync();
+  
+         var list = new List<MenuTreeDTO>();    
+
+        entity.ForEach(x =>
+        {
+           
+            x.Children = entity.Where(y => y.ParentId == x.Id).Select(y =>
+            {
+                if (y.MenuType != MenuTypeEnum.Query) { 
+                y.Path = x.Path + y.Path;
+                y.Name = x.Name + "_" + y.Name;
+                }
+                return y;
+            }).ToList();
+            if (x.ParentId == null)
+            {
+                list.Add(x);
+            }
+        });
+        return list;
     }
 
     /// <summary>
@@ -127,14 +150,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
 
         }, true).FirstAsync();
 
-        entity.Buttons = await GetIQueryable(x => x.ParentId == id && x.MenuType == MenuTypeEnum.Button).Select(x => new MenuButton
-        {
-            Id = x.Id,
-            Code = x.Name,
-            Desc = x.Title,
-            ParentId = x.ParentId,
-            Status = x.Status
-        }).ToListAsync();
+     
 
         entity.Querys = await GetIQueryable(x => x.ParentId == id && x.MenuType == MenuTypeEnum.Query).Select(x => new MenuQuery
         {
@@ -162,16 +178,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
 
         await AddAsync(model);
 
-        var addButtons = param.Buttons?.Select(x => new Menu
-        {
-            MenuType = MenuTypeEnum.Button,
-            Title = x.Desc,
-            Name = x.Code.ToLower(),
-            ParentId = model.Id,
-            Status = x.Status
-        }).ToList();
-        await AddAsync(addButtons);
-
+  
 
 
         var addQuerys = param.Querys?.Select(x => new Menu
@@ -199,19 +206,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
         var model = App.Mapper.MapTo<Menu>(param);
         await UpdateAsync(model);
 
-        //新增/编辑
-        var buttons = param.Buttons.Select(x => new Menu
-        {
-            Id = x.Id,
-            MenuType = MenuTypeEnum.Button,
-            Title = x.Desc,
-            Name = x.Code.ToLower(),
-            ParentId = param.Id,
-            Status = x.Status
-        }).ToList();
-        //删除
-        await  LogicDeleteAsync<Menu>(x => x.MenuType == MenuTypeEnum.Button && x.ParentId == param.Id && buttons.Any(z => z.Id != x.Id));
-        await SugarClient.Storageable(buttons).ExecuteCommandAsync();
+  
 
 
         //新增/编辑
@@ -314,9 +309,9 @@ public class MenuService : BaseServices<Menu>, IMenuService
             x.Children = entity.Where(y => y.ParentId == x.Id).Select(y =>
             {
                 y.Path = x.Path + y.Path;
+                y.Name = x.Name + "_"+ y.Name;
                 return y;
-            }
-                ).ToList();
+            }).ToList();
             if (x.ParentId == null)
             {
                 list.Add(x);

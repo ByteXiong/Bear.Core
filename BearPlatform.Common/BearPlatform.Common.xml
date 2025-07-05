@@ -479,11 +479,6 @@
             菜单
             </summary>
         </member>
-        <member name="F:BearPlatform.Common.Enums.MenuTypeEnum.Button">
-            <summary>
-            按钮
-            </summary>
-        </member>
         <member name="F:BearPlatform.Common.Enums.MenuTypeEnum.Query">
             <summary>
             参数

@@ -22,6 +22,7 @@ public class RouteDTO : BaseEntityDTO<long>
     /// 路径
     /// </summary>
     public string Path { get; set; }
+
     /// <summary>
     /// 重定向
     /// </summary>
@@ -244,7 +245,6 @@ public class MenuTreeDTO
 [AutoMapping(typeof(Menu), typeof(MenuInfo))]
 public class MenuInfo : Menu
 {
-    public List<MenuButton> Buttons { get; set; }
     public List<MenuQuery> Querys { get; set; }
     //public List<Permission> PermissionList { get; set; }
 }
@@ -252,7 +252,6 @@ public class MenuInfo : Menu
 public class UpdateMenuParam : Menu
 {
 
-    public List<MenuButton> Buttons { get; set; }
     public List<MenuQuery> Querys { get; set; }
 }
 public class RouteTreeSelectDTO

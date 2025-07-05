@@ -24,19 +24,19 @@ const {
   () =>
     Apis.Menu.get_gettree({
       transform: res => {
-        const forch = (item: MenuTreeDTO, parent?: MenuTreeDTO) => {
-          item.path = `/${item.name}`;
-          item.routeName = parent ? `${parent?.routeName}_${item.name}` : item.name;
-          item.routePath = parent ? parent?.path + item?.path : item.path;
-          if (item.children) {
-            item.children.forEach((child: MenuTreeDTO) => {
-              forch(child, item);
-            });
-          }
-        };
-        res.data.forEach((item: MenuTreeDTO) => {
-          forch(item, undefined);
-        });
+        // const forch = (item: MenuTreeDTO, parent?: MenuTreeDTO) => {
+        //   item.path = `/${item.name}`;
+        //   item.name = parent ? `${parent?.name}_${item.name}` : item.name;
+        //   item.routePath = parent ? parent?.path + item?.path : item.path;
+        //   if (item.children) {
+        //     item.children.forEach((child: MenuTreeDTO) => {
+        //       forch(child, item);
+        //     });
+        //   }
+        // };
+        // res.data.forEach((item: MenuTreeDTO) => {
+        //   forch(item, undefined);
+        // });
         return res.data;
       }
     }),
@@ -95,7 +95,9 @@ function onStart() {
 
 const columns = ref<UI.TableColumnCheck[] | (Partial<TableColumnCtx<MenuTreeDTO>> & { checked?: boolean })[]>([
   { type: 'selection', width: 48, checked: true, label: $t('table.selection') },
-  { prop: 'routeName', label: $t('menu.routeName'), checked: true, minWidth: 120 },
+
+  { prop: 'title', label: $t('menu.menuName'), checked: true, minWidth: 120 },
+  { prop: 'name', label: $t('menu.routeName'), checked: true, minWidth: 120 },
   {
     prop: 'menuType',
     label: $t('menu.menuType'),
@@ -116,7 +118,6 @@ const columns = ref<UI.TableColumnCheck[] | (Partial<TableColumnCtx<MenuTreeDTO>
       if (row.status === undefined) {
         return '';
       }
-
       return <ElTag type={row.status ? 'success' : 'danger'}>{row.status ? '启用' : '禁用'}</ElTag>;
     }
   },

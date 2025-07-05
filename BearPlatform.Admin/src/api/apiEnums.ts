@@ -63,13 +63,9 @@ export enum MenuTypeEnum {
   Menu = 2,
 
   /// <summary>
-  /// 按钮
+  /// 参数
   /// </summary>
-  Button = 3,
-  /// <summary>
-  /// 按钮
-  /// </summary>
-  Query = 4
+  Query = 3
 }
 
 export enum IconTypeEnum {

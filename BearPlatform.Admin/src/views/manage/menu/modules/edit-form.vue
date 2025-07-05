@@ -65,8 +65,8 @@ const {
     immediate: false,
     resetAfterSubmiting: true,
     initialForm: {
-      id: 0,
-      parentId: 0,
+      id: null,
+      parentId: null,
       menuType: MenuTypeEnum.Menu,
       iconType: IconTypeEnum.iconify,
       status: true,
@@ -113,19 +113,6 @@ const closeForm = () => {
   resetFrom();
 };
 
-function addButton(index: number) {
-  formData.value.buttons?.splice(index + 1, 0, {
-    code: '',
-    desc: '',
-    id: '',
-    parentId: null,
-    status: true
-  });
-}
-function removeButton(index: number) {
-  formData.value.buttons?.splice(index, 1);
-}
-
 function addQuery(index: number) {
   formData.value.querys?.splice(index + 1, 0, {
     id: '',
@@ -157,26 +144,26 @@ const openI180n = async () => {
   });
 };
 
-// 高亮
-// 把主页的菜单全传入
-const props = defineProps<{
-  allPages: string[];
-}>();
+// // 高亮
+// // 把主页的菜单全传入
+// const props = defineProps<{
+//   allPages: string[];
+// }>();
 
-const pageOptions = computed(() => {
-  const allPages = [...props.allPages];
+// const pageOptions = computed(() => {
+//   const allPages = [...props.allPages];
 
-  if (formData.value.name && !allPages.includes(formData.value.name)) {
-    allPages.unshift(formData.value.name);
-  }
+//   if (formData.value.name && !allPages.includes(formData.value.name)) {
+//     allPages.unshift(formData.value.name);
+//   }
 
-  const opts: CommonType.Option[] = allPages.map(page => ({
-    label: page,
-    value: page
-  }));
+//   const opts: CommonType.Option[] = allPages.map(page => ({
+//     label: page,
+//     value: page
+//   }));
 
-  return opts;
-});
+//   return opts;
+// });
 
 defineExpose({
   openForm
@@ -200,7 +187,7 @@ defineExpose({
             </ElFormItem>
           </ElCol>
 
-          <ElCol :span="12"></ElCol>
+          <ElCol :span="12">{{ formData.parentId }}</ElCol>
           <ElCol :span="12">
             <ElFormItem :label="$t('menu.iconType')" prop="iconType">
               <ElRadioGroup v-model="formData.iconType">
@@ -253,14 +240,17 @@ defineExpose({
             <ElFormItem :label="$t('menu.menuType')" prop="menuType">
               <ElRadioGroup v-model="formData.menuType">
                 <ElRadio
-                  v-for="item in getEnumValue(MenuTypeEnum).filter(
-                    item => item !== MenuTypeEnum.Button && item !== MenuTypeEnum.Query
-                  )"
+                  v-for="item in getEnumValue(MenuTypeEnum).filter(item => item !== MenuTypeEnum.Query)"
                   :key="item"
                   :value="item"
                   :label="$t(MenuTypeEnum[item])"
                 />
               </ElRadioGroup>
+            </ElFormItem>
+          </ElCol>
+          <ElCol :span="12">
+            <ElFormItem :label="$t('menu.page')" prop="page">
+              <ElInput v-model="formData.component" :placeholder="$t('common.placeholder') + $t('menu.page')"   :disabled="formData.menuType !== MenuTypeEnum.Menu"/>
             </ElFormItem>
           </ElCol>
           <ElCol :span="12">
@@ -305,11 +295,7 @@ defineExpose({
               </ElSelect>
             </ElFormItem>
           </ElCol>
-          <ElCol v-if="formData.menuType === MenuTypeEnum.Menu" :span="12">
-            <ElFormItem :label="$t('menu.page')" prop="page">
-              <ElInput v-model="formData.component" :placeholder="$t('common.placeholder') + $t('menu.page')" />
-            </ElFormItem>
-          </ElCol>
+
           <ElCol :span="12">
             <ElFormItem :label="$t('menu.order')" prop="order">
               <ElInputNumber
@@ -358,15 +344,15 @@ defineExpose({
             </ElFormItem>
           </ElCol>
 
-          <ElCol v-if="formData.hideInMenu" :span="12">
-            <ElFormItem :label="$t('menu.activeMenu')" prop="activeMenu">
-              <ElSelect
+          <ElCol  :span="12">
+            <ElFormItem :label="$t('menu.activeMenu')" prop="activeMenu"   >
+              <TreeSelect  :disabled="formData.hideInMenu"
                 v-model="formData.activeMenu as string"
+                :types="[MenuTypeEnum.Directory, MenuTypeEnum.Menu]"
+                val-key="name"
                 clearable
-                :placeholder="$t('common.placeholder') + $t('menu.activeMenu')"
-              >
-                <ElOption v-for="{ label, value } in pageOptions" :key="value" :label="label" :value="value"></ElOption>
-              </ElSelect>
+                :placeholder="$t('common.placeholderSelect') + $t('menu.activeMenu')"
+              ></TreeSelect>
             </ElFormItem>
           </ElCol>
 
@@ -434,76 +420,6 @@ defineExpose({
                         </template>
                       </ElButton>
                       <ElButton @click="removeQuery(index)">
-                        <template #icon>
-                          <icon-ic-round-remove class="align-sub text-icon" />
-                        </template>
-                      </ElButton>
-                    </ElSpace>
-                  </ElCol>
-                </div>
-              </template>
-            </ElFormItem>
-          </ElCol>
-          <ElCol :span="24">
-            <ElFormItem :label-col="{ span: 4 }" :label="$t('menu.button')" prop="buttons">
-              <ElButton
-                v-if="formData.buttons && formData.buttons?.length === 0"
-                class="w-full border-dashed"
-                @click="addButton(-1)"
-              >
-                <template #icon>
-                  <icon-carbon-add class="align-sub text-icon" />
-                </template>
-                <span class="ml-8px">{{ $t('common.add') }}</span>
-              </ElButton>
-              <template v-else>
-                <div v-for="(item, index) in formData.buttons" :key="index" class="flex gap-3">
-                  <ElCol :span="8">
-                    <ElFormItem :prop="['buttons', index.toString(), 'code']">
-                      <ElInput
-                        v-model="item.code"
-                        :placeholder="$t('common.placeholder') + $t('menu.buttonCode')"
-                        class="flex-1"
-                      ></ElInput>
-                    </ElFormItem>
-                  </ElCol>
-                  <ElCol :span="7">
-                    <ElFormItem :prop="['buttons', index.toString(), 'desc']">
-                      <ElInput
-                        v-model="item.desc"
-                        :placeholder="$t('common.placeholder') + $t('menu.buttonDesc')"
-                        class="flex-1"
-                      ></ElInput>
-                      <ElText
-                        type="primary"
-                        @click="
-                          () => {
-                            openI180n();
-                          }
-                        "
-                      >
-                        国际化
-                      </ElText>
-                    </ElFormItem>
-                  </ElCol>
-                  <ElCol :span="4">
-                    <ElSwitch
-                      v-model="item.status"
-                      class="ml-2"
-                      width="60"
-                      inline-prompt
-                      active-text="启用"
-                      inactive-text="禁用"
-                    />
-                  </ElCol>
-                  <ElCol :span="4">
-                    <ElSpace class="ml-12px">
-                      <ElButton @click="addButton(index)">
-                        <template #icon>
-                          <icon-ic:round-plus class="align-sub text-icon" />
-                        </template>
-                      </ElButton>
-                      <ElButton @click="removeButton(index)">
                         <template #icon>
                           <icon-ic-round-remove class="align-sub text-icon" />
                         </template>

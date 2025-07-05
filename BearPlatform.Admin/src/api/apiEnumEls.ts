@@ -3,7 +3,7 @@ import { ColumnTypeEnum, MenuTypeEnum } from './apiEnums';
 // 自定义组件
 export const SearchComponent: Record<ColumnTypeEnum | string, string> = {
   [ColumnTypeEnum.文本]: 'ElInput',
-  [ColumnTypeEnum.单图]: 'ElInput',
+  [ColumnTypeEnum.单图]: 'ElSwitch',
   [ColumnTypeEnum.多图]: 'ElInput',
   [ColumnTypeEnum.字典]: 'ElInput',
   [ColumnTypeEnum.富文本]: 'ElInput',
