@@ -1980,6 +1980,7 @@ export type SortParam = {
 };
 export type ConditionalType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
 export type TableColumn = {
+  headAttrs: any;
   /**
    * 字段名称
    */
@@ -1989,7 +1990,6 @@ export type TableColumn = {
    */
   prop: string | null;
   searchType: ConditionalType;
-  columnType: ColumnTypeEnum;
   /**
    * 字段描述
    */
@@ -2022,6 +2022,10 @@ export type TableColumn = {
    * 多余参数
    */
   attrs: string | null;
+  /**
+   * 头部多余参数
+   */
+  headAttrsString: string | null;
 };
 export type TableViewInfo = {
   /**
@@ -11036,7 +11040,6 @@ declare global {
        *       // 字段
        *       prop: string | null
        *       searchType: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16
-       *       columnType: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 50 | 99
        *       // 字段描述
        *       columnTypeDetail: string | null
        *       // 字段验证
@@ -11053,6 +11056,8 @@ declare global {
        *       isEditDel: boolean
        *       // 多余参数
        *       attrs: string | null
+       *       // 头部多余参数
+       *       headAttrsString: string | null
        *     }> | null
        *     // 多列排序
        *     sorts: Record<string, 1 | 2> | null
@@ -11173,7 +11178,6 @@ declare global {
        *       // 字段
        *       prop: string | null
        *       searchType: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16
-       *       columnType: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 50 | 99
        *       // 字段描述
        *       columnTypeDetail: string | null
        *       // 字段验证
@@ -11190,6 +11194,8 @@ declare global {
        *       isEditDel: boolean
        *       // 多余参数
        *       attrs: string | null
+       *       // 头部多余参数
+       *       headAttrsString: string | null
        *     }> | null
        *     // 多列排序
        *     sorts: Record<string, 1 | 2> | null
@@ -11282,7 +11288,6 @@ declare global {
        *     // 字段
        *     prop: string | null
        *     searchType: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16
-       *     columnType: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 50 | 99
        *     // 字段描述
        *     columnTypeDetail: string | null
        *     // 字段验证
@@ -11299,6 +11304,8 @@ declare global {
        *     isEditDel: boolean
        *     // 多余参数
        *     attrs: string | null
+       *     // 头部多余参数
+       *     headAttrsString: string | null
        *   }> | null
        *   // 默认排序字段
        *   // [required]

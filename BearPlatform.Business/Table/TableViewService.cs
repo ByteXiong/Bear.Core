@@ -165,7 +165,7 @@ namespace BearPlatform.Business.Table
                 {
                     Label = common.Trim(),
                     Prop = prop.Name?.ToFirstLowerStr(),//转小写,
-                    IsEditDel=true,
+                    IsEditDel =true,
                     //Sortable = sortable,
                 };
                 list.Add(model);

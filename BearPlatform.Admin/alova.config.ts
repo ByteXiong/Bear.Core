@@ -58,9 +58,24 @@ module.exports = {
       //     apiDescriptor.url = apiDescriptor.url.replace('/user', '');
       //     return apiDescriptor;
       // }
-      handleApi: apiDescriptor => {
+      handleApi: (apiDescriptor: any) => {
+        // console.log(apiDescriptor);
+        // if (Object.keys(apiDescriptor.responses.properties).includes('columns')) {
+        //   apiDescriptor.responses.properties.columns.items.properties.headAttrs = {
+        //     type: "import('@/views/table/types').ComponentApi",
+        //     nullable: true
+        //   };
+        // }
+
+        // console.log(apiDescriptor.responses.properties.columns.items.properties, apiDescriptor);
+        // if (Object.keys(apiDescriptor.requestBody.properties)?.includes('columns')) {
+        //   apiDescriptor.requestBody.properties.columns.items.properties.headAttrs = {
+        //     type: "import('@/views/table/types').ComponentApi",
+        //     nullable: true
+        //   };
+        // }
+
         if (apiDescriptor.responses._$ref?.endsWith('ExcutedResult')) {
-          console.log(apiDescriptor.responses._$ref);
           return apiDescriptor;
         }
 
@@ -87,7 +102,8 @@ module.exports = {
           const parts = apiDescriptor.operationId.split('_').slice(3);
           apiDescriptor.operationId = `${apiDescriptor.method}_${parts.join('_')}`;
         }
-
+        // 把类型替换 headAttrs
+        // apiDescriptor.parameters.forEach(item => {});
         return apiDescriptor;
       }
     }

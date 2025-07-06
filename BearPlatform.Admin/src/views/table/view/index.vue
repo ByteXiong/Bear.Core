@@ -1,50 +1,31 @@
 <script setup lang="tsx">
 import { ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import type { ColumnCls, TableColumnCtx } from 'element-plus';
-import {
-  ElButton,
-  ElCheckbox,
-  ElInput,
-  ElMessage,
-  ElMessageBox,
-  ElOption,
-  ElPopconfirm,
-  ElSelect,
-  ElSwitch
-} from 'element-plus';
+import { useRoute } from 'vue-router';
+import type { TableColumnCtx } from 'element-plus';
+import { ElButton, ElInput, ElOption, ElPopconfirm, ElSelect, ElSwitch } from 'element-plus';
 import { useForm, useRequest } from '@sa/alova/client';
 import { VueDraggable } from 'vue-draggable-plus';
 import { Hide, View } from '@element-plus/icons-vue';
-import { ColumnTypeEnum, OrderTypeEnum } from '@/api/apiEnums';
 import { ConditionalType } from '@/api/sqlSugar';
-import type { TableColumn, TableView, UpdateTableViewParam } from '@/api/globals';
+import type { TableColumn, UpdateTableViewParam } from '@/api/globals';
 import { getEnumValue } from '@/utils/common';
 import createComponent from '@/utils/createComponent';
-import AllDictSelect from '@/components/select/all-dict-select.vue';
-import AllEnumSelect from '@/components/select/all-enum-select.vue';
 import I18nDrawer from '@/components/i18n/i18n-drawer.vue';
 import { $t } from '@/locales';
-import MonacoCode from '../modules/monaco-code.vue';
+import MonacoCode from '../modules/dynamic-component.vue';
+import type { ComponentApi } from '../types';
+
 defineOptions({ name: 'TableView' });
+
 const route = useRoute();
-const router = useRouter();
 const configId = ref<string>((route.query.configId as string) || '');
 const tableof = ref<string>((route.query.tableof as string) || '');
 const routerUrl = ref<string>((route.query.router as string) || '');
 
-// #endregion
-// #region 提交视图(TableView)
 const formRef = ref();
-// const { formRef, validate, restoreValidation } = useElForm();
-// // 规则验证获取对象
-// const { defaultRequiredRule, patternRules } = useFormRules();
-// type RuleKey = keyof UpdateTableViewParam;
-// const rules: Partial<Record<RuleKey, App.Global.FormRule | App.Global.FormRule[]>> = {
-//   sortKey: defaultRequiredRule,
-//   sortOrder: defaultRequiredRule
-// };
+let getTableHeader: () => void;
 
+// 初始化表单
 const {
   form: formData,
   send: submit,
@@ -57,7 +38,6 @@ const {
       transform: res => {
         window.$message?.success('保存成功！');
         formData.value.id = res.data;
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         getTableHeader();
       }
     }),
@@ -74,14 +54,9 @@ const {
     }
   }
 );
-// #endregion
 
-// formData.value.configId = configId.value;
-// formData.value.tableof = tableof.value;
-// formData.value.router = routerUrl.value;
-
-const { loading, send: getTableHeader } = useRequest(
-  // Method实例获取函数，它将接收page和pageSize，并返回一个Method实例
+// 初始化表头数据获取
+const { loading, send: fetchTableHeader } = useRequest(
   () =>
     Apis.TableView.get_getedit({
       params: {
@@ -91,27 +66,6 @@ const { loading, send: getTableHeader } = useRequest(
       },
       transform: res => {
         updateForm(res.data as UpdateTableViewParam);
-        // if (!res.success) {
-        //   ElMessageBox.confirm(`列表页模型不存在`, '首次加载请创建模型', {
-        //     confirmButtonText: 'OK',
-        //     cancelButtonText: 'Cancel',
-        //     type: 'warning'
-        //   })
-        //     .then(() => {
-        //       // if you want to disable its autofocus
-        //       // autofocus: false,
-
-        //       submitView();
-        //     })
-        //     .catch(() => {
-        //       router.back();
-        //     });
-        // } else {
-
-        // }
-
-        // start();
-        // return res.data || [];
       }
     }),
   {
@@ -120,33 +74,49 @@ const { loading, send: getTableHeader } = useRequest(
   }
 );
 
-//= ===========================================设置头部=================================
-//= ===========================================设置头部结束=================================
-function renderColumnType(row: TableColumn) {
-  switch (row.columnType) {
-    case ColumnTypeEnum.枚举:
-      return <AllEnumSelect v-model={row.columnTypeDetail} />;
-    case ColumnTypeEnum.字典:
-      return <AllDictSelect v-model={row.columnTypeDetail} />;
-    case ColumnTypeEnum.时间:
-      return <ElInput type="text" v-model={row.columnTypeDetail} placeholder="请输入yyyy-MM-dd HH:mm:ss格式" />;
-    case ColumnTypeEnum.单图:
-    case ColumnTypeEnum.多图:
-    case ColumnTypeEnum.文件:
-      return <ElInput type="text" v-model={row.columnTypeDetail} placeholder="请输入图片前缀URL" />;
-    default:
-      return null;
-  }
+// 赋值给全局函数
+getTableHeader = fetchTableHeader;
+
+// #region 组件函数
+const openHeadAttrs = async (row: TableColumn) => {
+  const { on, unmount } = await createComponent(MonacoCode, {
+    modelValue: JSON.stringify(row.headAttrsString || {}) as unknown as ComponentApi,
+    visible: true
+  });
+
+  on('Change', (code: ComponentApi) => {
+    row.headAttrsString = JSON.stringify(code);
+  });
+  on('update:visible', () => {
+    unmount();
+  });
+};
+
+const openI180n = async () => {
+  const { on, unmount } = await createComponent(I18nDrawer, { visible: true });
+  on('update:visible', res => {
+    if (!res) {
+      unmount();
+    }
+  });
+};
+
+// 添加新列
+function handleAdd() {
+  formData.value?.columns?.push({
+    isCustom: true
+  } as TableColumn);
 }
-const columns = ref<Array<Partial<TableColumnCtx<TableColumn>> & { checked?: boolean }>>([
-  // {
-  //   label: '序列',
-  //   align: 'center',
-  //   checked: false,
-  //   width: 50,
-  //   formatter: (_, index) => index + 1
-  //   // formatter: (_, _, _, index) => index + 1
-  // },
+
+// 设置行样式
+const rowClassName = ({ row }: { row: TableColumn; rowIndex: number }) => {
+  if (row.isEditDel) return 'info-row';
+  return '';
+};
+// #endregion
+
+// #region 表格列配置
+const columns = ref<Array<Partial<TableColumnCtx<TableColumn>> & { headAttrs?: ComponentApi; checked?: boolean }>>([
   {
     prop: 'sort',
     label: $t('table.dragsort'),
@@ -241,20 +211,17 @@ const columns = ref<Array<Partial<TableColumnCtx<TableColumn>> & { checked?: boo
     formatter: row => {
       return (
         <div class="flex flex-center">
-          <ElSelect
-            class="w-140px"
-            v-model={row.columnType}
-            placeholder="请选择"
-            clearable
-            onChange={() => {
-              row.isEditDel = false;
-            }}
+          {row.headAttrs?.component}
+          <ElButton
+            type="primary"
+            onClick={() => openHeadAttrs(row)}
+            plain={row.headAttrs === '{}'}
+            loading={loading.value}
           >
-            {getEnumValue(ColumnTypeEnum).map(item => (
-              <ElOption label={ColumnTypeEnum[item]} value={item} />
-            ))}
-          </ElSelect>
-          {renderColumnType(row)}
+            高级
+          </ElButton>
+
+          {/* {renderColumnType(row)} */}
         </div>
       );
     }
@@ -290,12 +257,6 @@ const columns = ref<Array<Partial<TableColumnCtx<TableColumn>> & { checked?: boo
     checked: true,
     formatter: row => (
       <div class="flex-center gap-8px">
-        {/* //<MonacoCode loading={submitLoading.value} code={row.attrs}>
-         // {" "}
-        //</MonacoCode> */}
-        <ElButton type="primary" onClick={() => openMonacoCode(row)} plain={row.attrs === ''} loading={loading.value}>
-          重写插槽
-        </ElButton>
         {!row.isEditDel ? (
           <ElPopconfirm title={$t('common.confirmDelete')} onConfirm={() => (row.isEditDel = true)}>
             {{
@@ -315,37 +276,7 @@ const columns = ref<Array<Partial<TableColumnCtx<TableColumn>> & { checked?: boo
     )
   }
 ]);
-
-function handleAdd() {
-  formData.value?.columns?.push({
-    isCustom: true
-  } as TableColumn);
-}
-const rowClassName = ({ row }: { row: TableColumn; rowIndex: number }) => {
-  if (row.isEditDel) return 'info-row';
-  return '';
-};
-
-const openMonacoCode = async (row: TableColumn) => {
-  // 函数式组件 instance 为 ref , on 为 emit , unmount 为 destroy
-  const { on, unmount } = await createComponent(MonacoCode, { modelValue: row.attrs, visible: true });
-
-  on('Change', (code: string) => {
-    row.attrs = code;
-  });
-  on('update:visible', () => {
-    unmount();
-  });
-};
-
-const openI180n = async () => {
-  const { on, unmount } = await createComponent(I18nDrawer, { visible: true });
-  on('update:visible', res => {
-    if (!res) {
-      unmount();
-    }
-  });
-};
+// #endregion
 </script>
 
 <template>
@@ -376,7 +307,7 @@ const openI180n = async () => {
           </TableHeaderOperation>
         </div>
       </template>
-      <!--  :rules="rules" -->
+
       <ElForm ref="formRef" :inline="true" :model="formData" size="large" :show-label="false">
         <ElFormItem prop="sortKey" :label="$t('table.sorts')">
           <SortCascader v-model="formData.sorts" :columns="formData.columns" class="w-200"></SortCascader>
