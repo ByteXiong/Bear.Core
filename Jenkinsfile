@@ -1,47 +1,85 @@
 pipeline {
-  agent any
+    agent any
 
-  environment {
-    DOTNET_ROOT = "/usr/share/dotnet"
-    PATH = "${DOTNET_ROOT}:${PATH}"
-    NODE_HOME = tool name: 'nodejs18', type: 'nodejs'
-    PATH = "${NODE_HOME}/bin:${env.PATH}"
-  }
-
-  stages {
-    stage('拉取代码') {
-      steps {
-        git 'https://gitee.com/ByteXiong/BearPlatform.git'
-      }
+    environment {
+        API_IMAGE = "bearplatform-api:latest"
+        ADMIN_IMAGE = "bearplatform-admin:latest"
+        DEPLOY_DIR = "/data/docker"
     }
 
-    stage('构建后端 (.NET 8)') {
-      steps {
-        dir('BearPlatform') {
-          sh 'dotnet restore'
-          sh 'dotnet publish -c Release -o /data/docker/bearplatform-api'
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
         }
-      }
-    }
 
-    stage('构建前端 (Vue3)') {
-      steps {
-        dir('BearPlatform/BearPlatform.Admin') {
-          sh 'pnpm install'
-          sh 'pnpm run build'
-          sh 'rm -rf /data/docker/bearplatform-admin/*'
-          sh 'cp -r dist/* /data/docker/bearplatform-admin/'
+        stage('Detect Changes') {
+            steps {
+                script {
+                    // 检查最近5次提交变更文件
+                    def changeFiles = sh(script: 'git diff --name-only HEAD HEAD~5', returnStdout: true).trim()
+                    echo "Changed files:\n${changeFiles}"
+
+                    def changedList = changeFiles.split('\n')
+
+                    env.BACKEND_CHANGED = changedList.any { it.startsWith('BearPlatform/') }.toString()
+                    env.FRONTEND_CHANGED = changedList.any { it.startsWith('BearPlatform.Admin/') }.toString()
+
+                    echo "Backend changed: ${env.BACKEND_CHANGED}"
+                    echo "Frontend changed: ${env.FRONTEND_CHANGED}"
+                }
+            }
         }
-      }
-    }
-  }
 
-  post {
-    success {
-      echo "✅ 构建成功"
+        stage('Build') {
+            parallel {
+                stage('Build Backend') {
+                    when {
+                        expression { env.BACKEND_CHANGED == 'true' }
+                    }
+                    steps {
+                        dir('BearPlatform') {
+                            sh '''
+                            docker build -t ${API_IMAGE} .
+                            '''
+                        }
+                    }
+                }
+
+                stage('Build Frontend') {
+                    when {
+                        expression { env.FRONTEND_CHANGED == 'true' }
+                    }
+                    steps {
+                        dir('BearPlatform.Admin') {
+                            sh '''
+                            docker build -t ${ADMIN_IMAGE} .
+                            '''
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                dir("${DEPLOY_DIR}") {
+                    sh '''
+                    docker-compose pull || true
+                    docker-compose up -d --build
+                    '''
+                }
+            }
+        }
     }
-    failure {
-      echo "❌ 构建失败"
+
+    post {
+        success {
+            echo "Build and deploy succeeded."
+        }
+        failure {
+            echo "Build or deploy failed."
+        }
     }
-  }
 }
