@@ -22,6 +22,7 @@ public class RouteDTO : BaseEntityDTO<long>
     /// 路径
     /// </summary>
     public string Path { get; set; }
+
     /// <summary>
     /// 重定向
     /// </summary>
@@ -44,7 +45,7 @@ public class RouteDTO : BaseEntityDTO<long>
     /// <summary>
     /// 类型
     /// </summary>
-    public MenuType Type { get; set; }
+    public MenuTypeEnum Type { get; set; }
 
     /// <summary>
     /// 状态
@@ -188,8 +189,11 @@ public class MenuTreeDTO
     /// 路由名称
     /// </summary>
     public string Name { get; set; }
+    
+    public string Path { get; set; }
 
-
+    public string RouteName { get; set; }
+    public string RoutePath { get; set; }
     /// <summary>
     /// 父级菜单ID
     /// </summary>
@@ -212,7 +216,7 @@ public class MenuTreeDTO
     /// <summary>
     /// 类型
     /// </summary>
-    public MenuType MenuType { get; set; }
+    public MenuTypeEnum MenuType { get; set; }
 
     /// <summary>
     /// 是否隐藏
@@ -232,8 +236,6 @@ public class MenuTreeDTO
     /// </summary>
     public bool Status { get; set; }
 
-
-
     public List<MenuTreeDTO> Children { get; set; }
 
 }
@@ -243,7 +245,6 @@ public class MenuTreeDTO
 [AutoMapping(typeof(Menu), typeof(MenuInfo))]
 public class MenuInfo : Menu
 {
-    public List<MenuButton> Buttons { get; set; }
     public List<MenuQuery> Querys { get; set; }
     //public List<Permission> PermissionList { get; set; }
 }
@@ -251,7 +252,6 @@ public class MenuInfo : Menu
 public class UpdateMenuParam : Menu
 {
 
-    public List<MenuButton> Buttons { get; set; }
     public List<MenuQuery> Querys { get; set; }
 }
 public class RouteTreeSelectDTO
@@ -261,6 +261,11 @@ public class RouteTreeSelectDTO
     /// 父级ID
     /// </summary>
     public long? ParentId { get; set; }
+
+    /// <summary>
+    /// 名称
+    /// </summary>
+    public string Name { get; set; }
     /// <summary>
     /// 标题
     /// </summary>
@@ -268,10 +273,21 @@ public class RouteTreeSelectDTO
     /// <summary>
     /// 
     /// </summary>
-    public MenuType MenuType { get; set; }
+    public MenuTypeEnum MenuType { get; set; }
+    /// <summary>
+    /// icon图标
+    /// </summary>
+    public string Icon { get; set; }
+
+    /// <summary>
+    /// icon图标
+    /// </summary>
+    public IconTypeEnum IconType { get; set; }
     /// <summary>
     /// 
     /// </summary>
     public List<RouteTreeSelectDTO> Children { get; set; }
+
+ 
 
 }

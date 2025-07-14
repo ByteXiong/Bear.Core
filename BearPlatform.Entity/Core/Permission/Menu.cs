@@ -56,7 +56,7 @@ public class Menu : BaseEntity<long>
     /// <summary>
     /// 类型
     /// </summary>
-    public MenuType MenuType { get; set; }
+    public MenuTypeEnum MenuType { get; set; }
 
     public IconTypeEnum IconType { get; set; }
 
@@ -140,8 +140,12 @@ public class Menu : BaseEntity<long>
 
 
     #endregion
-
-
+    /// <summary>
+    /// 父菜单
+    /// </summary>
+    [SugarColumn(IsIgnore = true)]
+    [Navigate(NavigateType.OneToOne, nameof(ParentId))]//设置导航 一对一
+    public Menu Parent { get; set; }
     /// <summary>
     /// 子菜单集合
     /// </summary>

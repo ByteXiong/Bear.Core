@@ -1047,6 +1047,11 @@
             如果设置，路线将固定在制表符中，值是固定制表符的顺序
             </summary>
         </member>
+        <member name="P:BearPlatform.Entity.Permission.Menu.Parent">
+            <summary>
+            父菜单
+            </summary>
+        </member>
         <member name="P:BearPlatform.Entity.Permission.Menu.Children">
             <summary>
             子菜单集合
@@ -1442,11 +1447,6 @@
             搜索类型
             </summary>
         </member>
-        <member name="P:BearPlatform.Entity.TableColumn.ColumnType">
-            <summary>
-            </summary>
-            字段类型
-        </member>
         <member name="P:BearPlatform.Entity.TableColumn.ColumnTypeDetail">
             <summary>
             字段描述
@@ -1485,6 +1485,11 @@
         <member name="P:BearPlatform.Entity.TableColumn.Attrs">
             <summary>
             多余参数 
+            </summary>
+        </member>
+        <member name="P:BearPlatform.Entity.TableColumn.HeadAttrsString">
+            <summary>
+            头部多余参数 
             </summary>
         </member>
         <member name="T:BearPlatform.Entity.Test.TestOrder">

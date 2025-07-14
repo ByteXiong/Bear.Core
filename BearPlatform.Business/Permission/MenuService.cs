@@ -18,6 +18,7 @@ using BearPlatform.IBusiness.Permission;
 using BearPlatform.Models.Permission;
 using BearPlatform.Repository.SugarHandler;
 using BearPlatform.ViewModel.Core.Permission.Menu;
+using NPOI.POIFS.FileSystem;
 using SqlSugar;
 
 namespace BearPlatform.Business.Permission;
@@ -62,7 +63,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
     {
         var menuList = await SugarClient
             .Queryable<UserRole, RoleMenu, Menu>((ur, rm, m) => ur.RoleId == rm.RoleId && rm.MenuId == m.Id)
-            .Where((ur, rm, m) => ur.UserId == userId && m.MenuType != MenuType.Button)
+            .Where((ur, rm, m) => ur.UserId == userId && m.MenuType != MenuTypeEnum.Query)
             .OrderBy((ur, rm, m) => m.Order)
             .ClearFilter<ICreateByEntity>()
             .Select((ur, rm, m) => m).Distinct().ToListAsync();
@@ -92,8 +93,32 @@ public class MenuService : BaseServices<Menu>, IMenuService
     public async Task<List<MenuTreeDTO>> GetTreeAsync()
     {
         //排除公共模块
-        var tree = await GetIQueryable(x => !x.Constant).OrderBy(x => x.Order).Select<MenuTreeDTO>().ToTreeAsync(it => it.Children, it => it.ParentId, null, it => it.Id);
-        return tree;
+  
+        var entity = await GetIQueryable(x => !x.Constant).OrderBy(x => x.Order).Select<MenuTreeDTO>(x=>new MenuTreeDTO {
+
+           Path = "/" + x.Name + x.PathParam,
+
+        },true).ToListAsync();
+  
+         var list = new List<MenuTreeDTO>();    
+
+        entity.ForEach(x =>
+        {
+           
+            x.Children = entity.Where(y => y.ParentId == x.Id).Select(y =>
+            {
+                if (y.MenuType != MenuTypeEnum.Query) { 
+                y.Path = x.Path + y.Path;
+                y.Name = x.Name + "_" + y.Name;
+                }
+                return y;
+            }).ToList();
+            if (x.ParentId == null)
+            {
+                list.Add(x);
+            }
+        });
+        return list;
     }
 
     /// <summary>
@@ -125,16 +150,9 @@ public class MenuService : BaseServices<Menu>, IMenuService
 
         }, true).FirstAsync();
 
-        entity.Buttons = await GetIQueryable(x => x.ParentId == id && x.MenuType == MenuType.Button).Select(x => new MenuButton
-        {
-            Id = x.Id,
-            Code = x.Name,
-            Desc = x.Title,
-            ParentId = x.ParentId,
-            Status = x.Status
-        }).ToListAsync();
+     
 
-        entity.Querys = await GetIQueryable(x => x.ParentId == id && x.MenuType == MenuType.Query).Select(x => new MenuQuery
+        entity.Querys = await GetIQueryable(x => x.ParentId == id && x.MenuType == MenuTypeEnum.Query).Select(x => new MenuQuery
         {
             Id = x.Id,
             Key = x.Name,
@@ -160,21 +178,12 @@ public class MenuService : BaseServices<Menu>, IMenuService
 
         await AddAsync(model);
 
-        var addButtons = param.Buttons?.Select(x => new Menu
-        {
-            MenuType = MenuType.Button,
-            Title = x.Desc,
-            Name = x.Code.ToLower(),
-            ParentId = model.Id,
-            Status = x.Status
-        }).ToList();
-        await AddAsync(addButtons);
-
+  
 
 
         var addQuerys = param.Querys?.Select(x => new Menu
         {
-            MenuType = MenuType.Query,
+            MenuType = MenuTypeEnum.Query,
             Title = x.Key,
             Name = x.Value,
             ParentId = model.Id,
@@ -197,26 +206,14 @@ public class MenuService : BaseServices<Menu>, IMenuService
         var model = App.Mapper.MapTo<Menu>(param);
         await UpdateAsync(model);
 
-        //新增/编辑
-        var buttons = param.Buttons.Select(x => new Menu
-        {
-            Id = x.Id,
-            MenuType = MenuType.Button,
-            Title = x.Desc,
-            Name = x.Code.ToLower(),
-            ParentId = param.Id,
-            Status = x.Status
-        }).ToList();
-        //删除
-        await  LogicDeleteAsync<Menu>(x => x.MenuType == MenuType.Button && x.ParentId == param.Id && buttons.Any(z => z.Id != x.Id));
-        await SugarClient.Storageable(buttons).ExecuteCommandAsync();
+  
 
 
         //新增/编辑
         var querys = param.Querys.Select(x => new Menu
         {
             Id = x.Id,
-            MenuType = MenuType.Query,
+            MenuType = MenuTypeEnum.Query,
             Title = x.Key,
             Name = x.Value,
             ParentId = param.Id,
@@ -224,7 +221,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
         }).ToList();
 
         //删除
-        await LogicDeleteAsync<Menu>(x => x.MenuType == MenuType.Query && x.ParentId == param.Id && querys.Any(z => z.Id != x.Id));
+        await LogicDeleteAsync<Menu>(x => x.MenuType == MenuTypeEnum.Query && x.ParentId == param.Id && querys.Any(z => z.Id != x.Id));
         await SugarClient.Storageable(querys).ExecuteCommandAsync();
         return param.Id;
     }
@@ -243,30 +240,13 @@ public class MenuService : BaseServices<Menu>, IMenuService
     /// 菜单下拉
     /// </summary>
     /// <returns></returns>
-    public async Task<List<RouteTreeSelectDTO>> TreeSelectAsync()
+    public async Task<List<RouteTreeSelectDTO>> TreeSelectAsync(MenuTypeEnum[] types) 
     {
-
-
-        var db = await GetIQueryable(x => x.Status && !x.Constant && x.MenuType != MenuType.Query).OrderBy(x => x.Order).Select(x => new RouteTreeSelectDTO
-        {
-            Id = x.Id,
-            ParentId = x.ParentId,
-            Title = x.Title,
-            MenuType = x.MenuType,
-        }).ToListAsync();
-        var list = new List<RouteTreeSelectDTO>();
-        //递归
-        db.ForEach(x =>
-        {
-            x.Children = db.Where(y => y.ParentId == x.Id)?.ToList();
-            x.Children = x.Children.Count() == 0 ? null : x.Children;
-            if (x.ParentId == null)
-            {
-                list.Add(x);
-            }
-        });
-
-        return list;
+        var tree = await GetIQueryable(x => !x.Constant)
+            .WhereIF(types != null, x => types.Contains(x.MenuType))
+            .OrderBy(x => x.Order)
+            .Select<RouteTreeSelectDTO>().ToTreeAsync(it => it.Children, it => it.ParentId, null, it => it.Id);
+        return tree;
     }
 
 
@@ -282,7 +262,7 @@ public class MenuService : BaseServices<Menu>, IMenuService
 
     {
         //查出请求参数有
-        var querys = GetIQueryable(x => x.Status && x.MenuType == MenuType.Query && menus.Any(y => y.Id == x.ParentId)).Select(x => new MenuQuery
+        var querys = GetIQueryable(x => x.Status && x.MenuType == MenuTypeEnum.Query && menus.Any(y => y.Id == x.ParentId)).Select(x => new MenuQuery
         {
             ParentId = x.ParentId,
             Key = x.Name,
@@ -329,9 +309,9 @@ public class MenuService : BaseServices<Menu>, IMenuService
             x.Children = entity.Where(y => y.ParentId == x.Id).Select(y =>
             {
                 y.Path = x.Path + y.Path;
+                y.Name = x.Name + "_"+ y.Name;
                 return y;
-            }
-                ).ToList();
+            }).ToList();
             if (x.ParentId == null)
             {
                 list.Add(x);

@@ -95,10 +95,7 @@ namespace BearPlatform.Entity
         /// 搜索类型
         /// </summary>
         public ConditionalType? SearchType { get; set; }
-        /// <summary>
-        /// </summary>
-        /// 字段类型
-        public ColumnTypeEnum? ColumnType { get; set; }
+   
 
         /// <summary>
         /// 字段描述
@@ -134,6 +131,11 @@ namespace BearPlatform.Entity
         /// 多余参数 
         /// </summary>
         public string Attrs { get; set; }
+
+        /// <summary>
+        /// 头部多余参数 
+        /// </summary>
+        public string HeadAttrsString { get; set; }
     }
 
   

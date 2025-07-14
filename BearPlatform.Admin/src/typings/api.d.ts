@@ -1,3 +1,5 @@
+import type { MenuTypeEnum } from '@/api/apiEnums';
+
 /**
  * Namespace Api
  *
@@ -153,7 +155,6 @@ declare namespace Api {
      * - "1": directory
      * - "2": menu
      */
-    type MenuType = '1' | '2';
 
     type MenuButton = {
       /**
@@ -192,7 +193,7 @@ declare namespace Api {
       /** parent menu id */
       parentId: number;
       /** menu type */
-      menuType: MenuType;
+      menuType: MenuTypeEnum;
       /** menu name */
       menuName: string;
       /** route name */

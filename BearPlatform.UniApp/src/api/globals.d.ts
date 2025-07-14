@@ -88,6 +88,94 @@ type Alova2Method<
       >
     : never;
 
+export type UpdateI18nParam = {
+  /**
+   * 主键
+   */
+  id: string;
+  /**
+   * 创建者名称
+   */
+  createBy: string | null;
+  /**
+   * 创建时间
+   */
+  createTime: string;
+  /**
+   * 更新者名称
+   */
+  updateBy: string | null;
+  /**
+   * 最后更新时间
+   */
+  updateTime: string | null;
+  /**
+   * 是否已删除
+   */
+  isDeleted: boolean;
+  /**
+   * 键
+   */
+  key: string | null;
+  /**
+   * 中文
+   */
+  zhCn: string | null;
+  /**
+   * 英文
+   */
+  enUs: string | null;
+  /**
+   * 来源
+   */
+  source: string | null;
+  /**
+   * 访问次数
+   */
+  count: number;
+};
+export type OrderTypeEnum = 1 | 2;
+export type PagerInfo = {
+  totalRowCount: number;
+  pageSize: number;
+  startIndex: number;
+  pageIndex: number;
+  hasPrev: boolean;
+  hasNext: boolean;
+  isFirst: boolean;
+  isLast: boolean;
+  totalPageCount: number;
+};
+export type I18nDTO = {
+  /**
+   * 主键
+   */
+  id: string;
+  /**
+   * 键
+   */
+  key: string | null;
+  /**
+   * 中文
+   */
+  zhCn: string | null;
+  /**
+   * 英文
+   */
+  enUs: string | null;
+  /**
+   * 来源
+   */
+  source: string | null;
+  /**
+   * 访问次数
+   */
+  count: number;
+};
+export type I18nDTOPagedResults = {
+  pagerInfo: PagerInfo;
+  data: I18nDTO[] | null;
+};
 export type CaptchaVo = {
   /**
    * 图片base64
@@ -979,6 +1067,392 @@ export type LoginParam = {
 };
 declare global {
   interface Apis {
+    I18n: {
+      /**
+       * ---
+       *
+       * [POST] 新增
+       *
+       * **path:** /api/I18n/Add
+       *
+       * ---
+       *
+       * **RequestBody**
+       * ```ts
+       * type RequestBody = {
+       *   // 主键
+       *   id: string
+       *   // 创建者名称
+       *   createBy: string | null
+       *   // 创建时间
+       *   createTime: string
+       *   // 更新者名称
+       *   updateBy: string | null
+       *   // 最后更新时间
+       *   updateTime: string | null
+       *   // 是否已删除
+       *   isDeleted: boolean
+       *   // 键
+       *   key: string | null
+       *   // 中文
+       *   zhCn: string | null
+       *   // 英文
+       *   enUs: string | null
+       *   // 来源
+       *   source: string | null
+       *   // 访问次数
+       *   count: number
+       * }
+       * ```
+       *
+       * ---
+       *
+       * **Response**
+       * ```ts
+       * type Response = {
+       *   // [required]
+       *   code: string
+       *   // [required]
+       *   data: string
+       *   // [required]
+       *   msg: string
+       *   // [required]
+       *   success: boolean
+       * }
+       * ```
+       */
+      post_add<
+        Config extends Alova2MethodConfig<{
+          /**
+           * [required]
+           */
+          code: string;
+          /**
+           * [required]
+           */
+          data: string;
+          /**
+           * [required]
+           */
+          msg: string;
+          /**
+           * [required]
+           */
+          success: boolean;
+        }> & {
+          data: UpdateI18nParam;
+        }
+      >(
+        config: Config
+      ): Alova2Method<
+        {
+          /**
+           * [required]
+           */
+          code: string;
+          /**
+           * [required]
+           */
+          data: string;
+          /**
+           * [required]
+           */
+          msg: string;
+          /**
+           * [required]
+           */
+          success: boolean;
+        },
+        'I18n.post_add',
+        Config
+      >;
+      /**
+       * ---
+       *
+       * [DELETE] 删除
+       *
+       * **path:** /api/I18n/Delete
+       *
+       * ---
+       *
+       * **RequestBody**
+       * ```ts
+       * type RequestBody = string[]
+       * ```
+       *
+       * ---
+       *
+       * **Response**
+       * ```ts
+       * type Response = {
+       *   // [required]
+       *   code: string
+       *   // [required]
+       *   data: number
+       *   // [required]
+       *   msg: string
+       *   // [required]
+       *   success: boolean
+       * }
+       * ```
+       */
+      delete_delete<
+        Config extends Alova2MethodConfig<{
+          /**
+           * [required]
+           */
+          code: string;
+          /**
+           * [required]
+           */
+          data: number;
+          /**
+           * [required]
+           */
+          msg: string;
+          /**
+           * [required]
+           */
+          success: boolean;
+        }> & {
+          data: string[];
+        }
+      >(
+        config: Config
+      ): Alova2Method<
+        {
+          /**
+           * [required]
+           */
+          code: string;
+          /**
+           * [required]
+           */
+          data: number;
+          /**
+           * [required]
+           */
+          msg: string;
+          /**
+           * [required]
+           */
+          success: boolean;
+        },
+        'I18n.delete_delete',
+        Config
+      >;
+      /**
+       * ---
+       *
+       * [GET] 分页
+       *
+       * **path:** /api/I18n/GetPage
+       *
+       * ---
+       *
+       * **Query Parameters**
+       * ```ts
+       * type QueryParameters = {
+       *   StartIndex: number
+       *   PageIndex: number
+       *   PageSize: number
+       *   Search: Record<string, Record<string, string> | null>
+       *   SortList: Record<string, 1 | 2>
+       * }
+       * ```
+       *
+       * ---
+       *
+       * **Response**
+       * ```ts
+       * type Response = {
+       *   // [required]
+       *   code: string
+       *   // [required]
+       *   data: {
+       *     pagerInfo: {
+       *       totalRowCount: number
+       *       pageSize: number
+       *       startIndex: number
+       *       pageIndex: number
+       *       hasPrev: boolean
+       *       hasNext: boolean
+       *       isFirst: boolean
+       *       isLast: boolean
+       *       totalPageCount: number
+       *     }
+       *     data: Array<{
+       *       // 主键
+       *       id: string
+       *       // 键
+       *       key: string | null
+       *       // 中文
+       *       zhCn: string | null
+       *       // 英文
+       *       enUs: string | null
+       *       // 来源
+       *       source: string | null
+       *       // 访问次数
+       *       count: number
+       *     }> | null
+       *   }
+       *   // [required]
+       *   msg: string
+       *   // [required]
+       *   success: boolean
+       * }
+       * ```
+       */
+      get_getpage<
+        Config extends Alova2MethodConfig<{
+          /**
+           * [required]
+           */
+          code: string;
+          /**
+           * [required]
+           */
+          data: I18nDTOPagedResults;
+          /**
+           * [required]
+           */
+          msg: string;
+          /**
+           * [required]
+           */
+          success: boolean;
+        }> & {
+          params: {
+            StartIndex: number;
+            PageIndex: number;
+            PageSize: number;
+            Search: Record<string, Record<string, string> | null>;
+            SortList: Record<string, OrderTypeEnum>;
+          };
+        }
+      >(
+        config: Config
+      ): Alova2Method<
+        {
+          /**
+           * [required]
+           */
+          code: string;
+          /**
+           * [required]
+           */
+          data: I18nDTOPagedResults;
+          /**
+           * [required]
+           */
+          msg: string;
+          /**
+           * [required]
+           */
+          success: boolean;
+        },
+        'I18n.get_getpage',
+        Config
+      >;
+      /**
+       * ---
+       *
+       * [PUT] 编辑
+       *
+       * **path:** /api/I18n/Update
+       *
+       * ---
+       *
+       * **RequestBody**
+       * ```ts
+       * type RequestBody = {
+       *   // 主键
+       *   id: string
+       *   // 创建者名称
+       *   createBy: string | null
+       *   // 创建时间
+       *   createTime: string
+       *   // 更新者名称
+       *   updateBy: string | null
+       *   // 最后更新时间
+       *   updateTime: string | null
+       *   // 是否已删除
+       *   isDeleted: boolean
+       *   // 键
+       *   key: string | null
+       *   // 中文
+       *   zhCn: string | null
+       *   // 英文
+       *   enUs: string | null
+       *   // 来源
+       *   source: string | null
+       *   // 访问次数
+       *   count: number
+       * }
+       * ```
+       *
+       * ---
+       *
+       * **Response**
+       * ```ts
+       * type Response = {
+       *   // [required]
+       *   code: string
+       *   // [required]
+       *   data: string
+       *   // [required]
+       *   msg: string
+       *   // [required]
+       *   success: boolean
+       * }
+       * ```
+       */
+      put_update<
+        Config extends Alova2MethodConfig<{
+          /**
+           * [required]
+           */
+          code: string;
+          /**
+           * [required]
+           */
+          data: string;
+          /**
+           * [required]
+           */
+          msg: string;
+          /**
+           * [required]
+           */
+          success: boolean;
+        }> & {
+          data: UpdateI18nParam;
+        }
+      >(
+        config: Config
+      ): Alova2Method<
+        {
+          /**
+           * [required]
+           */
+          code: string;
+          /**
+           * [required]
+           */
+          data: string;
+          /**
+           * [required]
+           */
+          msg: string;
+          /**
+           * [required]
+           */
+          success: boolean;
+        },
+        'I18n.put_update',
+        Config
+      >;
+    };
     Login: {
       /**
        * ---
@@ -1059,7 +1533,7 @@ declare global {
       /**
        * ---
        *
-       * [GET]  (Auth policies: Permission)
+       * [GET] 获取当前登录用户
        *
        * **path:** /api/Login/GetInfo
        *

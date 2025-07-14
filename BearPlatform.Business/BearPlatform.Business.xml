@@ -844,7 +844,7 @@
             <param name="ids"></param>
             <returns></returns>
         </member>
-        <member name="M:BearPlatform.Business.Permission.MenuService.TreeSelectAsync">
+        <member name="M:BearPlatform.Business.Permission.MenuService.TreeSelectAsync(BearPlatform.Common.Enums.MenuTypeEnum[])">
             <summary>
             菜单下拉
             </summary>

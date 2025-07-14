@@ -6,7 +6,9 @@
       "path": "pages/home/index",
       "style": {
         "navigationBarTitleText": "首页",
-        "navigationStyle": "custom"
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true, // 开启下拉刷新
+        "onReachBottomDistance": 50 // 距离底部 50px 时触发
       },
       "meta": {
         "tabBar": true,

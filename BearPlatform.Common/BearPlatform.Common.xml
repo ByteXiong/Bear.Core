@@ -469,22 +469,17 @@
             查询方式,不能删除同步给前端用
             </summary>
         </member>
-        <member name="F:BearPlatform.Common.Enums.MenuType.Directory">
+        <member name="F:BearPlatform.Common.Enums.MenuTypeEnum.Directory">
             <summary>
             目录
             </summary>
         </member>
-        <member name="F:BearPlatform.Common.Enums.MenuType.Menu">
+        <member name="F:BearPlatform.Common.Enums.MenuTypeEnum.Menu">
             <summary>
             菜单
             </summary>
         </member>
-        <member name="F:BearPlatform.Common.Enums.MenuType.Button">
-            <summary>
-            按钮
-            </summary>
-        </member>
-        <member name="F:BearPlatform.Common.Enums.MenuType.Query">
+        <member name="F:BearPlatform.Common.Enums.MenuTypeEnum.Query">
             <summary>
             参数
             </summary>

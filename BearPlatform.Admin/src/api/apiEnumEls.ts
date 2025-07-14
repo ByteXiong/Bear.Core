@@ -1,9 +1,9 @@
-import { ColumnTypeEnum } from './apiEnums';
+import { ColumnTypeEnum, MenuTypeEnum } from './apiEnums';
 
 // 自定义组件
 export const SearchComponent: Record<ColumnTypeEnum | string, string> = {
   [ColumnTypeEnum.文本]: 'ElInput',
-  [ColumnTypeEnum.单图]: 'ElInput',
+  [ColumnTypeEnum.单图]: 'ElSwitch',
   [ColumnTypeEnum.多图]: 'ElInput',
   [ColumnTypeEnum.字典]: 'ElInput',
   [ColumnTypeEnum.富文本]: 'ElInput',
@@ -38,4 +38,11 @@ export const ColumnComponent: Record<ColumnTypeEnum, string> = {
   [ColumnTypeEnum.颜色]: 'ElInput',
   [ColumnTypeEnum.TexTarea文本]: 'ElInput',
   [ColumnTypeEnum.自定义]: 'ElInput'
+};
+
+export const MenuTypeEl: Record<MenuTypeEnum, 'warning' | 'danger' | 'primary' | 'info' | 'success'> = {
+  [MenuTypeEnum.Directory]: 'primary',
+  [MenuTypeEnum.Menu]: 'primary',
+  [MenuTypeEnum.Button]: 'primary',
+  [MenuTypeEnum.Query]: 'primary'
 };

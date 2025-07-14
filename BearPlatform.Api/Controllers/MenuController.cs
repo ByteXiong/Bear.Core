@@ -3,9 +3,11 @@ using System.Threading.Tasks;
 using Asp.Versioning;
 using BearPlatform.Api.Controllers.Base;
 using BearPlatform.Common.Attributes;
+using BearPlatform.Common.Enums;
 using BearPlatform.Core;
 using BearPlatform.IBusiness.Permission;
 using BearPlatform.Models.Permission;
+using Dm;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -106,11 +108,11 @@ public class MenuController : BaseApiController
     /// 菜单下拉
     /// </summary>
     /// <returns></returns>
-    [HttpGet]
+    [HttpPost]
     [ApiVersion("1.0", Deprecated = false)]
     [AllowAnonymous]
     [NotAudit]
-    public async Task<List<RouteTreeSelectDTO>> TreeSelectAsync() => await _service.TreeSelectAsync();
+    public async Task<List<RouteTreeSelectDTO>> TreeSelectAsync([FromBody] MenuTypeEnum[] types) => await _service.TreeSelectAsync(types);
     #endregion
 
     /// <summary>

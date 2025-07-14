@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Security.Permissions;
 
 
 namespace BearPlatform.Common.Enums;
@@ -44,6 +45,7 @@ public enum OrderTypeEnum
     /// <summary>
     /// 正序
     /// </summary>
+
     asc = 1,
     /// <summary>
     /// 倒序
@@ -140,7 +142,7 @@ public enum LayoutTypeEnum
     Blank = 2,
 }
 
-public enum MenuType
+public enum MenuTypeEnum
 {
     /// <summary>
     /// 目录
@@ -153,23 +155,17 @@ public enum MenuType
     /// </summary>
     [Display(Name = "菜单")]
     Menu = 2,
-
-    /// <summary>
-    /// 按钮
-    /// </summary>
-    [Display(Name = "按钮")]
-    Button = 3,
     /// <summary>
     /// 参数
     /// </summary>
     [Display(Name = "参数")]
-    Query = 4
+    Query = 3
 }
 
 public enum IconTypeEnum
 {
-    iconify图标 = 1,
-    本地图标 = 2,
+    iconify = 1,
+    local = 2,
 
 }
 

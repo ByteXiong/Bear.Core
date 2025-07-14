@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BearPlatform.Common.Enums;
 using BearPlatform.Entity.Permission;
 using BearPlatform.Models.Permission;
 
@@ -92,7 +93,7 @@ public interface IMenuService : IBaseServices<Menu>
     /// 菜单下拉
     /// </summary>
     /// <returns></returns>
-    Task<List<RouteTreeSelectDTO>> TreeSelectAsync();
+    Task<List<RouteTreeSelectDTO>> TreeSelectAsync(MenuTypeEnum[] types);
     ///// <summary>
     ///// 获取所有同级或父级菜单
     ///// </summary>

@@ -3,7 +3,7 @@ import { createAlova } from 'alova';
 
 // import vueHook from 'alova/vue';
 // import { mockAdapter } from '@/mock';
-
+import qs from 'qs';
 import { useUserStore } from '@/stores/modules/user';
 import { getBaseUrl } from '@/utils/env';
 import { createApis, withConfigType } from './createApis';
@@ -51,6 +51,7 @@ export const alovaInstance = createAlova({
     //   throw new Error('[请求错误]：未登录');
     // }
     method.config.headers.Authorization = userStore.token;
+    method.config.params = qs.stringify(method.config.params, { arrayFormat: 'brackets' });
   },
   responded: {
     onSuccess: async (response) => {

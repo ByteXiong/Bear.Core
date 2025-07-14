@@ -51,25 +51,26 @@ export enum RoleTypeEnum {
   个人角色 = 40
 }
 
-export enum MenuType {
- /// <summary>
- /// 目录
- /// </summary>
- Directory = 1,
+export enum MenuTypeEnum {
+  /// <summary>
+  /// 目录
+  /// </summary>
+  Directory = 1,
 
- /// <summary>
- /// 菜单
- /// </summary>
- Menu = 2,
+  /// <summary>
+  /// 菜单
+  /// </summary>
+  Menu = 2,
 
- /// <summary>
- /// 按钮
- /// </summary>
- Button = 3,
- /// <summary>
- /// 按钮
- /// </summary>
- Query = 4
+  /// <summary>
+  /// 参数
+  /// </summary>
+  Query = 3
+}
+
+export enum IconTypeEnum {
+  iconify = 1,
+  local = 2
 }
 
 export enum DeptTypeEnum {
@@ -123,11 +124,6 @@ export enum ColumnTypeEnum {
 export enum LayoutType {
   Base = 1,
   Blank = 2
-}
-
-export enum IconType {
-  iconify图标 = 1,
-  本地图标 = 2
 }
 
 /// <summary>
@@ -278,5 +274,5 @@ export enum DictType {
 
 export enum Status {
   enable = 1,
-  disable=0,
+  disable = 0
 }

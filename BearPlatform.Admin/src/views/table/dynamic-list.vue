@@ -10,7 +10,7 @@ import { ConditionalType } from '@/api/sqlSugar';
 import downloadExcel from '@/utils/downloadExcel';
 import customRender from '@/utils/customRender';
 import { $t } from '@/locales';
-import CustomHeader from './customHeader.vue';
+import CustomHeader from './modules/customHeader.vue';
 import type { Arg } from '~/packages/alova/src';
 interface Props {
   tableof: string;
@@ -49,7 +49,9 @@ const loadChange = (table: TableView) => {
   emit('loadChange', table);
 };
 
-const columnData = computed<Array<Partial<TableColumnCtx<TableColumn>> & TableColumn & { checked?: boolean }>>(() => {
+const columnData = computed<
+  Array<Partial<TableColumnCtx<TableColumn>> & TableColumn & { checked?: boolean; isExcel?: boolean }>
+>(() => {
   const arr = columns.value
     ?.filter(item => item.checked)
     .map(item => {

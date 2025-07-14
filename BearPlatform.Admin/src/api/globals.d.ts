@@ -90,7 +90,7 @@ type Alova2Method<
 
 export type DataScopeType = 0 | 1 | 2 | 3 | 4 | 5;
 export type LayoutTypeEnum = 1 | 2;
-export type MenuType = 1 | 2 | 3 | 4;
+export type MenuTypeEnum = 1 | 2 | 3;
 export type IconTypeEnum = 1 | 2;
 export type Menu = {
   /**
@@ -142,7 +142,7 @@ export type Menu = {
    * 父级
    */
   parentId: string | null;
-  menuType: MenuType;
+  menuType: MenuTypeEnum;
   iconType: IconTypeEnum;
   /**
    * 状态
@@ -197,6 +197,10 @@ export type Menu = {
    */
   fixedIndexInTab: number;
   props: boolean;
+  /**
+   * 系统菜单
+   */
+  parent: Menu;
   /**
    * 子菜单集合
    */
@@ -1039,25 +1043,6 @@ export type CaptchaVo = {
    */
   showCaptcha: boolean;
 };
-export type MenuButton = {
-  id: string;
-  /**
-   * 按钮编码
-   */
-  code: string | null;
-  /**
-   * 描述
-   */
-  desc: string | null;
-  /**
-   * 父级Id
-   */
-  parentId: string | null;
-  /**
-   * 状态
-   */
-  status: boolean;
-};
 export type MenuQuery = {
   id: string;
   /**
@@ -1121,7 +1106,7 @@ export type MenuInfo = {
    * 父级
    */
   parentId: string | null;
-  menuType: MenuType;
+  menuType: MenuTypeEnum;
   iconType: IconTypeEnum;
   /**
    * 状态
@@ -1177,6 +1162,10 @@ export type MenuInfo = {
   fixedIndexInTab: number;
   props: boolean;
   /**
+   * 系统菜单
+   */
+  parent: Menu;
+  /**
    * 子菜单集合
    */
   children: Menu[] | null;
@@ -1184,7 +1173,6 @@ export type MenuInfo = {
    * 菜单集合
    */
   roles: Role[] | null;
-  buttons: MenuButton[] | null;
   querys: MenuQuery[] | null;
 };
 export type RoleInfo = {
@@ -1427,7 +1415,7 @@ export type UpdateMenuParam = {
    * 父级
    */
   parentId: string | null;
-  menuType: MenuType;
+  menuType: MenuTypeEnum;
   iconType: IconTypeEnum;
   /**
    * 状态
@@ -1483,6 +1471,10 @@ export type UpdateMenuParam = {
   fixedIndexInTab: number;
   props: boolean;
   /**
+   * 系统菜单
+   */
+  parent: Menu;
+  /**
    * 子菜单集合
    */
   children: Menu[] | null;
@@ -1490,7 +1482,6 @@ export type UpdateMenuParam = {
    * 菜单集合
    */
   roles: Role[] | null;
-  buttons: MenuButton[] | null;
   querys: MenuQuery[] | null;
 };
 export type RouteMeta = {
@@ -1593,7 +1584,7 @@ export type RouteDTO = {
    * 父级
    */
   parentId: string | null;
-  type: MenuType;
+  type: MenuTypeEnum;
   /**
    * 状态
    */
@@ -1615,6 +1606,9 @@ export type MenuTreeDTO = {
    * 路由名称
    */
   name: string | null;
+  path: string | null;
+  routeName: string | null;
+  routePath: string | null;
   /**
    * 父级菜单ID
    */
@@ -1628,7 +1622,7 @@ export type MenuTreeDTO = {
    */
   icon: string | null;
   iconType: IconTypeEnum;
-  menuType: MenuType;
+  menuType: MenuTypeEnum;
   /**
    * 是否隐藏
    */
@@ -1654,10 +1648,19 @@ export type RouteTreeSelectDTO = {
    */
   parentId: string | null;
   /**
+   * 名称
+   */
+  name: string | null;
+  /**
    * 标题
    */
   title: string | null;
-  menuType: MenuType;
+  menuType: MenuTypeEnum;
+  /**
+   * icon图标
+   */
+  icon: string | null;
+  iconType: IconTypeEnum;
   children: RouteTreeSelectDTO[] | null;
 };
 export type RoleDeptDto = {
@@ -1977,6 +1980,7 @@ export type SortParam = {
 };
 export type ConditionalType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
 export type TableColumn = {
+  headAttrs: any;
   /**
    * 字段名称
    */
@@ -1986,7 +1990,6 @@ export type TableColumn = {
    */
   prop: string | null;
   searchType: ConditionalType;
-  columnType: ColumnTypeEnum;
   /**
    * 字段描述
    */
@@ -2019,6 +2022,10 @@ export type TableColumn = {
    * 多余参数
    */
   attrs: string | null;
+  /**
+   * 头部多余参数
+   */
+  headAttrsString: string | null;
 };
 export type TableViewInfo = {
   /**
@@ -2357,7 +2364,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -2386,6 +2393,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -3079,7 +3088,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -3108,6 +3117,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -3582,7 +3593,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -3611,6 +3622,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -4377,7 +4390,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -4406,6 +4419,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -6085,7 +6100,7 @@ declare global {
       /**
        * ---
        *
-       * [GET]  (Auth policies: Permission)
+       * [GET] 获取当前登录用户
        *
        * **path:** /api/Login/GetInfo
        *
@@ -6185,7 +6200,7 @@ declare global {
        *           component: string | null
        *           // 父级
        *           parentId: string | null
-       *           menuType: 1 | 2 | 3 | 4
+       *           menuType: 1 | 2 | 3
        *           iconType: 1 | 2
        *           // 状态
        *           status: boolean
@@ -6214,8 +6229,8 @@ declare global {
        *           // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *           fixedIndexInTab: number
        *           props: boolean
-       *           // 子菜单集合
-       *           children: Array<{
+       *           // 系统菜单
+       *           parent: {
        *             // 主键
        *             id: string
        *             // 创建者名称
@@ -6241,7 +6256,7 @@ declare global {
        *             component: string | null
        *             // 父级
        *             parentId: string | null
-       *             menuType: 1 | 2 | 3 | 4
+       *             menuType: 1 | 2 | 3
        *             iconType: 1 | 2
        *             // 状态
        *             status: boolean
@@ -6270,11 +6285,15 @@ declare global {
        *             // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *             fixedIndexInTab: number
        *             props: boolean
+       *             // 系统菜单
+       *             parent: Menu
        *             // 子菜单集合
        *             children: Array<Menu> | null
        *             // 菜单集合
        *             roles: Array<Role> | null
-       *           }> | null
+       *           }
+       *           // 子菜单集合
+       *           children: Array<Menu> | null
        *           // 菜单集合
        *           roles: Array<{
        *             // 主键
@@ -6325,7 +6344,7 @@ declare global {
        *               component: string | null
        *               // 父级
        *               parentId: string | null
-       *               menuType: 1 | 2 | 3 | 4
+       *               menuType: 1 | 2 | 3
        *               iconType: 1 | 2
        *               // 状态
        *               status: boolean
@@ -6354,6 +6373,8 @@ declare global {
        *               // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *               fixedIndexInTab: number
        *               props: boolean
+       *               // 系统菜单
+       *               parent: Menu
        *               // 子菜单集合
        *               children: Array<Menu> | null
        *               // 菜单集合
@@ -6546,17 +6567,6 @@ declare global {
        *               // 角色集合
        *               roles: Array<Role> | null
        *             }> | null
-       *           }> | null
-       *           buttons: Array<{
-       *             id: string
-       *             // 按钮编码
-       *             code: string | null
-       *             // 描述
-       *             desc: string | null
-       *             // 父级Id
-       *             parentId: string | null
-       *             // 状态
-       *             status: boolean
        *           }> | null
        *           querys: Array<{
        *             id: string
@@ -6900,7 +6910,7 @@ declare global {
        *   component: string | null
        *   // 父级
        *   parentId: string | null
-       *   menuType: 1 | 2 | 3 | 4
+       *   menuType: 1 | 2 | 3
        *   iconType: 1 | 2
        *   // 状态
        *   status: boolean
@@ -6929,8 +6939,8 @@ declare global {
        *   // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *   fixedIndexInTab: number
        *   props: boolean
-       *   // 子菜单集合
-       *   children: Array<{
+       *   // 系统菜单
+       *   parent: {
        *     // 主键
        *     id: string
        *     // 创建者名称
@@ -6956,7 +6966,7 @@ declare global {
        *     component: string | null
        *     // 父级
        *     parentId: string | null
-       *     menuType: 1 | 2 | 3 | 4
+       *     menuType: 1 | 2 | 3
        *     iconType: 1 | 2
        *     // 状态
        *     status: boolean
@@ -6985,11 +6995,15 @@ declare global {
        *     // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *     fixedIndexInTab: number
        *     props: boolean
+       *     // 系统菜单
+       *     parent: Menu
        *     // 子菜单集合
        *     children: Array<Menu> | null
        *     // 菜单集合
        *     roles: Array<Role> | null
-       *   }> | null
+       *   }
+       *   // 子菜单集合
+       *   children: Array<Menu> | null
        *   // 菜单集合
        *   roles: Array<{
        *     // 主键
@@ -7040,7 +7054,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -7069,6 +7083,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -7262,17 +7278,6 @@ declare global {
        *       roles: Array<Role> | null
        *     }> | null
        *   }> | null
-       *   buttons: Array<{
-       *     id: string
-       *     // 按钮编码
-       *     code: string | null
-       *     // 描述
-       *     desc: string | null
-       *     // 父级Id
-       *     parentId: string | null
-       *     // 状态
-       *     status: boolean
-       *   }> | null
        *   querys: Array<{
        *     id: string
        *     // 父级Id
@@ -7383,7 +7388,7 @@ declare global {
        *     component: string | null
        *     // 父级
        *     parentId: string | null
-       *     type: 1 | 2 | 3 | 4
+       *     type: 1 | 2 | 3
        *     // 状态
        *     status: boolean
        *     meta: {
@@ -7604,7 +7609,7 @@ declare global {
        *     component: string | null
        *     // 父级
        *     parentId: string | null
-       *     menuType: 1 | 2 | 3 | 4
+       *     menuType: 1 | 2 | 3
        *     iconType: 1 | 2
        *     // 状态
        *     status: boolean
@@ -7633,8 +7638,8 @@ declare global {
        *     // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *     fixedIndexInTab: number
        *     props: boolean
-       *     // 子菜单集合
-       *     children: Array<{
+       *     // 系统菜单
+       *     parent: {
        *       // 主键
        *       id: string
        *       // 创建者名称
@@ -7660,7 +7665,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -7689,11 +7694,15 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
        *       roles: Array<Role> | null
-       *     }> | null
+       *     }
+       *     // 子菜单集合
+       *     children: Array<Menu> | null
        *     // 菜单集合
        *     roles: Array<{
        *       // 主键
@@ -7744,7 +7753,7 @@ declare global {
        *         component: string | null
        *         // 父级
        *         parentId: string | null
-       *         menuType: 1 | 2 | 3 | 4
+       *         menuType: 1 | 2 | 3
        *         iconType: 1 | 2
        *         // 状态
        *         status: boolean
@@ -7773,6 +7782,8 @@ declare global {
        *         // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *         fixedIndexInTab: number
        *         props: boolean
+       *         // 系统菜单
+       *         parent: Menu
        *         // 子菜单集合
        *         children: Array<Menu> | null
        *         // 菜单集合
@@ -7966,17 +7977,6 @@ declare global {
        *         roles: Array<Role> | null
        *       }> | null
        *     }> | null
-       *     buttons: Array<{
-       *       id: string
-       *       // 按钮编码
-       *       code: string | null
-       *       // 描述
-       *       desc: string | null
-       *       // 父级Id
-       *       parentId: string | null
-       *       // 状态
-       *       status: boolean
-       *     }> | null
        *     querys: Array<{
        *       id: string
        *       // 父级Id
@@ -8064,6 +8064,9 @@ declare global {
        *     title: string | null
        *     // 路由名称
        *     name: string | null
+       *     path: string | null
+       *     routeName: string | null
+       *     routePath: string | null
        *     // 父级菜单ID
        *     parentId: string | null
        *     // 排序
@@ -8071,7 +8074,7 @@ declare global {
        *     // icon图标
        *     icon: string | null
        *     iconType: 1 | 2
-       *     menuType: 1 | 2 | 3 | 4
+       *     menuType: 1 | 2 | 3
        *     // 是否隐藏
        *     hideInMenu: boolean
        *     // 跳转路由
@@ -8248,7 +8251,7 @@ declare global {
        *     component: string | null
        *     // 父级
        *     parentId: string | null
-       *     type: 1 | 2 | 3 | 4
+       *     type: 1 | 2 | 3
        *     // 状态
        *     status: boolean
        *     meta: {
@@ -8346,9 +8349,16 @@ declare global {
       /**
        * ---
        *
-       * [GET] 菜单下拉
+       * [POST] 菜单下拉
        *
        * **path:** /api/Menu/TreeSelect
+       *
+       * ---
+       *
+       * **RequestBody**
+       * ```ts
+       * type RequestBody = (1 | 2 | 3)[]
+       * ```
        *
        * ---
        *
@@ -8362,9 +8372,14 @@ declare global {
        *     id: string
        *     // 父级ID
        *     parentId: string | null
+       *     // 名称
+       *     name: string | null
        *     // 标题
        *     title: string | null
-       *     menuType: 1 | 2 | 3 | 4
+       *     menuType: 1 | 2 | 3
+       *     // icon图标
+       *     icon: string | null
+       *     iconType: 1 | 2
        *     children: Array<RouteTreeSelectDTO> | null
        *   }>
        *   // [required]
@@ -8374,7 +8389,7 @@ declare global {
        * }
        * ```
        */
-      get_treeselect<
+      post_treeselect<
         Config extends Alova2MethodConfig<{
           /**
            * [required]
@@ -8392,9 +8407,11 @@ declare global {
            * [required]
            */
           success: boolean;
-        }>
+        }> & {
+          data: MenuTypeEnum[];
+        }
       >(
-        config?: Config
+        config: Config
       ): Alova2Method<
         {
           /**
@@ -8414,7 +8431,7 @@ declare global {
            */
           success: boolean;
         },
-        'Menu.get_treeselect',
+        'Menu.post_treeselect',
         Config
       >;
       /**
@@ -8454,7 +8471,7 @@ declare global {
        *   component: string | null
        *   // 父级
        *   parentId: string | null
-       *   menuType: 1 | 2 | 3 | 4
+       *   menuType: 1 | 2 | 3
        *   iconType: 1 | 2
        *   // 状态
        *   status: boolean
@@ -8483,8 +8500,8 @@ declare global {
        *   // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *   fixedIndexInTab: number
        *   props: boolean
-       *   // 子菜单集合
-       *   children: Array<{
+       *   // 系统菜单
+       *   parent: {
        *     // 主键
        *     id: string
        *     // 创建者名称
@@ -8510,7 +8527,7 @@ declare global {
        *     component: string | null
        *     // 父级
        *     parentId: string | null
-       *     menuType: 1 | 2 | 3 | 4
+       *     menuType: 1 | 2 | 3
        *     iconType: 1 | 2
        *     // 状态
        *     status: boolean
@@ -8539,11 +8556,15 @@ declare global {
        *     // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *     fixedIndexInTab: number
        *     props: boolean
+       *     // 系统菜单
+       *     parent: Menu
        *     // 子菜单集合
        *     children: Array<Menu> | null
        *     // 菜单集合
        *     roles: Array<Role> | null
-       *   }> | null
+       *   }
+       *   // 子菜单集合
+       *   children: Array<Menu> | null
        *   // 菜单集合
        *   roles: Array<{
        *     // 主键
@@ -8594,7 +8615,7 @@ declare global {
        *       component: string | null
        *       // 父级
        *       parentId: string | null
-       *       menuType: 1 | 2 | 3 | 4
+       *       menuType: 1 | 2 | 3
        *       iconType: 1 | 2
        *       // 状态
        *       status: boolean
@@ -8623,6 +8644,8 @@ declare global {
        *       // 如果设置，路线将固定在制表符中，值是固定制表符的顺序
        *       fixedIndexInTab: number
        *       props: boolean
+       *       // 系统菜单
+       *       parent: Menu
        *       // 子菜单集合
        *       children: Array<Menu> | null
        *       // 菜单集合
@@ -8815,17 +8838,6 @@ declare global {
        *       // 角色集合
        *       roles: Array<Role> | null
        *     }> | null
-       *   }> | null
-       *   buttons: Array<{
-       *     id: string
-       *     // 按钮编码
-       *     code: string | null
-       *     // 描述
-       *     desc: string | null
-       *     // 父级Id
-       *     parentId: string | null
-       *     // 状态
-       *     status: boolean
        *   }> | null
        *   querys: Array<{
        *     id: string
@@ -9178,7 +9190,7 @@ declare global {
        *         component: string | null
        *         // 父级
        *         parentId: string | null
-       *         type: 1 | 2 | 3 | 4
+       *         type: 1 | 2 | 3
        *         // 状态
        *         status: boolean
        *         meta: {
@@ -11028,7 +11040,6 @@ declare global {
        *       // 字段
        *       prop: string | null
        *       searchType: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16
-       *       columnType: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 50 | 99
        *       // 字段描述
        *       columnTypeDetail: string | null
        *       // 字段验证
@@ -11045,6 +11056,8 @@ declare global {
        *       isEditDel: boolean
        *       // 多余参数
        *       attrs: string | null
+       *       // 头部多余参数
+       *       headAttrsString: string | null
        *     }> | null
        *     // 多列排序
        *     sorts: Record<string, 1 | 2> | null
@@ -11165,7 +11178,6 @@ declare global {
        *       // 字段
        *       prop: string | null
        *       searchType: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16
-       *       columnType: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 50 | 99
        *       // 字段描述
        *       columnTypeDetail: string | null
        *       // 字段验证
@@ -11182,6 +11194,8 @@ declare global {
        *       isEditDel: boolean
        *       // 多余参数
        *       attrs: string | null
+       *       // 头部多余参数
+       *       headAttrsString: string | null
        *     }> | null
        *     // 多列排序
        *     sorts: Record<string, 1 | 2> | null
@@ -11274,7 +11288,6 @@ declare global {
        *     // 字段
        *     prop: string | null
        *     searchType: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16
-       *     columnType: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 50 | 99
        *     // 字段描述
        *     columnTypeDetail: string | null
        *     // 字段验证
@@ -11291,6 +11304,8 @@ declare global {
        *     isEditDel: boolean
        *     // 多余参数
        *     attrs: string | null
+       *     // 头部多余参数
+       *     headAttrsString: string | null
        *   }> | null
        *   // 默认排序字段
        *   // [required]

@@ -307,6 +307,33 @@ declare namespace App {
         setting: string;
         isMultiple: string;
       };
+      menu: {
+        parent: string;
+        menuType: string;
+        menuName: string;
+        routeName: string;
+        routePath: string;
+        menuStatus: string;
+        hideInMenu: string;
+        activeMenu: string;
+        order: string;
+        addChildren: string;
+        pathParam: string;
+        layout: string;
+        page: string;
+        icon: string;
+        iconType: string;
+        constant: string;
+        keepAlive: string;
+        href: string;
+
+        multiTab: string;
+        fixedIndexInTab: string;
+        query: string;
+        button: string;
+        buttonCode: string;
+        buttonDesc: string;
+      };
       sqlSugar: {
         Equal: string;
         Like: string;
@@ -334,7 +361,9 @@ declare namespace App {
         updateCancel: string;
       };
       common: {
+        i18n: string;
         placeholder: string;
+        placeholderSelect: string;
         action: string;
         add: string;
         addSuccess: string;

@@ -33,6 +33,7 @@ namespace BearPlatform.Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [ApiVersion("1.0", Deprecated = false)]
+        [ApiVersion("2.0", Deprecated = false)]
         public async Task<PagedResults<I18nDTO>> GetPageAsync([FromQuery] I18nParam param) => await _service.GetPageAsync(param);
         /// <summary>
         /// 新增
@@ -41,6 +42,7 @@ namespace BearPlatform.Api.Controllers
         /// <returns></returns>
         [HttpPost]
         [ApiVersion("1.0", Deprecated = false)]
+        [ApiVersion("2.0", Deprecated = false)]
         public async Task<long> AddAsync(UpdateI18nParam param) => await _service.AddAsync(param);
 
         /// <summary>
@@ -50,6 +52,7 @@ namespace BearPlatform.Api.Controllers
         /// <returns></returns>
         [HttpPut]
         [ApiVersion("1.0", Deprecated = false)]
+        [ApiVersion("2.0", Deprecated = false)]
         public async Task<long> UpdateAsync(UpdateI18nParam param) => await _service.UpdateAsync(param);
         /// <summary>
         /// 删除
@@ -58,6 +61,7 @@ namespace BearPlatform.Api.Controllers
         /// <returns></returns>
         [HttpDelete]
         [ApiVersion("1.0", Deprecated = false)]
+        [ApiVersion("2.0", Deprecated = false)]
         public async Task<int> Delete([FromBody] HashSet<long> ids) => await _service.DeleteAsync(ids);
 
 

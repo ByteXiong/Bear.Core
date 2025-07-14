@@ -17,6 +17,8 @@ public class CustomSchemaFilter : ISchemaFilter
             schema.Format = null;
             schema.Nullable = true;
         }
+      
+       
     }
 
 }

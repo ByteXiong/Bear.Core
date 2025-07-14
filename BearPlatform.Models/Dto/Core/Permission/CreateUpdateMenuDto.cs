@@ -69,7 +69,7 @@ public class CreateUpdateMenuDto : BaseEntityDTO<long>
     /// </summary>
     [Display(Name = "Menu.Type")]
     [Range(1, 3, ErrorMessage = "{0}range{1}{2}")]
-    public MenuType Type { get; set; }
+    public MenuTypeEnum Type { get; set; }
 
     /// <summary>
     /// 缓存

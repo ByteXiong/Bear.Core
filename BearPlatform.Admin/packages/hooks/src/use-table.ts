@@ -12,7 +12,8 @@ export type TableColumnCheck = {
   prop: string;
   label: string;
   checked: boolean;
-  attrs?: Record<string, any>|undefined;
+  attrs?: Record<string, any> | undefined;
+  isExcel?: boolean;
 };
 
 export type TableDataWithIndex<T> = T & { index: number };
